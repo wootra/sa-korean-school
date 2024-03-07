@@ -24,6 +24,16 @@ export default async function RootLayout({
     return (
         <html lang='en'>
             <body className={inter.className}>
+                {/*                 
+                <div id='fb-root'></div>
+                <script
+                    async
+                    defer
+                    crossOrigin='anonymous'
+                    src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0&appId=420879180505137'
+                    nonce='JGinbVyE'
+                ></script> */}
+
                 <div className='grid min-h-screen bg-gray-100 items-start'>
                     <AuthProvider session={session ?? ({} as Session)}>
                         <Header />

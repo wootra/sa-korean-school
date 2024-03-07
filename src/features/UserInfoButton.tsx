@@ -14,13 +14,28 @@ const loginUrl = `https://www.facebook.com/v16.0/dialog/oauth?client_id=${
 const UserInfoButton = () => {
     const { data: session, status } = useSession();
     console.log('status is:', status, 'session is', session);
+    // return (
+    //     <>
+    //         <div
+    //             className='fb-login-button'
+    //             data-width='80'
+    //             data-size=''
+    //             data-button-type=''
+    //             data-layout=''
+    //             data-auto-logout-link='false'
+    //             data-use-continue-as='false'
+    //         ></div>
+    //         <div id='status'></div>
+    //     </>
+    // );
     return (
         <Link
             href={loginUrl}
-            onClick={e => {
-                e.preventDefault();
-                signIn();
-            }}
+            // href='#'
+            // onClick={e => {
+            //     e.preventDefault();
+            //     signIn('facebook');
+            // }}
             className='rounded-full border border-gray-200 w-8 h-8 dark:border-gray-800 p-0'
         >
             <Image

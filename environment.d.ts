@@ -6,4 +6,10 @@ declare global {
             FACEBOOK_APP_SECRET: string;
         }
     }
+    interface FB {
+        login: (
+            callback: (response: FBLoginResponse) => void,
+            options: { scope?: string }
+        ) => void;
+    }
 }
