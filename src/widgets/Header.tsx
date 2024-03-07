@@ -1,16 +1,13 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import Nav from './Nav';
-import useHash from '@/lib/routes/useHash';
+import UserInfoButton from '@/features/UserInfoButton';
 
 const Header = () => {
-    const hashes = useHash();
-
     return (
         <header className='group sticky top-0 z-50 flex h-14 items-center px-4 text-sm font-medium bg-white/90 border-b border-gray-200 dark:bg-gray-950 dark:border-gray-800'>
             <label
-                className='flex items-center font-bold w-40 flex-shrink-0 flex-grow-0 gap-2'
+                className='flex md:pointer-events-none items-center font-bold w-40 flex-shrink-0 flex-grow-0 gap-2 cursor-pointer md:cursor-default'
                 htmlFor='menu-toggle'
             >
                 <Image
@@ -30,9 +27,27 @@ const Header = () => {
                 </span>
             </label>
             <input type='checkbox' id='menu-toggle' className='opacity-0' />
-            <div className='hidden md:flex group-has-[input:checked]:flex flex-1'>
-                <Nav />
-            </div>
+            <nav className='hidden group-has-[input:checked]:flex md:flex flex-1 items-center justify-end gap-4 flex-col md:flex-row absolute left-0 top-[100%] bg-red-100 p-4 shadow-lg md:bg-transparent md:static md:shadow-none '>
+                <Link className='text-sm font-medium' href='/'>
+                    Home
+                </Link>
+                <Link className='text-sm font-medium' href='/about'>
+                    About
+                </Link>
+                <Link className='text-sm font-medium' href='/courses'>
+                    Courses
+                </Link>
+                <Link className='text-sm font-medium' href='/events'>
+                    Events
+                </Link>
+                <Link className='text-sm font-medium' href='/payment'>
+                    Payment
+                </Link>
+                <Link className='text-sm font-medium' href='/contacts'>
+                    Contacts
+                </Link>
+                <UserInfoButton />
+            </nav>
         </header>
     );
 };

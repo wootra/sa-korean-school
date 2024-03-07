@@ -1,4 +1,4 @@
-export function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
+export default function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
         <svg
             {...props}

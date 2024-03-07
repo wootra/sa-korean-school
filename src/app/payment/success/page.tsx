@@ -1,7 +1,8 @@
+import CenterMain from '@/layouts/CenterMain';
 import React from 'react';
 
 const PaymentSuccess = () => {
-    return <div>payment success!</div>;
+    return <CenterMain>payment success!</CenterMain>;
 };
 
 export default PaymentSuccess;
