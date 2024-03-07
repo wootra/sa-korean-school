@@ -5,12 +5,18 @@ import { signIn, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+const loginUrl = `https://www.facebook.com/v16.0/dialog/oauth?client_id=${
+    process.env.FACEBOOK_APP_ID
+}&redirect_uri=${encodeURI(
+    `${process.env.NEXTAUTH_URL}/api/auth/callback/facebook`
+)}`;
+
 const UserInfoButton = () => {
     const { data: session, status } = useSession();
     console.log('status is:', status, 'session is', session);
     return (
         <Link
-            href='/api/auth/signin'
+            href={loginUrl}
             onClick={e => {
                 e.preventDefault();
                 signIn();

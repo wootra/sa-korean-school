@@ -1,7 +1,6 @@
 'use server';
 
 import Image from 'next/image';
-import CenterMain from '@/layouts/CenterMain';
 import TopMain from '@/layouts/TopMain';
 
 export default async function Home() {
