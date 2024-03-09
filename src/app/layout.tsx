@@ -5,8 +5,8 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '@/widgets/Header';
 import Footer from '@/widgets/Footer';
-// import './index.css';
-// import './font.css';
+import './index.css';
+import './font.css';
 import { AuthProvider } from './SessionContext';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -22,14 +22,6 @@ export default async function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            {/* <head>
-                <Script
-                    async
-                    defer
-                    crossOrigin='anonymous'
-                    src='https://connect.facebook.net/en_US/sdk.js'
-                ></script>
-            </head> */}
             <body className={inter.className}>
                 <div id='fb-root'></div>
 

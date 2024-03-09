@@ -8,14 +8,19 @@ const NavLink = ({
     children,
     href,
     notReady = false,
+    className,
 }: {
     children: React.ReactNode;
     href: string;
     notReady?: boolean;
+    className?: string;
 }) => {
     return (
         <Link
-            className='text-sm font-medium relative h-full gap-1 flex flex-row text-left justify-center items-center min-h-8'
+            className={cn(
+                'text-sm font-medium relative h-full gap-1 flex flex-row text-left justify-center items-center min-h-8',
+                className
+            )}
             href={href}
         >
             <span className={notReady ? 'opacity-50' : ''}>{children}</span>

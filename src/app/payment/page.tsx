@@ -30,13 +30,17 @@ export default async function PreviewPage() {
     return (
         <ResponsiveGridMain>
             <PaymentButton payId={PAYMENTS.PREREG}>
-                Payment for a Class(pre registered)
+                Class Regisration
+                <br />
+                (pre registered)
             </PaymentButton>
             <PaymentButton payId={PAYMENTS.NOREG}>
-                Payment for an class(first register)
+                Class Registration
+                <br />
+                (first register)
             </PaymentButton>
             <PaymentButton payId={PAYMENTS.NOREG}>
-                Payment for an after School Class
+                an after School Class
             </PaymentButton>
         </ResponsiveGridMain>
     );
