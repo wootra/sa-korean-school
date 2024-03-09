@@ -10,7 +10,7 @@ export default function UnderConstruction() {
         <div className='flex items-center justify-center w-full min-h-[80vh] flex-col space-y-2'>
             <div className='flex items-center space-x-2'>
                 <SmileIcon className='w-8 h-8' />
-                <h1 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl'>
+                <h1 className='text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl'>
                     Under Construction
                 </h1>
             </div>

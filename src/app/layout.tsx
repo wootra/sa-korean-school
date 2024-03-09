@@ -7,8 +7,7 @@ import Header from '@/widgets/Header';
 import Footer from '@/widgets/Footer';
 // import './index.css';
 // import './font.css';
-import { Suspense } from 'react';
-import ServerSession from './ServerSession';
+import { AuthProvider } from './SessionContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -35,13 +34,11 @@ export default async function RootLayout({
                 <div id='fb-root'></div>
 
                 <div className='grid min-h-screen bg-gray-100 items-start'>
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <ServerSession>
-                            <Header />
-                            {children}
-                            <Footer />
-                        </ServerSession>
-                    </Suspense>
+                    <AuthProvider>
+                        <Header />
+                        {children}
+                        <Footer />
+                    </AuthProvider>
                 </div>
                 <Script
                     async
