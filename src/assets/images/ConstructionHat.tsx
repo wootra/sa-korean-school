@@ -1,4 +1,4 @@
-import React, { Attributes, SVGAttributes } from 'react';
+import React, { SVGAttributes } from 'react';
 
 export const ConstructionHat = (props: SVGAttributes<SVGSVGElement>) => {
     return (
