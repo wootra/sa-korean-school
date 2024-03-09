@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
+
 import './globals.css';
 import Header from '@/widgets/Header';
 import Footer from '@/widgets/Footer';
 // import './index.css';
 // import './font.css';
-import { AuthProvider } from '@/app/SessionContext';
-import { Session, getServerSession } from 'next-auth';
-import { authOptions } from '@/app/lib/auth';
+import { Suspense } from 'react';
+import ServerSession from './ServerSession';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,27 +21,35 @@ export default async function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const session = await getServerSession(authOptions);
     return (
         <html lang='en'>
-            <body className={inter.className}>
-                {/*                 
-                <div id='fb-root'></div>
-                <script
+            {/* <head>
+                <Script
                     async
                     defer
                     crossOrigin='anonymous'
-                    src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0&appId=420879180505137'
-                    nonce='JGinbVyE'
-                ></script> */}
+                    src='https://connect.facebook.net/en_US/sdk.js'
+                ></script>
+            </head> */}
+            <body className={inter.className}>
+                <div id='fb-root'></div>
 
                 <div className='grid min-h-screen bg-gray-100 items-start'>
-                    <AuthProvider session={session ?? ({} as Session)}>
-                        <Header />
-                        {children}
-                        <Footer />
-                    </AuthProvider>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <ServerSession>
+                            <Header />
+                            {children}
+                            <Footer />
+                        </ServerSession>
+                    </Suspense>
                 </div>
+                <Script
+                    async
+                    defer
+                    crossOrigin='anonymous'
+                    src='https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v19.0&appId=420879180505137'
+                    nonce='VbxLOlga'
+                />
             </body>
         </html>
     );

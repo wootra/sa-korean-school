@@ -4,6 +4,7 @@ import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Button } from '@/components/ui/button';
 import CenterMain from '@/layouts/CenterMain';
+import { useAuth } from '../SessionContext';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -26,10 +27,14 @@ export default function PreviewPage() {
             );
         }
     }, []);
+    const user = useAuth();
 
     return (
         <CenterMain>
-            <form action='/api/checkout_sessions?class=' method='POST'>
+            <form action={`/api/checkout_sessions?class=`} method='POST'>
+                {user.token && (
+                    <input type='hidden' name='token' value={user.token} />
+                )}
                 <Button
                     type='submit'
                     variant={'default'}
