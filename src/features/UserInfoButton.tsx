@@ -67,7 +67,7 @@ const LoginButton = () => {
                 e.preventDefault();
                 login();
             }}
-            className='rounded-full w-8 h-8 p-0'
+            className='rounded-full p-0'
         >
             <Image
                 src='/facebook-logo.svg'

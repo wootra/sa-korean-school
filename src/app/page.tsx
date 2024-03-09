@@ -14,7 +14,7 @@ export default async function Home() {
                     height='471'
                     className='left-0 top-0 w-full h-full z-[-1] object-cover bg-red'
                 />
-                <h1 className='text-[clamp(1.5rem,6vw,4rem)] font-bold flex flex-col'>
+                <h1 className='text-[clamp(1.5rem,4vw,3rem)] font-bold flex flex-col'>
                     <span>Welcome to </span>
                     <span>San Antonio Korean School</span>
                 </h1>

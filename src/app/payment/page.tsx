@@ -3,6 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import CenterMain from '@/layouts/CenterMain';
 import PaymentButton from './PaymentButton';
 import { PAYMENTS } from '@/config/registration';
+import ResponsiveGridMain from '@/layouts/ResponsiveGridMain';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -27,7 +28,7 @@ export default async function PreviewPage() {
     // }, []);
 
     return (
-        <CenterMain>
+        <ResponsiveGridMain>
             <PaymentButton payId={PAYMENTS.PREREG}>
                 Payment for a Class(pre registered)
             </PaymentButton>
@@ -37,6 +38,6 @@ export default async function PreviewPage() {
             <PaymentButton payId={PAYMENTS.NOREG}>
                 Payment for an after School Class
             </PaymentButton>
-        </CenterMain>
+        </ResponsiveGridMain>
     );
 }

@@ -1,11 +1,16 @@
+'use server';
+
 import Image from 'next/image';
 import UserInfoButton from '@/features/UserInfoButton';
 import NavLink from '@/features/NavLink';
 
-const Header = () => {
+const Header = async () => {
     return (
         <header className='group sticky top-0 gap-4 z-50 flex items-center px-4 text-sm font-medium bg-white/90 border-b border-gray-200 dark:bg-gray-950 dark:border-gray-800 h-full'>
-            <div className='flex md:pointer-events-none items-center font-bold w-40 flex-shrink-0 flex-grow-0 gap-2 cursor-pointer md:cursor-default'>
+            <label
+                htmlFor='menu-toggle'
+                className='flex md:pointer-events-none items-center font-bold w-40 flex-shrink-0 flex-grow-0 gap-2 cursor-pointer md:cursor-default py-2 md:py-4'
+            >
                 <Image
                     alt='San Antonio Korean School logo'
                     className='rounded-full'
@@ -21,22 +26,26 @@ const Header = () => {
                     <span className='text-nowrap'>San Antonio</span>
                     <span className='text-nowrap'> Korean School</span>
                 </span>
-            </div>
+                <div className='group-has-[input:checked]:block hidden absolute w-[100vw] h-[100vh] bg-white/50 left-0 top-0 -z-10'></div>
+            </label>
             <input type='checkbox' id='menu-toggle' className='opacity-0' />
-            <nav className='h-full hidden group-has-[input:checked]:flex sm:flex flex-1 items-center justify-end gap-4 flex-col sm:flex-row absolute left-0 top-[100%] bg-red-100 shadow-lg sm:bg-transparent sm:static sm:shadow-none '>
+            <nav className='sm:h-full hidden p-4 sm:p-0 sm:justify-end group-has-[input:checked]:flex sm:flex flex-1 items-start sm:items-center justify-start gap-2 sm:gap-4 flex-col sm:flex-row absolute left-0 top-[100%] bg-white shadow-lg sm:bg-transparent sm:static sm:shadow-none '>
                 <NavLink href='/'>Home</NavLink>
-                <NavLink href='/about'>About</NavLink>
-                <NavLink href='/courses'>Courses</NavLink>
-                <NavLink href='/events'>Events</NavLink>
+                <NavLink href='/about' notReady>
+                    About
+                </NavLink>
+                <NavLink href='/courses' notReady>
+                    Courses
+                </NavLink>
+                <NavLink href='/events' notReady>
+                    Events
+                </NavLink>
                 <NavLink href='/payment'>Payment</NavLink>
                 <NavLink href='/contacts'>Contacts</NavLink>
             </nav>
-            <label
-                htmlFor='menu-toggle'
-                className='flex h-full items-center justify-center cursor-pointer '
-            >
+            <div className='flex h-full flex-row min-w-8 items-center justify-end pr-2 sm:pr-0 sm:items-center sm:justify-center flex-1 sm:flex-0'>
                 <UserInfoButton />
-            </label>
+            </div>
         </header>
     );
 };
