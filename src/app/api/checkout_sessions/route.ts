@@ -1,6 +1,12 @@
+import { PAYMENTS } from '@/config/registration';
 import stripe from '@/config/stripe';
 import { RedirectType, redirect } from 'next/navigation';
 import { NextRequest, NextResponse } from 'next/server';
+
+const classCodes = Object.freeze({
+    [PAYMENTS.PREREG]: process.env.PREREGISTER_CLASS_PRICE,
+    [PAYMENTS.NOREG]: process.env.NOREGISTER_CLASS_PRICE,
+});
 
 const getUserInfo = async (token?: string | null) => {
     if (token) {
@@ -23,17 +29,25 @@ export async function POST(req: NextRequest, res: NextResponse) {
     console.log('host is', origin);
     // try {
     // Create Checkout Sessions from body params.
-    // const query = req.nextUrl.searchParams;
+    const query = req.nextUrl.searchParams;
+    const className = query.get('class');
+    console.log('className is ', className);
     // console.log(query);
     const body = await req.formData();
     const token = body.get('token');
     const userInfo = await getUserInfo(token as string | null);
-
+    const price = classCodes[className as keyof typeof classCodes];
+    if (!price) {
+        redirect(
+            `${origin}/payment/failed?message=${'payment name does not exist'}`,
+            RedirectType.replace
+        );
+    }
     const session = await stripe.checkout.sessions.create({
         line_items: [
             {
                 // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                price: 'price_1OqLMQIfA3daNAk6s7DupTKZ',
+                price,
                 quantity: 1,
             },
         ],
