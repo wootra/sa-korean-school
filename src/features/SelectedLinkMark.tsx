@@ -8,15 +8,18 @@ const SelectedLinkMark = ({ pathName }: { pathName: string }) => {
 
     return (
         <>
+            {
+                // for horizontal menu
+            }
             <div
-                className={`absolute transition-all hidden sm:block w-[100%] bottom-[2px] h-[2px] duration-500 pointer-events-none ${
+                className={`absolute transition-all hidden sm:block w-[100%] top-0 h-[2px] duration-500 pointer-events-none ${
                     pathName === currPathName
                         ? 'bg-red-600 left-0'
                         : 'bg-transparent -left-[100%]'
                 } `}
             ></div>
             <div
-                className={`absolute transition-all hidden sm:block w-[100%] duration-500 bottom-[0px] h-[2px] pointer-events-none ${
+                className={`absolute transition-all hidden sm:block w-[100%] duration-500 bottom-0 h-[2px] pointer-events-none ${
                     pathName === currPathName
                         ? 'bg-blue-600 right-0'
                         : 'bg-transparent -right-[100%]'
