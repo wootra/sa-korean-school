@@ -1,9 +1,16 @@
 import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
-import CenterMain from '@/layouts/CenterMain';
 import PaymentButton from './PaymentButton';
 import { PAYMENTS } from '@/config/registration';
 import ResponsiveGridMain from '@/layouts/ResponsiveGridMain';
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from '@/components/ui/accordion';
+import TopMain from '@/layouts/TopMain';
+import AccordionManager from './AccordionManager';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -11,37 +18,54 @@ const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ''
 );
 export default async function PreviewPage() {
-    // React.useEffect(() => {
-    //     // Check to see if this is a redirect back from Checkout
-    //     const query = new URLSearchParams(window.location.search);
-    //     if (query.get('success')) {
-    //         console.log(
-    //             'Order placed! You will receive an email confirmation.'
-    //         );
-    //     }
-
-    //     if (query.get('canceled')) {
-    //         console.log(
-    //             'Order canceled -- continue to shop around and checkout when you’re ready.'
-    //         );
-    //     }
-    // }, []);
-
     return (
-        <ResponsiveGridMain>
-            <PaymentButton payId={PAYMENTS.PREREG}>
-                Class Regisration
-                <br />
-                (pre registered)
-            </PaymentButton>
-            <PaymentButton payId={PAYMENTS.NOREG}>
-                Class Registration
-                <br />
-                (first register)
-            </PaymentButton>
-            <PaymentButton payId={PAYMENTS.NOREG}>
-                an after School Class
-            </PaymentButton>
-        </ResponsiveGridMain>
+        <TopMain>
+            <AccordionManager />
+            <Accordion type='single' collapsible className='w-full'>
+                <AccordionItem
+                    value='registration-payment-group'
+                    id='registration-payment-group'
+                >
+                    <AccordionTrigger>Class Registration</AccordionTrigger>
+                    <AccordionContent className='bg-blue-100'>
+                        <ResponsiveGridMain>
+                            <PaymentButton payId={PAYMENTS.PREREG}>
+                                Class Regisration
+                                <br />
+                                (pre registered)
+                            </PaymentButton>
+                            <PaymentButton payId={PAYMENTS.NOREG}>
+                                Class Registration
+                                <br />
+                                (first register)
+                            </PaymentButton>
+                            <PaymentButton payId={PAYMENTS.NOREG}>
+                                an after School Class
+                            </PaymentButton>
+                        </ResponsiveGridMain>
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value='donation-group' id='donation-group'>
+                    <AccordionTrigger>Donation</AccordionTrigger>
+                    <AccordionContent className='bg-green-100'>
+                        <ResponsiveGridMain>
+                            <PaymentButton payId={PAYMENTS.PREREG}>
+                                Class Regisration
+                                <br />
+                                (pre registered)
+                            </PaymentButton>
+                            <PaymentButton payId={PAYMENTS.NOREG}>
+                                Class Registration
+                                <br />
+                                (first register)
+                            </PaymentButton>
+                            <PaymentButton payId={PAYMENTS.NOREG}>
+                                an after School Class
+                            </PaymentButton>
+                        </ResponsiveGridMain>
+                    </AccordionContent>
+                </AccordionItem>
+            </Accordion>
+        </TopMain>
     );
 }

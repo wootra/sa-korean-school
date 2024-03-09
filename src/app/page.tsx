@@ -19,8 +19,9 @@ export default async function Home() {
                     <span>San Antonio Korean School</span>
                 </h1>
                 <p className='max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400'>
-                    Where learning knows no bounds. Our mission is to provide
-                    high-quality education to everyone, anywhere.
+                    We value children's dreams and love. We are dedicated to
+                    providing a safe and happy learning environment for our
+                    students.
                 </p>
             </div>
         </TopMain>
