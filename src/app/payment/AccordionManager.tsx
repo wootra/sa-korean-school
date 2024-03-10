@@ -7,7 +7,6 @@ const AccordionManager = () => {
         const button: HTMLButtonElement | null = document.querySelector(
             '#registration-payment-group button[data-state="closed"]'
         );
-        console.log('button', button);
         if (button) {
             button?.click();
         }

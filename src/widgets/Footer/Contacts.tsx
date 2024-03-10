@@ -1,25 +1,31 @@
 import { FacebookIcon, Heading } from '@/entities';
 import FlexCol from '@/layouts/FlexCol';
 import FlexRow from '@/layouts/FlexRow';
-import Image from 'next/image';
 import React from 'react';
 import { MdOutlineMailOutline } from 'react-icons/md';
 import { IoMdHome } from 'react-icons/io';
 import Link from 'next/link';
-import logo from '@/assets/images/logo.png';
+import { cn } from '@/lib/utils';
 
-export const Contacts = () => {
+export const Contacts = ({
+    withHeading = true,
+    className,
+}: {
+    withHeading?: boolean;
+    className?: string;
+}) => {
     return (
-        <FlexCol className='flex-1 text-xs min-w-[240px]'>
-            <Heading type='footer'>Contacts</Heading>
+        <FlexCol className={cn('text-xs min-w-[240px] items-start', className)}>
+            {withHeading && <Heading type='footer'>Contacts</Heading>}
             <Link
                 href='https://maps.app.goo.gl/Bj2irST4oksAHmKw8'
                 className='underline text-blue-600'
                 aria-label='move to google map'
             >
                 <FlexRow className='gap-2'>
-                    <IoMdHome className='w-4 h-4' /> 354 Heimer Rd. San Antonio,
-                    TX 78232
+                    <IoMdHome className='w-4 h-4' />
+                    {!withHeading && 'Address: '}
+                    354 Heimer Rd. San Antonio, TX 78232
                 </FlexRow>
             </Link>
             <Link
@@ -28,6 +34,7 @@ export const Contacts = () => {
             >
                 <FlexRow className='gap-2'>
                     <MdOutlineMailOutline className='w-4 h-4' />
+                    {!withHeading && 'Email: '}
                     sa.koreanschool@gmail.com
                 </FlexRow>
             </Link>
@@ -37,6 +44,7 @@ export const Contacts = () => {
             >
                 <FlexRow className='gap-2'>
                     <FacebookIcon className='w-4 h-4' />
+                    {!withHeading && 'Facebook: '}
                     @SanAntonioKoreanCommunitySchool
                 </FlexRow>
             </Link>

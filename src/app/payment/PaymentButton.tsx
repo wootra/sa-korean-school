@@ -20,17 +20,17 @@ const PaymentButton = ({ payId, children }: PropsWithChildren<Props>) => {
         <form
             action={`/api/checkout_sessions?class=${payId}`}
             method='POST'
-            className='w-full'
+            className='w-full h-full'
         >
             <TokenInput />
-            <Card className='w-full'>
+            <Card className='w-full flex flex-col h-full'>
                 <CardHeader>
                     <CardTitle>{children}</CardTitle>
                     <CardDescription>
                         {`$ ` + info.price.toFixed(2)}
                     </CardDescription>
                 </CardHeader>
-                <CardContent className='w-full'>
+                <CardContent className='w-full flex-1'>
                     <p>{info.desc}</p>
                 </CardContent>
                 <CardFooter>

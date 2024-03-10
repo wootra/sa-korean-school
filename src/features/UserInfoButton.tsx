@@ -11,7 +11,6 @@ const LoginButton = () => {
     const { login } = useAuth();
     return (
         <Link
-            // href={loginUrl}
             href='#'
             onClick={e => {
                 e.preventDefault();
@@ -54,9 +53,8 @@ const ProfileButton = () => {
     );
 };
 const UserInfoButton = () => {
-    const { user, login, logout } = useAuth();
+    const { user } = useAuth();
     const isLoggedIn = !!user.token;
-    console.log('user is:', user);
     return !isLoggedIn ? <LoginButton /> : <ProfileButton />;
 };
 export default UserInfoButton;

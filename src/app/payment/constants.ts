@@ -11,4 +11,9 @@ export const paymentInfo = Object.freeze({
         desc: 'Payment for parents who did not pre-register',
         price: 250,
     },
+    [PAYMENTS.DONATION]: {
+        title: 'Donation',
+        desc: "Donation for the children's education",
+        price: 100,
+    },
 });

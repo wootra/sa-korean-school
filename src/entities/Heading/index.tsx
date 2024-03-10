@@ -21,7 +21,8 @@ const Heading = ({ type, size, children }: Props) => {
             className={cn(
                 HeadingTag === 'h1' &&
                     'text-[clamp(1.5rem,4vw,3rem)] font-bold flex flex-col',
-                HeadingTag === 'h2' && 'text-lg font-bold',
+                HeadingTag === 'h2' &&
+                    'text-lg font-bold my-2 text-blue-900/70',
                 HeadingTag === 'h3' && 'text-md font-bold mb-3',
                 HeadingTag === 'h4' && 'text-lg font-bold',
                 HeadingTag === 'h5' && 'text-lg font-bold',

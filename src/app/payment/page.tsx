@@ -26,41 +26,41 @@ export default function PaymentPage() {
                     value='registration-payment-group'
                     id='registration-payment-group'
                 >
-                    <AccordionTrigger>Class Registration</AccordionTrigger>
+                    <AccordionTrigger className='px-4 border-r border-l border-gray-200'>
+                        Class Registration
+                    </AccordionTrigger>
                     <AccordionContent className='bg-blue-100'>
                         <ResponsiveGridMain>
                             <PaymentButton payId={PAYMENTS.PREREG}>
-                                Class Regisration
+                                Korean Language Culture
                                 <br />
                                 (pre registered)
                             </PaymentButton>
                             <PaymentButton payId={PAYMENTS.NOREG}>
-                                Class Registration
+                                Korean Language Culture
                                 <br />
                                 (first register)
                             </PaymentButton>
                             <PaymentButton payId={PAYMENTS.NOREG}>
-                                an after School Class
+                                After School Activity
                             </PaymentButton>
                         </ResponsiveGridMain>
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value='donation-group' id='donation-group'>
-                    <AccordionTrigger>Donation</AccordionTrigger>
+                    <AccordionTrigger className='px-4 border-r border-l border-gray-200'>
+                        Donation
+                    </AccordionTrigger>
                     <AccordionContent className='bg-green-100'>
                         <ResponsiveGridMain>
                             <PaymentButton payId={PAYMENTS.PREREG}>
-                                Class Regisration
-                                <br />
-                                (pre registered)
+                                Donation
                             </PaymentButton>
                             <PaymentButton payId={PAYMENTS.NOREG}>
-                                Class Registration
-                                <br />
-                                (first register)
+                                Donation
                             </PaymentButton>
                             <PaymentButton payId={PAYMENTS.NOREG}>
-                                an after School Class
+                                Dontation
                             </PaymentButton>
                         </ResponsiveGridMain>
                     </AccordionContent>

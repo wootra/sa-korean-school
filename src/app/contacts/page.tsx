@@ -1,10 +1,17 @@
+import { Heading } from '@/entities';
 import UnderConstruction from '@/features/UnderConstruction';
 import CenterMain from '@/layouts/CenterMain';
+import Contacts from '@/widgets/Footer/Contacts';
 import React from 'react';
-const Contacts = () => {
+const ContactsPage = () => {
     return (
         <CenterMain>
-            <div className='mx-auto w-[600px] h-[450px] py-4'>
+            <div className='flex flex-col w-[600px] mx-auto justify-start items-start'>
+                <Heading type='page'>Contacts</Heading>
+                <Contacts withHeading={false} className='gap-2' />
+            </div>
+            <div className='mx-auto w-[600px] h-[450px] py-4 flex flex-col justify-start items-start'>
+                <Heading type='page'>Enterance</Heading>
                 <iframe
                     src='https://www.google.com/maps/embed?pb=!4v1710025477167!6m8!1m7!1s8nF4_3Pb_-DzH2_armqj4w!2m2!1d29.56817610023719!2d-98.47532390011177!3f134.72851357663603!4f-5.127441453511821!5f0.7820865974627469'
                     width='600'
@@ -19,4 +26,4 @@ const Contacts = () => {
     );
 };
 
-export default Contacts;
+export default ContactsPage;

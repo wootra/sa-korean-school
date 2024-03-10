@@ -33,10 +33,7 @@ export const loginFacebook = (
     win.FB.login((response: any) => {
         if (response.authResponse) {
             connectedRef.current = true;
-            console.log(
-                'Welcome! login Fetching your information.... ',
-                response
-            );
+
             getMeInfoFromFacebook(res => {
                 setUser({
                     name: res.name,
@@ -66,7 +63,6 @@ export const logoutFacebook = (
     const win = window as Window & typeof globalThis & any;
     win.FB.logout((res: any) => {
         connectedRef.current = false;
-        console.log('logged out:', res);
         setUser({
             name: '',
             email: '',
@@ -83,7 +79,6 @@ export const checkFacebookLoginStatus = (
 ) => {
     const win = window as Window & typeof globalThis & any;
     win.FB.getLoginStatus((response: any) => {
-        console.log('checkLoginStatus', response);
         if (response.status === 'connected') {
             if (!connectedRef.current) {
                 connectedRef.current = true;

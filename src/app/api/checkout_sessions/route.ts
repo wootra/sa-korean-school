@@ -10,7 +10,6 @@ const classCodes = Object.freeze({
 
 const getUserInfo = async (token?: string | null) => {
     if (token) {
-        console.log('token', token);
         const url = `https://graph.facebook.com/v19.0/me?access_token=${token}&debug=all&fields=id%2Cname%2Cemail&format=json&method=get&origin_graph_explorer=1&pretty=0&suppress_http_code=1&transport=cors`;
 
         try {
@@ -26,13 +25,10 @@ const getUserInfo = async (token?: string | null) => {
 };
 export async function POST(req: NextRequest, res: NextResponse) {
     const origin = req.headers.get('origin');
-    console.log('host is', origin);
     // try {
     // Create Checkout Sessions from body params.
     const query = req.nextUrl.searchParams;
     const className = query.get('class');
-    console.log('className is ', className);
-    // console.log(query);
     const body = await req.formData();
     const token = body.get('token');
     const userInfo = await getUserInfo(token as string | null);
@@ -74,13 +70,4 @@ export async function POST(req: NextRequest, res: NextResponse) {
             RedirectType.replace
         );
     }
-
-    // res.redirect(303, session.url);
-    // } catch (err: unknown) {
-    //     const message = (err as any)?.message || 'Internal server error';
-    //     redirect(
-    //         `${origin}/payment/failed?message=${message}`,
-    //         RedirectType.replace
-    //     );
-    // }
 }
