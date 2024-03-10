@@ -25,10 +25,10 @@ export default async function RootLayout({
             <body className={inter.className}>
                 <div id='fb-root'></div>
 
-                <div className='grid min-h-screen bg-gray-100 items-start'>
+                <div className='flex flex-col w-full min-h-screen bg-gray-100 items-start relative'>
                     <AuthProvider>
                         <Header />
-                        {children}
+                        <main className='flex-1 w-full'>{children}</main>
                         <Footer />
                     </AuthProvider>
                 </div>

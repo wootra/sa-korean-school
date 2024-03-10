@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 const Header = async () => {
     return (
-        <header className='group sticky top-0 gap-4 z-50 flex flex-row items-center px-4 text-sm font-medium bg-white/90 border-b border-gray-200 dark:bg-gray-950 dark:border-gray-800'>
+        <header className='w-full group sticky top-0 gap-4 z-[60] flex flex-row items-center px-4 text-sm font-medium bg-white/90 border-b border-gray-200 dark:bg-gray-950 dark:border-gray-800'>
             <Link
                 href='/'
                 className='hidden sm:flex py-2 md:py-4 font-bold gap-2'
@@ -50,7 +50,8 @@ const Header = async () => {
                 <div className='group-has-[input:checked]:block hidden absolute w-[100vw] h-[100vh] bg-white/70 left-0 top-0 -z-10'></div>
             </label>
             <input type='checkbox' id='menu-toggle' className='opacity-0' />
-            <nav className='hidden p-4 sm:p-0 sm:justify-end group-has-[input:checked]:flex sm:flex flex-1 items-start sm:items-center justify-start gap-2 sm:gap-4 flex-col sm:flex-row absolute left-0 top-[100%] bg-gray-100 border-r-[1px] border-b-[1px] border-gray-200 sm:border-none shadow-lg sm:bg-transparent sm:static sm:shadow-none '>
+            <div className='sm:hidden group-has-[input:checked]:block absolute w-full top-[100%] border-t-[1px] border-gray-200'></div>
+            <nav className='hidden sm:flex p-4 sm:p-0 sm:justify-end group-has-[input:checked]:flex flex-1 items-start sm:items-center justify-start gap-2 sm:gap-4 flex-col sm:flex-row absolute left-0 top-[100%] bg-gray-100 border-r-[1px] border-b-[1px] border-gray-200 sm:border-none shadow-lg sm:bg-transparent sm:static sm:shadow-none '>
                 <NavLink href='/' className='sm:hidden md:flex'>
                     Home
                 </NavLink>

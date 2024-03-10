@@ -1,38 +1,35 @@
+import { cn } from '@/lib/utils';
 import React from 'react';
+type HeadingSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+const HEADING_TYPE_TO_SIZE = Object.freeze({
+    hero: 'h1',
+    page: 'h2',
+    footer: 'h3',
+});
 
-const sizes = {
-    s: 'text-[25px] font-semibold',
-    md: 'text-3xl font-semibold',
-    xs: 'text-[22px] font-semibold',
-    lg: 'text-[45px] font-semibold',
+type HeadingTypes = keyof typeof HEADING_TYPE_TO_SIZE;
+
+type Props = {
+    size?: HeadingSize;
+    type?: HeadingTypes;
+    children: React.ReactNode;
 };
-
-export type HeadingProps = Partial<{
-    className: string;
-    as: any;
-    size: keyof typeof sizes;
-}> &
-    React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLSpanElement>,
-        HTMLSpanElement
-    >;
-
-const Heading: React.FC<React.PropsWithChildren<HeadingProps>> = ({
-    children,
-    className = '',
-    size = 's',
-    as,
-    ...restProps
-}) => {
-    const Component = as || 'h6';
-
+const Heading = ({ type, size, children }: Props) => {
+    const HeadingTag = size ?? HEADING_TYPE_TO_SIZE[type ?? 'page'];
     return (
-        <Component
-            className={`text-gray-900 font-inter ${className} ${sizes[size]}`}
-            {...restProps}
+        <HeadingTag
+            className={cn(
+                HeadingTag === 'h1' &&
+                    'text-[clamp(1.5rem,4vw,3rem)] font-bold flex flex-col',
+                HeadingTag === 'h2' && 'text-lg font-bold',
+                HeadingTag === 'h3' && 'text-md font-bold mb-3',
+                HeadingTag === 'h4' && 'text-lg font-bold',
+                HeadingTag === 'h5' && 'text-lg font-bold',
+                HeadingTag === 'h6' && 'text-lg font-bold'
+            )}
         >
             {children}
-        </Component>
+        </HeadingTag>
     );
 };
 

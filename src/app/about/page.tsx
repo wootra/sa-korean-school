@@ -1,13 +1,11 @@
-import UnderConstruction from '@/features/UnderConstruction';
-import CenterMain from '@/layouts/CenterMain';
+'use client';
+
 import React from 'react';
+import CenterMain from '@/layouts/CenterMain';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const About = () => {
-    return (
-        <CenterMain>
-            <UnderConstruction />
-        </CenterMain>
-    );
+    return <CenterMain>학교 소개</CenterMain>;
 };
 
 export default About;

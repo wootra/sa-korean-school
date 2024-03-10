@@ -8,18 +8,23 @@ const NavLink = ({
     children,
     href,
     notReady = false,
+    exact,
     className,
+    onlyHorizontal = false,
 }: {
     children: React.ReactNode;
     href: string;
     notReady?: boolean;
     className?: string;
+    exact?: boolean;
+    onlyHorizontal?: boolean;
 }) => {
     return (
         <Link
             className={cn(
                 'text-sm font-medium relative h-full gap-1 flex flex-row text-left justify-center items-center min-h-8',
-                className
+                className,
+                !onlyHorizontal ? 'w-full sm:w-auto' : 'w-auto'
             )}
             href={href}
         >
@@ -27,7 +32,11 @@ const NavLink = ({
             {notReady && (
                 <ConstructionHat className='w-2 h-2 text-yellow-500' />
             )}
-            <SelectedLinkMark pathName={href} />
+            <SelectedLinkMark
+                pathName={href}
+                exact={exact}
+                onlyHorizontal={onlyHorizontal}
+            />
         </Link>
     );
 };
