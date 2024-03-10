@@ -1,21 +1,20 @@
 'use client';
 
 import React, {
-    MutableRefObject,
     PropsWithChildren,
     useCallback,
     useEffect,
     useRef,
     useState,
 } from 'react';
-import { User } from '@/lib/auth/types';
+import { User } from '@/lib/auth/client/types';
 import {
     logoutFacebook,
     initFacebook,
     loginFacebook,
     checkFacebookLoginStatus,
     initUserInfo,
-} from '@/lib/auth';
+} from '@/lib/auth/client';
 
 const AuthContext = React.createContext<{
     user: User;
