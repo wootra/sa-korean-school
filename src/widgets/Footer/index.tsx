@@ -6,7 +6,7 @@ import { Links } from './Links';
 const Footer = () => {
     return (
         <footer className='flex flex-col w-full min-h-32 px-4 bg-white border-t-[1px] gap-2 border-gray-200 mt-8 justify-start py-4 dark:bg-gray-800'>
-            <div className='flex flex-row flex-wrap items-start justify-center gap-4 h-full'>
+            <div className='flex flex-row flex-wrap items-start justify-start gap-4 h-full'>
                 <div className='flex flex-row flex-wrap items-start justify-center gap-2 h-full'>
                     <Image
                         alt='San Antonio Korean School logo'
