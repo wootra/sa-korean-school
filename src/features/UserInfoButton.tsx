@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 import React, { useRef } from 'react';
 import { Button } from '@/components/ui/button';
-
+import facebookLogo from '@/assets/images/facebook-logo.svg';
 const LoginButton = () => {
     const { login } = useAuth();
     return (
@@ -20,7 +20,7 @@ const LoginButton = () => {
             className='p-0 relative'
         >
             <Image
-                src='/facebook-logo.svg'
+                src={facebookLogo}
                 alt='facebook login'
                 width='20'
                 height='20'

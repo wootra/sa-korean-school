@@ -1,18 +1,18 @@
-'use server';
-
 import Image from 'next/image';
 import TopMain from '@/layouts/TopMain';
 import { Heading } from '@/entities';
+import heroBack from './hero-back.png';
 
-export default async function Home() {
+export default function Home() {
     return (
         <TopMain>
             <div className='container flex flex-1 flex-col items-center justify-center gap-4 relative z-10'>
                 <Image
-                    src='/hero-back.png'
+                    src={heroBack}
                     alt='hero-back'
                     width='776'
                     height='471'
+                    loading='lazy'
                     className='left-0 top-0 w-full h-full z-[-1] object-cover bg-red'
                 />
                 <Heading type='hero'>

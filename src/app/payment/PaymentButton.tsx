@@ -1,5 +1,3 @@
-'use server';
-
 import React, { PropsWithChildren } from 'react';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,7 +14,7 @@ import { PaymentOptions } from '@/config/registration';
 type Props = {
     payId: PaymentOptions;
 };
-const PaymentButton = async ({ payId, children }: PropsWithChildren<Props>) => {
+const PaymentButton = ({ payId, children }: PropsWithChildren<Props>) => {
     const info = paymentInfo[payId];
     return (
         <form

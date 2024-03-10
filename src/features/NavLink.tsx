@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { Suspense } from 'react';
 import SelectedLinkMark from './SelectedLinkMark';
 import { ConstructionHat } from '@/assets/images';
 import { cn } from '@/lib/utils';
@@ -21,6 +21,7 @@ const NavLink = ({
 }) => {
     return (
         <Link
+            prefetch={true}
             className={cn(
                 'text-sm font-medium relative h-full gap-1 flex flex-row text-left justify-center items-center min-h-8',
                 className,
@@ -32,11 +33,13 @@ const NavLink = ({
             {notReady && (
                 <ConstructionHat className='w-2 h-2 text-yellow-500' />
             )}
-            <SelectedLinkMark
-                pathName={href}
-                exact={exact}
-                onlyHorizontal={onlyHorizontal}
-            />
+            <Suspense fallback={<div />}>
+                <SelectedLinkMark
+                    pathName={href}
+                    exact={exact}
+                    onlyHorizontal={onlyHorizontal}
+                />
+            </Suspense>
         </Link>
     );
 };

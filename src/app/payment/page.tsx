@@ -17,7 +17,7 @@ import AccordionManager from './AccordionManager';
 const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ''
 );
-export default async function PreviewPage() {
+export default function PaymentPage() {
     return (
         <TopMain>
             <AccordionManager />

@@ -11,6 +11,10 @@ const nextConfig = {
         // PREREGISTER_CLASS_PRICE: process.env.PREREGISTER_CLASS_PRICE,
         // NOREGISTER_CLASS_PRICE: process.env.NOREGISTER_CLASS_PRICE,
     },
+    images: {
+        minimumCacheTTL:
+            process.env.NODE_ENV === 'development' ? 60 : 60 * 60 * 6,
+    },
 };
 
 export default nextConfig;

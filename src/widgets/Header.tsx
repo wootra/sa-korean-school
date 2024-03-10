@@ -1,11 +1,9 @@
-'use server';
-
 import Image from 'next/image';
 import UserInfoButton from '@/features/UserInfoButton';
 import NavLink from '@/features/NavLink';
 import Link from 'next/link';
-
-const Header = async () => {
+import logo from '@/assets/images/logo.png';
+const Header = () => {
     return (
         <header className='w-full group sticky top-0 gap-4 z-[60] flex flex-row items-center px-4 text-sm font-medium bg-white/90 border-b border-gray-200 dark:bg-gray-950 dark:border-gray-800'>
             <Link
@@ -16,7 +14,7 @@ const Header = async () => {
                     alt='San Antonio Korean School logo'
                     className='rounded-full'
                     height='40'
-                    src='/logo.png'
+                    src={logo}
                     style={{
                         aspectRatio: '40/40',
                         objectFit: 'cover',
@@ -36,7 +34,7 @@ const Header = async () => {
                     alt='San Antonio Korean School logo'
                     className='rounded-full'
                     height='40'
-                    src='/logo.png'
+                    src={logo}
                     style={{
                         aspectRatio: '40/40',
                         objectFit: 'cover',
@@ -50,7 +48,7 @@ const Header = async () => {
                 <div className='group-has-[input:checked]:block hidden absolute w-[100vw] h-[100vh] bg-white/70 left-0 top-0 -z-10'></div>
             </label>
             <input type='checkbox' id='menu-toggle' className='opacity-0' />
-            <div className='sm:hidden group-has-[input:checked]:block absolute w-full top-[100%] border-t-[1px] border-gray-200'></div>
+            <div className='absolute w-full top-[100%] border-t-[1px] left-0 right-0 border-gray-200 drop-shadow'></div>
             <nav className='hidden sm:flex p-4 sm:p-0 sm:justify-end group-has-[input:checked]:flex flex-1 items-start sm:items-center justify-start gap-2 sm:gap-4 flex-col sm:flex-row absolute left-0 top-[100%] bg-gray-100 border-r-[1px] border-b-[1px] border-gray-200 sm:border-none shadow-lg sm:bg-transparent sm:static sm:shadow-none '>
                 <NavLink href='/' className='sm:hidden md:flex'>
                     Home
