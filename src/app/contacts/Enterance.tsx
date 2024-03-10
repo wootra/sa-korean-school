@@ -5,7 +5,10 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const Enterance = () => {
     const ref = useRef<HTMLDivElement>(null);
-    const [width, setWidth] = useState(window.innerWidth);
+    const win = typeof window !== 'undefined' ? window : null;
+    const [width, setWidth] = useState(
+        Math.max(win?.innerWidth ?? 640 - 40, 600)
+    );
     const height = Math.floor(width * (450 / 600));
     useEffect(() => {
         const element = ref.current;
@@ -17,7 +20,9 @@ const Enterance = () => {
                         const contentBoxSize = entry.contentBoxSize[0];
                         const el = ref.current;
                         if (el) {
-                            setWidth(contentBoxSize.inlineSize);
+                            setWidth(
+                                Math.min(contentBoxSize.inlineSize - 40, 600)
+                            );
                         }
                     }
                 }
@@ -33,7 +38,7 @@ const Enterance = () => {
     }, []);
     return (
         <div
-            className={`mx-auto w-full py-4 flex flex-col justify-start items-start`}
+            className={`mx-auto w-full flex flex-col justify-start items-start p-2`}
             ref={ref}
         >
             <Heading type='page'>Enterance</Heading>

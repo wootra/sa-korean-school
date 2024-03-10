@@ -6,7 +6,7 @@ import Enterance from './Enterance';
 const ContactsPage = () => {
     return (
         <CenterMain>
-            <div className='flex flex-col w-full mx-auto justify-start items-start'>
+            <div className='flex flex-col w-full mx-auto justify-start items-start p-2'>
                 <Heading type='page'>Contacts</Heading>
                 <Contacts withHeading={false} className='gap-2' />
             </div>
