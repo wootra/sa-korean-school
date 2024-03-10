@@ -20,8 +20,8 @@ export default function Home() {
                     <span>San Antonio Korean School</span>
                 </Heading>
                 <p className='max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400'>
-                    We value children's dreams and love. We are dedicated to
-                    providing a safe and happy learning environment for our
+                    We value children&apos;s dreams and love. We are dedicated
+                    to providing a safe and happy learning environment for our
                     students.
                 </p>
             </div>
