@@ -16,7 +16,7 @@ const LoginButton = () => {
                 e.preventDefault();
                 login();
             }}
-            className='p-0 relative'
+            className='p-0 h-6 w-auto relative'
         >
             <Image
                 src={facebookLogo}
@@ -24,8 +24,11 @@ const LoginButton = () => {
                 width='20'
                 height='20'
             />
-            <div className='absolute w-full h-[10px] flex justify-center items-center font-mono bg-blue-800/70 text-white text-center left-0 top-[calc(100%+4px)] text-[5px] z-50'>
-                LOG IN
+
+            <div className='absolute w-full h-[10px] flex justify-center items-center left-0 top-[100%] z-50'>
+                <div className='text-center text-nowrap font-mono p-[2px] bg-blue-800/70 text-white text-[5px]'>
+                    LOG IN
+                </div>
             </div>
         </Link>
     );
@@ -34,10 +37,10 @@ const ProfileButton = () => {
     const { logout } = useAuth();
     const ref = useRef(Math.floor(Math.random() * 1000));
     return (
-        <Button
+        <Link
             onClick={logout}
-            variant={'ghost'}
-            className='w-8 h-8 p-0 relative'
+            href='#'
+            className='w-auto h-6 p-0 relative'
             aria-label='logout'
         >
             <Image
@@ -46,10 +49,12 @@ const ProfileButton = () => {
                 width='30'
                 height='30'
             />
-            <div className='absolute w-full h-[10px] flex justify-center items-center font-mono bg-red-800/70 text-white text-center left-0 top-[100%] text-[5px] z-50'>
-                LOGGED IN
+            <div className='absolute w-full h-[10px] flex justify-center items-center left-0 top-[100%] z-50'>
+                <div className='text-center text-nowrap font-mono p-[2px] bg-red-800/70 text-white text-[5px]'>
+                    LOGGED IN
+                </div>
             </div>
-        </Button>
+        </Link>
     );
 };
 const UserInfoButton = () => {

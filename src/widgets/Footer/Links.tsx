@@ -66,7 +66,7 @@ const LinkWithImg = ({
                 height='49'
                 src={src}
                 alt={label}
-                className='w-16'
+                className='w-16 hover:scale-150 transition-all duration-500 ease-out hover:shadow-lg hover:z-10'
             />
         </Link>
     );
