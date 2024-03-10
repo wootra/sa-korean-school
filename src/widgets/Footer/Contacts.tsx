@@ -19,7 +19,7 @@ export const Contacts = ({
             {withHeading && <Heading type='footer'>Contacts</Heading>}
             <Link
                 href='https://maps.app.goo.gl/Bj2irST4oksAHmKw8'
-                className='underline text-blue-600'
+                className='underline text-blue-600 text-left'
                 aria-label='move to google map'
             >
                 <FlexRow className='gap-2'>
@@ -30,7 +30,7 @@ export const Contacts = ({
             </Link>
             <Link
                 href='mailto: sa.koreanschool@gmail.com'
-                className='underline text-blue-600'
+                className='underline text-blue-600 text-left'
             >
                 <FlexRow className='gap-2'>
                     <MdOutlineMailOutline className='w-4 h-4' />
@@ -40,7 +40,7 @@ export const Contacts = ({
             </Link>
             <Link
                 href='https://www.facebook.com/SanAntonioKoreanSchool/'
-                className='underline text-blue-600'
+                className='underline text-blue-600 text-left'
             >
                 <FlexRow className='gap-2'>
                     <FacebookIcon className='w-4 h-4' />
