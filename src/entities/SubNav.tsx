@@ -1,5 +1,6 @@
 import NavLink from '@/features/NavLink';
-type Props = { navList: { title: string; href: string; exact?: boolean }[] };
+export type SubNavInfo = { title: string; href: string; exact?: boolean };
+type Props = { navList: SubNavInfo[] };
 const SubNav = ({ navList }: Props) => {
     return (
         <header className='sticky top-0 gap-4 z-50 flex flex-row items-center px-4 text-sm font-medium bg-white/90 border-b border-gray-200 dark:bg-gray-950 dark:border-gray-800'>

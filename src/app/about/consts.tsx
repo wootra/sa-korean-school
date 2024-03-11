@@ -1,12 +1,9 @@
-export type AboutObj = {
-    title: string;
-    href: string;
-    exact?: boolean;
-};
+import { SubNavInfo } from '@/entities/SubNav';
+
 export const ABOUT_PAGES = ['introduction', 'schedule'] as const;
 export type AboutPage = (typeof ABOUT_PAGES)[number];
 
-export const ABOUT_LIST: AboutObj[] = [
+export const ABOUT_LIST: SubNavInfo[] = [
     {
         title: '학교 소개',
         href: '/about',

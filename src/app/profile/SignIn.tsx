@@ -4,9 +4,10 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import FlexCol from '@/layouts/FlexCol';
 import FlexRow from '@/layouts/FlexRow';
-import { LoginButton } from './LoginButton';
+import FacebookLoginButton from './FacebookLoginButton';
 import Image from 'next/image';
 import logo from '@/assets/images/logo.png';
+import AutoRedirectWhenLoggedIn from './AutoRedirect';
 
 export default function SignIn() {
     return (
@@ -67,7 +68,8 @@ export default function SignIn() {
                         OR Sign in with
                     </FlexCol>
                     <FlexRow center>
-                        <LoginButton />
+                        <FacebookLoginButton />
+                        <AutoRedirectWhenLoggedIn to='/' />
                     </FlexRow>
                 </div>
             </div>

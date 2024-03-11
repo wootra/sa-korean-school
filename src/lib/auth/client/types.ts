@@ -1,7 +1,10 @@
+import { AuthProviders } from '../types';
+
 export type User = {
-    name: string;
-    email: string;
+    name?: string;
+    email?: string;
     error: string;
-    uid: string;
-    token: '';
+    uid?: string;
+    token?: string;
+    provider: AuthProviders;
 };

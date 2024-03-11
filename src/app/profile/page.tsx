@@ -1,20 +1,14 @@
-'use server';
+'use client';
 
-import { getUserInfo } from '@/lib/auth/server/getUserInfo';
 import React from 'react';
 import SignIn from './SignIn';
 import Profile from './Profile';
+import { useAuth } from '../SessionContext';
 
-const ProfilePage = async ({
-    params,
-    searchParams,
-}: {
-    params: { slug: string };
-    searchParams: { token: string | string | undefined };
-}) => {
-    const { token } = searchParams;
-    const { customer_email } = await getUserInfo(token);
-    return customer_email ? <Profile /> : <SignIn />;
+const ProfilePage = () => {
+    const { user } = useAuth();
+    console.log('user:', user);
+    return user?.token ? <Profile user={user} /> : <SignIn />;
 };
 
 export default ProfilePage;

@@ -25,6 +25,7 @@ export const initUserInfo = (error = ''): User => ({
     error: error,
     uid: '',
     token: '',
+    provider: 'facebook',
 });
 
 export const loginFacebook = (
@@ -37,12 +38,14 @@ export const loginFacebook = (
             connectedRef.current = true;
 
             getMeInfoFromFacebook(res => {
+                console.log('user:', res);
                 setUser({
                     name: res.name,
                     email: res.email,
                     error: '',
                     uid: res.id,
                     token: response.authResponse.accessToken,
+                    provider: 'facebook',
                 });
             });
         } else {
@@ -53,6 +56,7 @@ export const loginFacebook = (
                 error: 'User cancelled login or did not fully authorize.',
                 uid: '',
                 token: '',
+                provider: 'facebook',
             });
         }
     });
@@ -71,6 +75,7 @@ export const logoutFacebook = (
             error: '',
             uid: '',
             token: '',
+            provider: 'facebook',
         });
     });
 };
@@ -91,6 +96,7 @@ export const checkFacebookLoginStatus = (
                         error: '',
                         uid: res.id,
                         token: response.authResponse.accessToken,
+                        provider: 'facebook',
                     });
                 });
             }
@@ -102,6 +108,7 @@ export const checkFacebookLoginStatus = (
                 error: 'not_authorized',
                 uid: '',
                 token: '',
+                provider: 'facebook',
             });
             // the user is logged in to Facebook,
             // but has not authenticated your app
@@ -113,6 +120,7 @@ export const checkFacebookLoginStatus = (
                 error: 'not logged in',
                 uid: '',
                 token: '',
+                provider: 'facebook',
             });
             // the user isn't logged in to Facebook.
         }

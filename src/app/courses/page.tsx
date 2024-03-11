@@ -1,11 +1,11 @@
-import UnderConstruction from '@/features/UnderConstruction';
 import CenterMain from '@/layouts/CenterMain';
 import React from 'react';
+import CourseIntro from './CourseIntro';
 
 const Courses = () => {
     return (
         <CenterMain>
-            <UnderConstruction />
+            <CourseIntro />
         </CenterMain>
     );
 };

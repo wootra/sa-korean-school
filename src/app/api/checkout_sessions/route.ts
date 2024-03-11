@@ -1,6 +1,9 @@
 import { PAYMENTS } from '@/config/registration';
 import stripe from '@/config/stripe';
-import { getUserInfo } from '@/lib/auth/server/getUserInfo';
+import {
+    getAuthInfoFromRequest,
+    getUserInfo,
+} from '@/lib/auth/server/getUserInfo';
 import { RedirectType, redirect } from 'next/navigation';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -15,9 +18,13 @@ export async function POST(req: NextRequest, res: NextResponse) {
     // Create Checkout Sessions from body params.
     const query = req.nextUrl.searchParams;
     const className = query.get('class');
-    const body = await req.formData();
-    const token = body.get('token');
-    const userInfo = await getUserInfo(token as string | null);
+    const authInfo = await getAuthInfoFromRequest(req);
+    const userInfo = await getUserInfo(authInfo);
+    const stripeUserInfo = userInfo.email
+        ? {
+              customer_email: userInfo.email,
+          }
+        : {};
     const price = classCodes[className as keyof typeof classCodes];
     if (!price) {
         redirect(
@@ -33,7 +40,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                 quantity: 1,
             },
         ],
-        ...userInfo,
+        ...stripeUserInfo,
         currency: 'usd',
         mode: 'payment',
         payment_method_types: ['card'],

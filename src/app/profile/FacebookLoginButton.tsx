@@ -6,7 +6,8 @@ import Link from 'next/link';
 
 import React from 'react';
 import facebookLogo from '@/assets/images/facebook-logo.svg';
-export const LoginButton = () => {
+import { redirect } from 'next/navigation';
+export default function FacebookLoginButton() {
     const { login } = useAuth();
     return (
         <Link
@@ -14,6 +15,7 @@ export const LoginButton = () => {
             onClick={e => {
                 e.preventDefault();
                 login();
+                redirect('/');
             }}
             className='p-0 h-6 w-auto relative'
         >
@@ -25,4 +27,4 @@ export const LoginButton = () => {
             />
         </Link>
     );
-};
+}
