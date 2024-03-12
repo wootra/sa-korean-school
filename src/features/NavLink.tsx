@@ -40,13 +40,11 @@ const NavLink = ({
             {notReady && (
                 <ConstructionHat className='w-2 h-2 text-yellow-500' />
             )}
-            <Suspense fallback={<div />}>
-                <SelectedLinkMark
-                    pathName={href}
-                    exact={exact}
-                    onlyHorizontal={onlyHorizontal}
-                />
-            </Suspense>
+            <SelectedLinkMark
+                pathName={href}
+                exact={exact}
+                onlyHorizontal={onlyHorizontal}
+            />
         </Link>
     );
 };

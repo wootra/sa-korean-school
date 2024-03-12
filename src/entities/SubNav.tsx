@@ -1,5 +1,10 @@
 import NavLink from '@/features/NavLink';
-export type SubNavInfo = { title: string; href: string; exact?: boolean };
+export type SubNavInfo = {
+    title: string;
+    href: string;
+    exact?: boolean;
+    notReady?: boolean;
+};
 type Props = { navList: SubNavInfo[] };
 const SubNav = ({ navList }: Props) => {
     return (
@@ -11,6 +16,7 @@ const SubNav = ({ navList }: Props) => {
                         key={nav.href}
                         exact={nav.exact}
                         onlyHorizontal={true}
+                        notReady={nav.notReady}
                     >
                         {nav.title}
                     </NavLink>

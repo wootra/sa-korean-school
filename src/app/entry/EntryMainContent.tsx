@@ -22,7 +22,7 @@ export default function EntryMainContent() {
                 />
                 <Heading
                     type='hero'
-                    className='text-white drop-shadow-lg z-20 relative text-center'
+                    className='text-white drop-shadow-lg z-20 relative text-center select-none'
                     style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}
                 >
                     <span>Welcome to </span>

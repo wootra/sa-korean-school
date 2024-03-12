@@ -9,4 +9,9 @@ export const ABOUT_LIST: SubNavInfo[] = [
         href: '/contents/about',
         exact: true,
     },
+    {
+        title: '학교장/이사장 인사',
+        href: '/contents/about/greetings',
+        notReady: true,
+    },
 ] as const;
