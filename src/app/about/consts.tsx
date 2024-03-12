@@ -9,8 +9,4 @@ export const ABOUT_LIST: SubNavInfo[] = [
         href: '/about',
         exact: true,
     },
-    {
-        title: '학사 일정',
-        href: '/about/schedule',
-    },
 ] as const;

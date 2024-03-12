@@ -2,7 +2,7 @@ import CenterMain from '@/layouts/CenterMain';
 import React from 'react';
 import CourseIntro from './CourseIntro';
 
-const Courses = () => {
+const CoursesPage = () => {
     return (
         <CenterMain>
             <CourseIntro />
@@ -10,4 +10,4 @@ const Courses = () => {
     );
 };
 
-export default Courses;
+export default CoursesPage;

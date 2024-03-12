@@ -5,6 +5,7 @@ const HEADING_TYPE_TO_SIZE = Object.freeze({
     hero: 'h1',
     page: 'h2',
     footer: 'h3',
+    subheader: 'h4',
 });
 
 type HeadingTypes = keyof typeof HEADING_TYPE_TO_SIZE;
@@ -23,8 +24,9 @@ const Heading = ({ type, size, children }: Props) => {
                     'text-[clamp(1.5rem,4vw,3rem)] font-bold flex flex-col',
                 HeadingTag === 'h2' &&
                     'text-lg font-bold my-2 text-blue-900/70 text-left',
-                HeadingTag === 'h3' && 'text-md font-bold mb-3',
-                HeadingTag === 'h4' && 'text-lg font-bold',
+                HeadingTag === 'h3' && 'text-base font-bold mb-3',
+                HeadingTag === 'h4' &&
+                    'text-base font-bold text-left text-neutral-500 leading-4',
                 HeadingTag === 'h5' && 'text-lg font-bold',
                 HeadingTag === 'h6' && 'text-lg font-bold'
             )}

@@ -1,15 +1,9 @@
 'use server';
 
 import { Heading } from '@/entities';
+import { multiLineText } from '@/lib/jsxUtils';
 import { cn } from '@/lib/utils';
 import React, { ReactNode } from 'react';
-const multiLineText = (txt: string | undefined) => {
-    return (txt ?? '').split('\n').map(line => (
-        <span className='w-full' key={line}>
-            {line}
-        </span>
-    ));
-};
 
 const Cell = async ({
     children,
@@ -33,7 +27,7 @@ const Cell = async ({
     );
 };
 const Schedules = async () => {
-    const spreadsheetId = '1tQtigm9iLWOZWxvuuy7mLwI0rLeRuPmPcqupKOfKpJ8';
+    const spreadsheetId = process.env.COURSE_INTRO_ID;
     const fields = 'sheets.data.rowData.values.formattedValue';
     const apiKey = 'AIzaSyDtV7r8s4HwKQDetTeS13lcRtVw2VE5tqg';
     const bound = 'Sheet1!A1:C30';
@@ -82,7 +76,7 @@ const Schedules = async () => {
                                             className='absolute left-0 inset-y-0 w-1'
                                             style={{ backgroundColor: color }}
                                         ></div>
-                                        {row[0].formattedValue}
+                                        {multiLineText(row[0].formattedValue)}
                                     </Cell>
                                 )}
                                 {row[1] && (

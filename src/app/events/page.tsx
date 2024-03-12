@@ -1,13 +1,13 @@
-import UnderConstruction from '@/features/UnderConstruction';
 import CenterMain from '@/layouts/CenterMain';
 import React from 'react';
+import Events from './Events';
 
-const Events = () => {
+const EventsPage = () => {
     return (
         <CenterMain>
-            <UnderConstruction />
+            <Events />
         </CenterMain>
     );
 };
 
-export default Events;
+export default EventsPage;

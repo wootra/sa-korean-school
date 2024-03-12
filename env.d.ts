@@ -8,6 +8,10 @@ namespace NodeJS {
         NEXTAUTH_URL: string;
         PREREGISTER_CLASS_PRICE: string;
         NOREGISTER_CLASS_PRICE: string;
+        COURSE_INTRO_ID: string;
+        COURSE_SCHEDULE_ID: string;
+        COURSE_TIMETABLE_ID: string;
+        ABOUT_EVENTS_ID: string;
     }
 }
 

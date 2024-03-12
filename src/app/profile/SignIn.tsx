@@ -49,7 +49,7 @@ export default function SignIn() {
                         className='text-gray-500 dark:text-gray-400'
                     >
                         <p className='w-full text-center'>
-                            Don't have an account?
+                            {`Don't have an account?`}
                         </p>
                         <p className='w-full text-center text-nowrap flex-nowrap'>
                             Please request a new account with{' '}
@@ -61,7 +61,7 @@ export default function SignIn() {
                             </Link>
                         </p>
                     </FlexCol>
-                    <FlexCol
+                    {/* <FlexCol
                         center
                         className='text-gray-500 dark:text-gray-400 border-t border-gray-300 py-2'
                     >
@@ -70,7 +70,7 @@ export default function SignIn() {
                     <FlexRow center>
                         <FacebookLoginButton />
                         <AutoRedirectWhenLoggedIn to='/' />
-                    </FlexRow>
+                    </FlexRow> */}
                 </div>
             </div>
         </div>

@@ -13,4 +13,8 @@ export const COURSES_LIST: SubNavInfo[] = [
         title: '학사 일정',
         href: '/courses/schedule',
     },
+    {
+        title: '시간표',
+        href: '/courses/time-table',
+    },
 ] as const;

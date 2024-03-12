@@ -3,8 +3,8 @@ import Schedules from './Schedules';
 
 // export const dynamic = 'force-dynamic';
 
-const Schedule = () => {
+const SchedulePage = () => {
     return <Schedules />;
 };
 
-export default Schedule;
+export default SchedulePage;

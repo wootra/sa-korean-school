@@ -1,16 +1,9 @@
 'use server';
 
 import { Heading } from '@/entities';
+import { multiLineText } from '@/lib/jsxUtils';
 import { cn } from '@/lib/utils';
 import React, { ReactNode } from 'react';
-
-const multiLineText = (txt: string | undefined) => {
-    return (txt ?? '').split('\n').map(line => (
-        <span className='w-full' key={line}>
-            {line}
-        </span>
-    ));
-};
 
 const Cell = async ({
     children,
@@ -35,7 +28,7 @@ const Cell = async ({
 };
 
 const Schedules = async () => {
-    const spreadsheetId = '1rvXM1zZvuiQ97rxrtq-vlCvcToEwMcNjhUPKjE3YjiM';
+    const spreadsheetId = process.env.COURSE_SCHEDULE_ID;
     const fields = 'sheets.data.rowData.values.formattedValue';
     const apiKey = 'AIzaSyDtV7r8s4HwKQDetTeS13lcRtVw2VE5tqg';
     const bound = 'Sheet1!A1:F30';
@@ -83,7 +76,10 @@ const Schedules = async () => {
                                         className='col-span-3'
                                         id='event-activity'
                                     >
-                                        {multiLineText(row[2].formattedValue)}
+                                        {multiLineText(
+                                            row[2].formattedValue,
+                                            true
+                                        )}
                                     </Cell>
                                 )}
                                 {row[3] && (
@@ -91,17 +87,26 @@ const Schedules = async () => {
                                         className='col-span-4'
                                         id='culture-class'
                                     >
-                                        {multiLineText(row[3].formattedValue)}
+                                        {multiLineText(
+                                            row[3].formattedValue,
+                                            true
+                                        )}
                                     </Cell>
                                 )}
                                 {row[4] && (
                                     <Cell className='col-span-1' id='lunch'>
-                                        {multiLineText(row[4].formattedValue)}
+                                        {multiLineText(
+                                            row[4].formattedValue,
+                                            true
+                                        )}
                                     </Cell>
                                 )}
                                 {row[5] && (
                                     <Cell className='col-span-2' id='pta'>
-                                        {multiLineText(row[5].formattedValue)}
+                                        {multiLineText(
+                                            row[5].formattedValue,
+                                            true
+                                        )}
                                     </Cell>
                                 )}
                             </li>

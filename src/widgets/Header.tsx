@@ -53,15 +53,9 @@ const Header = () => {
                 <NavLink href='/' className='sm:hidden md:flex'>
                     Home
                 </NavLink>
-                <NavLink href='/about' notReady>
-                    About
-                </NavLink>
-                <NavLink href='/courses' notReady>
-                    Courses
-                </NavLink>
-                <NavLink href='/events' notReady>
-                    Events
-                </NavLink>
+                <NavLink href='/about'>About</NavLink>
+                <NavLink href='/courses'>Courses</NavLink>
+                <NavLink href='/events'>Events</NavLink>
                 <NavLink href='/payment'>Payment</NavLink>
                 <NavLink href='/contacts'>Contacts</NavLink>
             </nav>
