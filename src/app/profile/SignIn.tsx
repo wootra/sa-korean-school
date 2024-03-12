@@ -48,11 +48,11 @@ export default function SignIn() {
                         <p className='w-full text-center'>
                             {`Don't have an account?`}
                         </p>
-                        <p className='w-full text-center text-nowrap flex-nowrap'>
+                        <p className='w-full text-center flex-nowrap'>
                             Please request a new account with{' '}
                             <Link
                                 href='mailto:sa.koreanschool@gmail.com'
-                                className=''
+                                className='text-blue-500 underline'
                             >
                                 administrator.
                             </Link>

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useAuth } from '../SessionContext';
+import { useAuth } from '@/lib/SessionContext';
 
 const TokenInput = () => {
     const { user } = useAuth();

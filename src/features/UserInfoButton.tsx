@@ -1,6 +1,6 @@
 'use client';
 
-import { useAuth } from '@/app/SessionContext';
+import { useAuth } from '@/lib/SessionContext';
 
 import React from 'react';
 import { LoginButton, ProfileButton } from './UserInfoEntryButtons';

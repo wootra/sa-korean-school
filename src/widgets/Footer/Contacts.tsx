@@ -42,7 +42,7 @@ export const Contacts = ({
                 href='https://www.facebook.com/SanAntonioKoreanSchool/'
                 className='underline text-blue-600 text-left'
             >
-                <FlexRow className='gap-2'>
+                <FlexRow className='gap-2 break-all'>
                     <FacebookIcon className='w-4 h-4' />
                     {!withHeading && 'Facebook: '}
                     @SanAntonioKoreanCommunitySchool

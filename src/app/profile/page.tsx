@@ -3,7 +3,7 @@
 import React from 'react';
 import SignIn from './SignIn';
 import Profile from './Profile';
-import { useAuth } from '../SessionContext';
+import { useAuth } from '@/lib/SessionContext';
 
 const ProfilePage = () => {
     const { user } = useAuth();

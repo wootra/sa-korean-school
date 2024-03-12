@@ -13,9 +13,10 @@ type HeadingTypes = keyof typeof HEADING_TYPE_TO_SIZE;
 type Props = {
     size?: HeadingSize;
     type?: HeadingTypes;
+    className?: string;
     children: React.ReactNode;
 };
-const Heading = ({ type, size, children }: Props) => {
+const Heading = ({ type, size, className, children }: Props) => {
     const HeadingTag = size ?? HEADING_TYPE_TO_SIZE[type ?? 'page'];
     return (
         <HeadingTag
@@ -28,7 +29,8 @@ const Heading = ({ type, size, children }: Props) => {
                 HeadingTag === 'h4' &&
                     'text-base font-bold text-left text-neutral-500 leading-4',
                 HeadingTag === 'h5' && 'text-lg font-bold',
-                HeadingTag === 'h6' && 'text-lg font-bold'
+                HeadingTag === 'h6' && 'text-lg font-bold',
+                className
             )}
         >
             {children}

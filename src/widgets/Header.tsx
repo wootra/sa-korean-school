@@ -21,14 +21,17 @@ const Header = () => {
                     }}
                     width='40'
                 />
-                <span className='flex flex-col'>
+                <span
+                    className='flex flex-col'
+                    style={{ fontSize: 'clamp(0.2rem, 3vw, 1.2rem)' }}
+                >
                     <span className='text-nowrap'>San Antonio</span>
                     <span className='text-nowrap'> Korean School</span>
                 </span>
             </Link>
             <label
                 htmlFor='menu-toggle'
-                className='flex sm:hidden md:pointer-events-none items-center w-40 flex-shrink-0 flex-grow-0 gap-2 cursor-pointer md:cursor-default py-2 md:py-4'
+                className='flex sm:hidden md:pointer-events-none items-center w-40 flex-grow-0 gap-2 cursor-pointer md:cursor-default py-2 md:py-4'
             >
                 <Image
                     alt='San Antonio Korean School logo'

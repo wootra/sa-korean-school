@@ -1,6 +1,6 @@
 'use client';
 
-import { useAuth } from '@/app/SessionContext';
+import { useAuth } from '@/lib/SessionContext';
 import { Button } from '@/components/ui/button';
 import { redirect } from 'next/navigation';
 
