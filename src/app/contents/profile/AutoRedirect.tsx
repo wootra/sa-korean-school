@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 export default function AutoRedirectWhenLoggedIn({ to }: { to: string }) {
     const { user } = useAuth();
     useEffect(() => {
-        if (user.email) redirect(to);
-    }, [user.email, to]);
+        if (user?.email) redirect(to);
+    }, [user?.email, to]);
     return null;
 }

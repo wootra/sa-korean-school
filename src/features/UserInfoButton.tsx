@@ -7,6 +7,6 @@ import { LoginButton, ProfileButton } from './UserInfoEntryButtons';
 
 const UserInfoButton = () => {
     const { user } = useAuth();
-    return user.token ? <ProfileButton token={user.token} /> : <LoginButton />;
+    return user?.token ? <ProfileButton token={user.token} /> : <LoginButton />;
 };
 export default UserInfoButton;
