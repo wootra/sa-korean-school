@@ -6,7 +6,7 @@ export type AboutPage = (typeof ABOUT_PAGES)[number];
 export const ABOUT_LIST: SubNavInfo[] = [
     {
         title: '학교 소개',
-        href: '/about',
+        href: '/contents/about',
         exact: true,
     },
 ] as const;

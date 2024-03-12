@@ -14,7 +14,7 @@ const SelectedLinkMark = ({
 }) => {
     const currPathName = usePathname();
     const isActive =
-        pathName === '/' || exact
+        pathName === '/entry' || exact
             ? currPathName === pathName
             : currPathName.includes(pathName);
     return (

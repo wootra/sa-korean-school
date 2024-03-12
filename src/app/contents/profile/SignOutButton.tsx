@@ -10,7 +10,7 @@ export default function SignOutButton() {
     const { logout } = useAuth();
     const signOut = useCallback(() => {
         logout();
-        redirect('/profile');
+        redirect('/contents/profile');
     }, [logout]);
     return (
         <Button

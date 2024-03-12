@@ -15,7 +15,7 @@ export default function FacebookLoginButton() {
             onClick={e => {
                 e.preventDefault();
                 login();
-                redirect('/');
+                redirect('/entry');
             }}
             className='p-0 h-6 w-auto relative'
         >

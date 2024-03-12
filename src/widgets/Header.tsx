@@ -53,14 +53,14 @@ const Header = () => {
             <input type='checkbox' id='menu-toggle' className='opacity-0' />
             <div className='absolute w-full top-[100%] border-t-[1px] left-0 right-0 border-gray-200 drop-shadow'></div>
             <nav className='hidden sm:flex p-4 sm:p-0 sm:justify-end group-has-[input:checked]:flex flex-1 items-start sm:items-center justify-start gap-2 sm:gap-4 flex-col sm:flex-row absolute left-0 top-[100%] bg-gray-100 border-r-[1px] border-b-[1px] border-gray-200 sm:border-none shadow-lg sm:bg-transparent sm:static sm:shadow-none '>
-                <NavLink href='/' className='sm:hidden md:flex'>
+                <NavLink href='/entry' className='sm:hidden md:flex'>
                     Home
                 </NavLink>
-                <NavLink href='/about'>About</NavLink>
-                <NavLink href='/courses'>Courses</NavLink>
-                <NavLink href='/events'>Events</NavLink>
-                <NavLink href='/payment'>Payment</NavLink>
-                <NavLink href='/contacts'>Contacts</NavLink>
+                <NavLink href='/contents/about'>About</NavLink>
+                <NavLink href='/contents/courses'>Courses</NavLink>
+                <NavLink href='/contents/events'>Events</NavLink>
+                <NavLink href='/contents/payment'>Payment</NavLink>
+                <NavLink href='/contents/contacts'>Contacts</NavLink>
             </nav>
             <div className='flex h-full flex-row min-w-8 items-center justify-end pr-2 sm:pr-0 sm:items-center sm:justify-center flex-1 sm:flex-none'>
                 <UserInfoButton />

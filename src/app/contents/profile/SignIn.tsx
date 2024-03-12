@@ -66,7 +66,7 @@ export default function SignIn() {
                     </FlexCol>
                     <FlexRow center>
                         <FacebookLoginButton />
-                        <AutoRedirectWhenLoggedIn to='/' />
+                        <AutoRedirectWhenLoggedIn to='/entry' />
                     </FlexRow> */}
                 </div>
             </div>
