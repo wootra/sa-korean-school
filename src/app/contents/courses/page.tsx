@@ -3,11 +3,7 @@ import React from 'react';
 import CourseIntro from './CourseIntro';
 
 const CoursesPage = () => {
-    return (
-        <CenterMain>
-            <CourseIntro />
-        </CenterMain>
-    );
+    return <CourseIntro />;
 };
 
 export default CoursesPage;

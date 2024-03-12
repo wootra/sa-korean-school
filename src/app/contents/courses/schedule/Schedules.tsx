@@ -50,7 +50,7 @@ const Schedules = async () => {
     const data = await resp.json();
     const rows = data.sheets[0].data[0].rowData ?? []; //[0].values ?? [];
     return (
-        <div className='w-full max-w-[800px] mx-auto my-4'>
+        <>
             <Heading type='page'>학사 일정</Heading>
             <ul className='mx-auto flex flex-col gap-[1px] bg-slate-300 border border-gray-400'>
                 <li
@@ -153,7 +153,7 @@ const Schedules = async () => {
                     }
                 )}
             </ul>
-        </div>
+        </>
     );
 };
 

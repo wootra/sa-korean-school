@@ -7,7 +7,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     return (
         <FullWidth>
             <SubNav navList={COURSES_LIST} />
-            {children}
+            <div className='w-full max-w-[800px] mx-auto my-4'>{children}</div>
         </FullWidth>
     );
 };

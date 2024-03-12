@@ -56,7 +56,7 @@ const TimeTable = async () => {
         return obj;
     }, {} as Record<string, (string | undefined)[][]>);
     return (
-        <div className='w-full max-w-[800px] mx-auto my-4 flex flex-col gap-8'>
+        <div className='w-full flex flex-col gap-8'>
             {Object.keys(tableGroups).map(classGroup => (
                 <div key={classGroup}>
                     <Heading type='page'>{classGroup}</Heading>

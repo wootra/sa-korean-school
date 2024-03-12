@@ -4,7 +4,7 @@ import AboutIntro from './AboutIntro';
 
 const AboutPage = () => {
     return (
-        <CenterMain>
+        <CenterMain className='my-4'>
             <AboutIntro />
         </CenterMain>
     );
