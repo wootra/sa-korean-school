@@ -9,20 +9,25 @@ const Cell = async ({
     children,
     className,
     id,
+    title,
 }: {
     children: ReactNode;
     className: string;
     id: string;
+    title?: string;
 }) => {
     return (
         <div
             className={cn(
                 className,
-                'flex flex-col p-2 items-center justify-center'
+                'p-2 flex flex-row gap-2 md:items-center md:justify-center text-sm'
             )}
             data-id={id}
         >
-            {children}
+            {title && (
+                <span className='inline-block md:hidden text-slate-500 text-xs'>{`${title}:`}</span>
+            )}
+            <div className='flex flex-col '>{children}</div>
         </div>
     );
 };
@@ -31,7 +36,7 @@ const Schedules = async () => {
     const spreadsheetId = process.env.COURSE_SCHEDULE_ID;
     const fields = 'sheets.data.rowData.values.formattedValue';
     const apiKey = 'AIzaSyDtV7r8s4HwKQDetTeS13lcRtVw2VE5tqg';
-    const bound = 'Sheet1!A1:F30';
+    const bound = 'Sheet1!A2:F30';
     const resp = await fetch(
         `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?includeGridData=true&ranges=${bound}&fields=${fields}`,
         {
@@ -48,6 +53,28 @@ const Schedules = async () => {
         <div className='w-full max-w-[800px] mx-auto my-4'>
             <Heading type='page'>학사 일정</Heading>
             <ul className='mx-auto flex flex-col gap-[1px] bg-slate-300 border border-gray-400'>
+                <li
+                    className={cn(
+                        'hidden justify-start items-start gap-0 md:grid grid-cols-12 hover:bg-green-100 transition-colors',
+                        ' bg-gray-200 font-extrabold'
+                    )}
+                >
+                    <Cell className='col-span-2' id='date'>
+                        Class Date
+                    </Cell>
+                    <Cell className='col-span-3' id='event-activity'>
+                        Event & Activities
+                    </Cell>
+                    <Cell className='col-span-4' id='culture-class'>
+                        Culture or History Class
+                    </Cell>
+                    <Cell className='col-span-1' id='lunch'>
+                        Lunch
+                    </Cell>
+                    <Cell className='col-span-2' id='pta'>
+                        PTA
+                    </Cell>
+                </li>
                 {rows.map(
                     (
                         rowData: { values: { formattedValue?: string }[] },
@@ -57,17 +84,19 @@ const Schedules = async () => {
                         return (
                             <li
                                 className={cn(
-                                    'grid grid-cols-12 hover:bg-green-100 transition-colors',
-                                    idx === 0
-                                        ? ' bg-gray-200'
-                                        : !row[0].formattedValue
+                                    'flex flex-col justify-start items-start gap-0 md:grid grid-cols-12 hover:bg-green-100 transition-colors',
+                                    !row[0].formattedValue
                                         ? 'bg-slate-300'
                                         : 'bg-white'
                                 )}
                                 key={'row-' + idx}
                             >
                                 {row[1] && (
-                                    <Cell className='col-span-2' id='date'>
+                                    <Cell
+                                        className='col-span-2'
+                                        id='date'
+                                        title='Date'
+                                    >
                                         {multiLineText(row[1].formattedValue)}
                                     </Cell>
                                 )}
@@ -75,6 +104,7 @@ const Schedules = async () => {
                                     <Cell
                                         className='col-span-3'
                                         id='event-activity'
+                                        title='Event & Activities'
                                     >
                                         {multiLineText(
                                             row[2].formattedValue,
@@ -86,6 +116,7 @@ const Schedules = async () => {
                                     <Cell
                                         className='col-span-4'
                                         id='culture-class'
+                                        title='Culture or History Class'
                                     >
                                         {multiLineText(
                                             row[3].formattedValue,
@@ -94,7 +125,11 @@ const Schedules = async () => {
                                     </Cell>
                                 )}
                                 {row[4] && (
-                                    <Cell className='col-span-1' id='lunch'>
+                                    <Cell
+                                        className='col-span-1'
+                                        id='lunch'
+                                        title='Lunch'
+                                    >
                                         {multiLineText(
                                             row[4].formattedValue,
                                             true
@@ -102,7 +137,11 @@ const Schedules = async () => {
                                     </Cell>
                                 )}
                                 {row[5] && (
-                                    <Cell className='col-span-2' id='pta'>
+                                    <Cell
+                                        className='col-span-2'
+                                        id='pta'
+                                        title='PTA'
+                                    >
                                         {multiLineText(
                                             row[5].formattedValue,
                                             true

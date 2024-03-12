@@ -1,8 +1,23 @@
+import { cn } from '@/lib/utils';
 import React from 'react';
 
-const TopMain = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+const TopMain = ({
+    children,
+    className,
+    limitedSize = false,
+}: Readonly<{
+    children: React.ReactNode;
+    className?: string;
+    limitedSize?: boolean;
+}>) => {
     return (
-        <div className='flex flex-col w-full max-w-[800px] lg:max-w-[1024px] mx-auto items-start justify-start text-center text-sm'>
+        <div
+            className={cn(
+                'flex flex-col w-full  items-start justify-start text-center text-sm',
+                className,
+                limitedSize && 'max-w-[800px] lg:max-w-[1024px] mx-auto'
+            )}
+        >
             {children}
         </div>
     );
