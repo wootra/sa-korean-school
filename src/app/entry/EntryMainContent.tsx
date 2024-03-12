@@ -9,7 +9,7 @@ import dancheong from '@/assets/images/dancheong.jpg';
 export default function EntryMainContent() {
     return (
         <>
-            <div className='w-[100vw] h-[100vh] relative flex justify-center items-center'>
+            <div className='w-[100vw] h-[100vh] relative flex justify-center items-center bg-green-950-700'>
                 <Image
                     // sizes='(min-width: 768px) 100vw, 100vw'
                     src={dancheong}
