@@ -3,6 +3,8 @@ import Script from 'next/script';
 import '@/css/globals.css';
 import '@/css/index.css';
 import '@/css/font.css';
+import { AuthProvider } from '@/lib/SessionContext';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,8 +17,11 @@ export default function RootLayout({
         <html lang='en'>
             <body className={inter.className}>
                 <div id='fb-root'></div>
-
-                {children}
+                <AuthProvider>
+                    <Suspense fallback={<div>loading...</div>}>
+                        {children}
+                    </Suspense>
+                </AuthProvider>
                 <Script
                     async
                     defer

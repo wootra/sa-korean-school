@@ -3,9 +3,18 @@ import UserInfoButton from '@/features/UserInfoButton';
 import NavLink from '@/features/NavLink';
 import Link from 'next/link';
 import logo from '@/assets/images/logo.png';
-const Header = () => {
+import HeaderLocator from './HeaderLocator';
+import { RefObject } from 'react';
+
+const Header = ({
+    fixed,
+    refToObserve,
+}: {
+    fixed?: boolean;
+    refToObserve?: RefObject<HTMLElement>;
+}) => {
     return (
-        <header className='w-full group sticky top-0 gap-4 z-[60] flex flex-row items-center px-4 text-sm font-medium bg-white/90 border-b border-gray-200 dark:bg-gray-950 dark:border-gray-800'>
+        <HeaderLocator fixed={fixed} refToObserve={refToObserve}>
             <Link
                 href='/'
                 className='hidden sm:flex py-2 md:py-4 font-bold gap-2'
@@ -51,7 +60,7 @@ const Header = () => {
                 <div className='group-has-[input:checked]:block hidden absolute w-[100vw] h-[100vh] bg-white/70 left-0 top-0 -z-10'></div>
             </label>
             <input type='checkbox' id='menu-toggle' className='opacity-0' />
-            <div className='absolute w-full top-[100%] border-t-[1px] left-0 right-0 border-gray-200 drop-shadow'></div>
+
             <nav className='hidden sm:flex p-4 sm:p-0 sm:justify-end group-has-[input:checked]:flex flex-1 items-start sm:items-center justify-start gap-2 sm:gap-4 flex-col sm:flex-row absolute left-0 top-[100%] bg-gray-100 border-r-[1px] border-b-[1px] border-gray-200 sm:border-none shadow-lg sm:bg-transparent sm:static sm:shadow-none '>
                 <NavLink href='/entry' className='sm:hidden md:flex'>
                     Home
@@ -65,7 +74,7 @@ const Header = () => {
             <div className='flex h-full flex-row min-w-8 items-center justify-end pr-2 sm:pr-0 sm:items-center sm:justify-center flex-1 sm:flex-none'>
                 <UserInfoButton />
             </div>
-        </header>
+        </HeaderLocator>
     );
 };
 

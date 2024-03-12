@@ -6,7 +6,7 @@ import notLoginImage from '@/assets/images/img_profile_24_outline.svg';
 export const LoginButton = () => {
     return (
         <Link
-            href={`/profile`}
+            href={`/contents/profile`}
             className='p-0 h-6 w-auto relative'
             aria-label='login'
         >
@@ -29,7 +29,7 @@ export const ProfileButton = ({ token }: { token: string }) => {
     const ref = useRef(Math.floor(Math.random() * 1000));
     return (
         <Link
-            href={`/profile?token=${token}`}
+            href={`/contents/profile?token=${token}`}
             className='w-auto h-6 p-0 relative'
             aria-label='logout'
         >
