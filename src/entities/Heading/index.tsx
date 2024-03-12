@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import React from 'react';
+import React, { CSSProperties } from 'react';
 type HeadingSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 const HEADING_TYPE_TO_SIZE = Object.freeze({
     hero: 'h1',
@@ -14,9 +14,10 @@ type Props = {
     size?: HeadingSize;
     type?: HeadingTypes;
     className?: string;
+    style?: CSSProperties;
     children: React.ReactNode;
 };
-const Heading = ({ type, size, className, children }: Props) => {
+const Heading = ({ type, size, className, style, children }: Props) => {
     const HeadingTag = size ?? HEADING_TYPE_TO_SIZE[type ?? 'page'];
     return (
         <HeadingTag
@@ -32,6 +33,7 @@ const Heading = ({ type, size, className, children }: Props) => {
                 HeadingTag === 'h6' && 'text-lg font-bold',
                 className
             )}
+            style={style}
         >
             {children}
         </HeadingTag>

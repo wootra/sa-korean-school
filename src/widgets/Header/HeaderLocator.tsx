@@ -40,7 +40,7 @@ const HeaderLocator = ({
             className={cn(
                 'w-full group top-0 gap-4 z-[60] flex flex-row items-center px-4 text-sm font-medium',
                 fixed
-                    ? 'fixed font-extrabold'
+                    ? 'fixed font-extrabold transition-colors duration-500'
                     : 'sticky bg-white/90 border-b border-gray-200 dark:bg-gray-950 dark:border-gray-800',
                 fixed &&
                     (scrolled
