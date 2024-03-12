@@ -29,12 +29,12 @@ export default function EntryMainContent() {
                     <span>San Antonio Korean School</span>
                 </Heading>
             </div>
-            <TopMain className='bg-lime-100 drop-shadow-lg'>
+            <TopMain className='bg-lime-600 drop-shadow-lg'>
                 <div className='container flex flex-1 flex-col items-center justify-center gap-4 relative p-4'>
-                    <p className='max-w-[700px] text-gray-500 text-sm lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400 flex flex-col '>
+                    <p className='max-w-[700px] text-white/90 text-sm lg:text-base/relaxed xl:text-xl/relaxed flex flex-col '>
                         {multiLineText(
-                            `We value children's dreams and love. 
-                        We are dedicated to providing a safe and happy learning environment for our students.`,
+                            `We value children's dreams 🛌 and love💖. 
+                        Join our safe and happy learning environment!`,
                             true
                         )}
                     </p>

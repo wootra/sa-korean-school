@@ -15,6 +15,7 @@ export const LoginButton = () => {
                 alt='facebook login'
                 width='20'
                 height='20'
+                className='bg-white rounded-full'
             />
 
             <div className='absolute w-full h-[10px] flex justify-center items-center left-0 top-[100%] z-50'>
