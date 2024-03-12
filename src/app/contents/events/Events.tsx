@@ -31,7 +31,7 @@ const Cell = async ({
 const Events = async () => {
     const spreadsheetId = process.env.ABOUT_EVENTS_ID;
     const fields = 'sheets.data.rowData.values.formattedValue';
-    const apiKey = 'AIzaSyDtV7r8s4HwKQDetTeS13lcRtVw2VE5tqg';
+    const apiKey = process.env.GOOGLE_SHEET_API_KEY;
     const bound = 'Sheet1!A2:C100';
     const resp = await fetch(
         `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?includeGridData=true&ranges=${bound}&fields=${fields}`,

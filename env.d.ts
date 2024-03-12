@@ -11,7 +11,7 @@ namespace NodeJS {
         COURSE_INTRO_ID: string;
         COURSE_SCHEDULE_ID: string;
         COURSE_TIMETABLE_ID: string;
-        ABOUT_EVENTS_ID: string;
+        GOOGLE_SHEET_API_KEY: string;
     }
 }
 
