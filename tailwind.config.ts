@@ -69,8 +69,8 @@ const config = {
                     to: { height: '0' },
                 },
                 'scroll-x': {
-                    from: { marginLeft: '0' },
-                    to: { marginLeft: '-100%' },
+                    from: { left: '0' },
+                    to: { left: 'calc(var(--itemWidth) * (-5))' },
                 },
             },
             animation: {
