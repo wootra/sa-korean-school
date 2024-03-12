@@ -3,31 +3,28 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import FlexCol from '@/layouts/FlexCol';
-import FlexRow from '@/layouts/FlexRow';
-import FacebookLoginButton from './FacebookLoginButton';
 import Image from 'next/image';
 import logo from '@/assets/images/logo.png';
-import AutoRedirectWhenLoggedIn from './AutoRedirect';
 
 export default function SignIn() {
     return (
         <div className='w-full py-12'>
-            <div className=''>
-                <div className='space-y-2 text-center flex flex-col'>
+            <div className='max-w-[640px] flex flex-col md:flex-row mx-auto  border border-slate-200 drop-shadow-md rounded-lg bg-white p-4'>
+                <div className='gap-2 md:gap-4 text-center flex-1 flex flex-col justify-center items-center'>
                     <Image
                         alt='San Antonio Korean School logo'
-                        className='rounded-full'
-                        height='40'
+                        className='w-16 h-16 md:w-32 md:h-32'
+                        height='120'
                         src={logo}
                         style={{
                             aspectRatio: '40/40',
                             objectFit: 'cover',
                         }}
-                        width='40'
+                        width='120'
                     />
                     <h1 className='text-4xl font-bold'>Sign In</h1>
                 </div>
-                <div className='mx-auto max-w-[400px] space-y-4'>
+                <div className='w-full max-w-[400px] space-y-4 mx-auto'>
                     <div className='space-y-2'>
                         <Label htmlFor='email'>Email</Label>
                         <Input

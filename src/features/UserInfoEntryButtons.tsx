@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import React, { useRef } from 'react';
-import facebookLogo from '@/assets/images/facebook-logo.svg';
+import notLoginImage from '@/assets/images/img_profile_24_outline.svg';
 export const LoginButton = () => {
     return (
         <Link
@@ -11,7 +11,7 @@ export const LoginButton = () => {
             aria-label='login'
         >
             <Image
-                src={facebookLogo}
+                src={notLoginImage}
                 alt='facebook login'
                 width='20'
                 height='20'

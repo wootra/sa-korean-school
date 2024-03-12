@@ -38,7 +38,6 @@ export const loginFacebook = (
             connectedRef.current = true;
 
             getMeInfoFromFacebook(res => {
-                console.log('user:', res);
                 setUser({
                     name: res.name,
                     email: res.email,
