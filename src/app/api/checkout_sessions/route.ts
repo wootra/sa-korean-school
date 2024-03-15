@@ -28,7 +28,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     const price = classCodes[className as keyof typeof classCodes];
     if (!price) {
         redirect(
-            `${origin}/payment/failed?message=${'payment name does not exist'}`,
+            `${origin}/contents/payment/failed?message=${'payment name does not exist'}`,
             RedirectType.replace
         );
     }
@@ -44,8 +44,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
         currency: 'usd',
         mode: 'payment',
         payment_method_types: ['card'],
-        success_url: `${origin}/payment/success?success=true`,
-        cancel_url: `${origin}/payment?canceled=true`,
+        success_url: `${origin}/contents/payment/success?success=true`,
+        cancel_url: `${origin}/contents//payment?canceled=true`,
     });
     if (session) {
         if (session.url) {
@@ -53,13 +53,13 @@ export async function POST(req: NextRequest, res: NextResponse) {
             redirect(session.url, RedirectType.replace);
         } else {
             redirect(
-                `${origin}/payment/failed?message=${'session.url does not exist'}`,
+                `${origin}/contents//payment/failed?message=${'session.url does not exist'}`,
                 RedirectType.replace
             );
         }
     } else {
         redirect(
-            `${origin}/payment/failed?message=${'session does not exist'}`,
+            `${origin}/contents//payment/failed?message=${'session does not exist'}`,
             RedirectType.replace
         );
     }
