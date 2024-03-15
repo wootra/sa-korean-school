@@ -44,8 +44,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
         currency: 'usd',
         mode: 'payment',
         payment_method_types: ['card'],
-        success_url: `${origin}/contents/payment/success?success=true`,
-        cancel_url: `${origin}/contents//payment?canceled=true`,
+        success_url: `${origin}/contents/payment/success?success=true&class=${className}`,
+        cancel_url: `${origin}/contents/payment?canceled=true&class=${className}`,
     });
     if (session) {
         if (session.url) {
@@ -53,13 +53,13 @@ export async function POST(req: NextRequest, res: NextResponse) {
             redirect(session.url, RedirectType.replace);
         } else {
             redirect(
-                `${origin}/contents//payment/failed?message=${'session.url does not exist'}`,
+                `${origin}/contents//payment/failed?error=NO_SUCH_CLASS&class=${className}`,
                 RedirectType.replace
             );
         }
     } else {
         redirect(
-            `${origin}/contents//payment/failed?message=${'session does not exist'}`,
+            `${origin}/contents//payment/failed?error=NO_SESSION&class=${'className'}`,
             RedirectType.replace
         );
     }
