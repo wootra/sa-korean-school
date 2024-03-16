@@ -28,7 +28,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     const price = classCodes[className as keyof typeof classCodes];
     if (!price) {
         redirect(
-            `${origin}/contents/payment/failed?message=${'payment name does not exist'}`,
+            `${origin}/contents/payment/failed?error=NO_SUCH_PAYMENT_PLAN&class${className}`,
             RedirectType.replace
         );
     }
@@ -44,8 +44,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
         currency: 'usd',
         mode: 'payment',
         payment_method_types: ['card'],
-        success_url: `${origin}/contents/payment/success?success=true&class=${className}`,
-        cancel_url: `${origin}/contents/payment?canceled=true&class=${className}`,
+        success_url: `${origin}/contents/payment/success?class=${className}`,
+        cancel_url: `${origin}/contents/payment/canceled?class=${className}`,
     });
     if (session) {
         if (session.url) {
@@ -53,13 +53,13 @@ export async function POST(req: NextRequest, res: NextResponse) {
             redirect(session.url, RedirectType.replace);
         } else {
             redirect(
-                `${origin}/contents//payment/failed?error=NO_SUCH_CLASS&class=${className}`,
+                `${origin}/contents/payment/failed?error=NO_SUCH_CLASS&class=${className}`,
                 RedirectType.replace
             );
         }
     } else {
         redirect(
-            `${origin}/contents//payment/failed?error=NO_SESSION&class=${'className'}`,
+            `${origin}/contents/payment/failed?error=NO_SESSION&class=${'className'}`,
             RedirectType.replace
         );
     }
