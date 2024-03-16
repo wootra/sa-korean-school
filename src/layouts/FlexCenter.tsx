@@ -8,7 +8,7 @@ const FlexCenter = ({
     return (
         <div
             className={cn(
-                'flex flex-col items-center justify-center min-h-[600px] w-full relative',
+                'flex flex-col items-center justify-center min-h-[calc(100vh-320px)] w-full relative px-4',
                 className
             )}
         >

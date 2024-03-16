@@ -68,7 +68,7 @@ const Header = ({
                 <NavLink href='/contents/about'>About</NavLink>
                 <NavLink href='/contents/courses'>Courses</NavLink>
                 <NavLink href='/contents/events'>Events</NavLink>
-                <NavLink href='/contents/payment'>Payment</NavLink>
+                <NavLink href='/contents/manual-payment'>Payment</NavLink>
                 <NavLink href='/contents/contacts'>Contacts</NavLink>
             </nav>
             <div className='flex h-full flex-row min-w-8 items-center justify-end pr-2 sm:pr-0 sm:items-center sm:justify-center flex-1 sm:flex-none'>
