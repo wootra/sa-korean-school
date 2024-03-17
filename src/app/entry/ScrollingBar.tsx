@@ -1,3 +1,5 @@
+'use server';
+
 import Image from 'next/image';
 import heroBack1 from '@/assets/hero-back/1.png';
 import heroBack2 from '@/assets/hero-back/2.png';
@@ -7,7 +9,11 @@ import heroBack5 from '@/assets/hero-back/5.png';
 import { CSSProperties } from 'react';
 
 const images = [heroBack1, heroBack2, heroBack3, heroBack4, heroBack5];
-const ScrollingBar = () => {
+const ScrollingBar = async ({
+    scrollImages,
+}: {
+    scrollImages: { desc: string; url: string }[];
+}) => {
     return (
         <div className='flex flex-col w-full h-[300px] overflow-x-clip py-4 relative'>
             <div className='absolute left-0 inset-y-0 w-8 bg-gradient-to-r from-white to-transparent z-10'></div>
@@ -21,14 +27,14 @@ const ScrollingBar = () => {
                     style={{ '--itemWidth': `${338}px` } as CSSProperties}
                     aria-hidden
                 >
-                    {images.map((image, index) => (
+                    {scrollImages.map((image, index) => (
                         <div
                             key={`image-${index}`}
                             className='w-[338px] flex items-center justify-center'
                         >
                             <Image
-                                src={image}
-                                alt='hero-back'
+                                src={image.url}
+                                alt={image.desc}
                                 width='326'
                                 height='471'
                                 loading='lazy'
@@ -36,14 +42,14 @@ const ScrollingBar = () => {
                             />
                         </div>
                     ))}
-                    {images.map((image, index) => (
+                    {scrollImages.map((image, index) => (
                         <div
                             key={`image-${index}-repeat`}
                             className='w-[338px] flex items-center justify-center'
                         >
                             <Image
-                                src={image}
-                                alt='hero-back'
+                                src={image.url}
+                                alt={image.desc}
                                 width='326'
                                 height='471'
                                 loading='lazy'

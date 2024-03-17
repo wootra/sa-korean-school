@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
     env: {
         // NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
         // FACEBOOK_APP_ID: process.env.FACEBOOK_APP_ID,
@@ -25,8 +25,6 @@ const nextConfig = {
         ],
 
         minimumCacheTTL:
-            process.env.NODE_ENV === 'development' ? 10 : 60 * 60 * 6,
+            process.env.NODE_ENV === 'development' ? 60 : 60 * 60 * 6,
     },
 };
-
-export default nextConfig;

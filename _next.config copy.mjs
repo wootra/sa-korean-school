@@ -12,21 +12,30 @@ const nextConfig = {
         // NOREGISTER_CLASS_PRICE: process.env.NOREGISTER_CLASS_PRICE,
     },
     images: {
-        formats: ['image/avif', 'image/webp'],
-        domains: ['drive.google.com', 'lh3.googleusercontent.com'],
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: '**.googleusercontent.com',
-                pathname: '/d/*=w*?authuser=*',
+                hostname: 'assets.example.com',
                 port: '',
-                // https://drive.google.com/thumbnail?id=*&size=*
+                pathname: '/thumbnail?id=*&size=*',
             },
         ],
-
-        minimumCacheTTL:
-            process.env.NODE_ENV === 'development' ? 10 : 60 * 60 * 6,
     },
+    // images: {
+    //     formats: ['image/avif', 'image/webp'],
+
+    //     remotePatterns: [
+    //         {
+    //             protocol: 'https',
+    //             hostname: 'assets.vercel.com',
+    //             pathname: '/thumbnail?id=*&size=*',
+    //             port: '',
+    //             // https://drive.google.com/thumbnail?id=*&size=*
+    //         },
+    //     ],
+    //     // minimumCacheTTL:
+    //     //     process.env.NODE_ENV === 'development' ? 60 : 60 * 60 * 6,
+    // },
 };
 
 export default nextConfig;
