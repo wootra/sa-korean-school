@@ -77,7 +77,8 @@ const config = {
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
-                'scroll-x': 'scroll-x 60s linear infinite',
+                'scroll-x':
+                    'scroll-x var(--animationDuration,10s) linear infinite',
             },
         },
     },

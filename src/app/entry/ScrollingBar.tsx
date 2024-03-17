@@ -24,13 +24,20 @@ const ScrollingBar = async ({
             >
                 <div
                     className='flex flex-row flex-nowrap animate-scroll-x absolute w-[3380px] inset-y-0'
-                    style={{ '--itemWidth': `${338}px` } as CSSProperties}
+                    style={
+                        {
+                            '--itemWidth': `${338}px`,
+                            '--animationDuration': `${
+                                scrollImages.length * 10
+                            }s`,
+                        } as CSSProperties
+                    }
                     aria-hidden
                 >
                     {scrollImages.map((image, index) => (
                         <div
                             key={`image-${index}`}
-                            className='w-[338px] flex items-center justify-center'
+                            className='w-[338px] flex items-center justify-center p-2'
                         >
                             <Image
                                 src={image.url}
