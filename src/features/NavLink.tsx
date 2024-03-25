@@ -23,7 +23,7 @@ const NavLink = ({
         <Link
             prefetch={true}
             className={cn(
-                'text-sm font-medium relative h-full gap-1 flex flex-row text-left justify-center items-center min-h-8 ',
+                'text-sm font-medium relative h-full gap-1 flex flex-row text-left justify-center items-center min-h-8',
                 className,
                 !onlyHorizontal ? 'w-full sm:w-auto' : 'w-auto'
             )}

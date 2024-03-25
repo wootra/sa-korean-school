@@ -4,8 +4,24 @@ import NavLink from '@/features/NavLink';
 import Link from 'next/link';
 import logo from '@/assets/images/logo.png';
 import HeaderLocator from './HeaderLocator';
-import { RefObject } from 'react';
-
+import { PropsWithChildren, RefObject } from 'react';
+import { twMerge } from 'tailwind-merge';
+const MainNav = (
+    props: PropsWithChildren<{ className?: string; href: string }>
+) => {
+    const { className, href, children } = props;
+    return (
+        <NavLink
+            href={href}
+            className={twMerge(
+                'group-has-[*]/entry:text-slate-700 group-has-[*]/entry:sm:text-white',
+                className
+            )}
+        >
+            {children}
+        </NavLink>
+    );
+};
 const Header = ({
     fixed,
     refToObserve,
@@ -61,15 +77,15 @@ const Header = ({
             </label>
             <input type='checkbox' id='menu-toggle' className='opacity-0' />
 
-            <nav className='hidden sm:flex p-4 sm:p-0 sm:justify-end group-has-[input:checked]:flex flex-1 items-start sm:items-center justify-start gap-2 sm:gap-4 flex-col sm:flex-row absolute left-0 top-[100%] bg-gray-100 border-r-[1px] border-b-[1px] border-gray-200 sm:border-none shadow-lg sm:bg-transparent sm:static sm:shadow-none '>
-                <NavLink href='/entry' className='sm:hidden md:flex'>
+            <nav className='hidden sm:flex p-4 sm:p-0 sm:justify-end group-has-[input:checked]:flex flex-1 items-start sm:items-center justify-start gap-2 sm:gap-4 flex-col sm:flex-row absolute left-0 top-[100%] bg-gray-100 border-r-[1px] border-b-[1px] border-gray-200 sm:border-none shadow-lg sm:bg-transparent sm:static sm:shadow-none'>
+                <MainNav href='/entry' className='sm:hidden md:flex'>
                     Home
-                </NavLink>
-                <NavLink href='/contents/about'>About</NavLink>
-                <NavLink href='/contents/courses'>Courses</NavLink>
-                <NavLink href='/contents/events'>Events</NavLink>
-                <NavLink href='/contents/manual-payment'>Payment</NavLink>
-                <NavLink href='/contents/contacts'>Contacts</NavLink>
+                </MainNav>
+                <MainNav href='/contents/about'>About</MainNav>
+                <MainNav href='/contents/courses'>Courses</MainNav>
+                <MainNav href='/contents/events'>Events</MainNav>
+                <MainNav href='/contents/manual-payment'>Payment</MainNav>
+                <MainNav href='/contents/contacts'>Contacts</MainNav>
             </nav>
             <div className='flex h-full flex-row min-w-8 items-center justify-end pr-2 sm:pr-0 sm:items-center sm:justify-center flex-1 sm:flex-none'>
                 <UserInfoButton />

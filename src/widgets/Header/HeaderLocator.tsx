@@ -33,7 +33,7 @@ const HeaderLocator = ({
                 observer.disconnect();
             }
         };
-    }, [fixed]);
+    }, [fixed, refToObserve]);
     return (
         <header
             data-scrolled={scrolled}
