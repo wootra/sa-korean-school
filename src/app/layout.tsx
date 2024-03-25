@@ -5,13 +5,8 @@ import '@/css/index.css';
 import '@/css/font.css';
 import { AuthProvider } from '@/lib/SessionContext';
 import { Suspense } from 'react';
-import { Viewport } from 'next';
 
 const inter = Inter({ subsets: ['latin'] });
-export const viewport: Viewport = {
-    width: 'devide-width',
-    initialScale: 1.0,
-};
 
 export default function RootLayout({
     children,
@@ -20,7 +15,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            <head>
+            {/* <head>
                 <style>
                     {`
                         :root {
@@ -29,7 +24,7 @@ export default function RootLayout({
                         
                     `}
                 </style>
-            </head>
+            </head> */}
             <body className={inter.className}>
                 <div id='fb-root'></div>
                 <AuthProvider>

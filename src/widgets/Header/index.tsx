@@ -36,7 +36,7 @@ const Header = ({
     return (
         <HeaderLocator fixed={fixed} refToObserve={refToObserve}>
             <Link
-                href='/'
+                href='/entry'
                 className='hidden sm:flex py-2 md:py-4 font-bold gap-2'
             >
                 <Image
@@ -79,7 +79,11 @@ const Header = ({
                 </span>
                 <div className='group-has-[input:checked]:block hidden absolute w-[100vw] h-[100vh] bg-white/70 left-0 top-0 -z-10'></div>
             </label>
-            <input type='checkbox' id='menu-toggle' className='opacity-0' />
+            <input
+                type='checkbox'
+                id='menu-toggle'
+                className='opacity-0 min-w-0 w-0'
+            />
 
             <nav className='hidden sm:flex p-4 sm:p-0 sm:justify-end group-has-[input:checked]:flex flex-1 items-start sm:items-center justify-start gap-2 sm:gap-4 flex-col sm:flex-row absolute left-0 top-[100%] bg-gray-100 border-r-[1px] border-b-[1px] border-gray-200 sm:border-none shadow-lg sm:bg-transparent sm:static sm:shadow-none'>
                 <MainNav href='/entry' className='sm:hidden md:flex'>
@@ -91,7 +95,7 @@ const Header = ({
                 <MainNav href={`/${lang}/manual-payment`}>Payment</MainNav>
                 <MainNav href={`/${lang}/contacts`}>Contacts</MainNav>
             </nav>
-            <div className='flex h-full flex-row min-w-8 items-center justify-end pr-2 sm:pr-0 sm:items-center sm:justify-center flex-1 sm:flex-none'>
+            <div className='flex h-full min-w-fit flex-row basis-9 items-center justify-end p-0 flex-1 sm:flex-0 sm:flex-none'>
                 <LangChoiceButton />
                 <UserInfoButton />
             </div>
