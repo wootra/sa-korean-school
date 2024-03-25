@@ -1,14 +1,9 @@
 'use server';
 
 import Image from 'next/image';
-import heroBack1 from '@/assets/hero-back/1.png';
-import heroBack2 from '@/assets/hero-back/2.png';
-import heroBack3 from '@/assets/hero-back/3.png';
-import heroBack4 from '@/assets/hero-back/4.png';
-import heroBack5 from '@/assets/hero-back/5.png';
+
 import { CSSProperties } from 'react';
 
-const images = [heroBack1, heroBack2, heroBack3, heroBack4, heroBack5];
 const ScrollingBar = async ({
     scrollImages,
 }: {
@@ -52,7 +47,7 @@ const ScrollingBar = async ({
                     {scrollImages.map((image, index) => (
                         <div
                             key={`image-${index}-repeat`}
-                            className='w-[338px] flex items-center justify-center'
+                            className='w-[338px] flex items-center justify-center p-2'
                         >
                             <Image
                                 src={image.url}

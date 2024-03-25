@@ -25,7 +25,6 @@ export default async function EntryMainContent() {
         }
     );
     const data = await resp.json();
-    console.log('data', data);
     const rows: string[][] = data.values ?? []; //[0].values ?? [];
     const pictureGroup = rows.reduce((obj, row) => {
         const classGroup = row[0].replaceAll('\b', '');
@@ -45,7 +44,6 @@ export default async function EntryMainContent() {
     }, {} as Record<string, { desc: string; url: string }[]>);
     const heroImage = pictureGroup['main-hero']?.[0]; // ?? heroBack
     const scrollImages = pictureGroup['main-scroll'] ?? [];
-    console.log('images:', scrollImages.length);
     return (
         <>
             <div

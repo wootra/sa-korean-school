@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { Suspense } from 'react';
+import React from 'react';
 import SelectedLinkMark from './SelectedLinkMark';
 import { ConstructionHat } from '@/assets/images';
 import { cn } from '@/lib/utils';

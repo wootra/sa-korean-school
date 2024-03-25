@@ -14,7 +14,7 @@ const MainNav = (
         <NavLink
             href={href}
             className={twMerge(
-                'group-has-[*]/entry:text-slate-700 group-has-[*]/entry:sm:text-white',
+                'group-has-[*]/entry:group-has-[input:checked]:text-slate-700 group-has-[*]/entry:group-has-[input:checked]:flex:sm:text-white',
                 className
             )}
         >
