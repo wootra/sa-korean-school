@@ -2,12 +2,14 @@
 
 import { RefObject, useRef } from 'react';
 import Header from '@/widgets/Header';
+import { useLang } from '@/lib/LangContext';
 
 export default function HeraderWrapper() {
     const ref = useRef<HTMLElement>(null);
+    const { language } = useLang();
     return (
         <>
-            <Header fixed refToObserve={ref} lang='en' />
+            <Header fixed refToObserve={ref} lang={language} />
 
             <main className='flex-1 w-full relative'>
                 <div
