@@ -19,7 +19,7 @@ const Footer = () => {
                         }}
                         width='40'
                     />
-                    <div className='flex flex-col text-sm flex-none w-[200px]'>
+                    <div className='flex flex-col text-sm min-w-[180px]'>
                         <p className='font-semibold'>산안토니오 한국학교</p>
                         <p className='font-semibold'>
                             San Antonio Korean School

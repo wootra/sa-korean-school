@@ -13,7 +13,7 @@ type DocElement = {
 const doc: DocElement[] = [
     {
         title: '학교명',
-        value: '샌안토니오 한국학교(San Antonio Korean School)',
+        value: '샌안토니오 한국학교 (San Antonio Korean School)',
         desc: '관할공관: 휴스턴 총영사관, 남서부협의회 센트럴지역 협의회 소속',
     },
     {
@@ -59,7 +59,7 @@ const doc: DocElement[] = [
 
 const AboutIntro = () => {
     return (
-        <div className='flex flex-col max-w-[640px] w-full mx-auto gap-4'>
+        <div className='flex flex-col max-w-[640px] w-full mx-auto gap-4 px-4'>
             <Heading type='page'>학교 소개</Heading>
             <section className='text-sm p-4 bg-slate-200 rounded-md shadow-sm flex flex-col'>
                 {multiLineText(
@@ -78,7 +78,7 @@ const AboutIntro = () => {
                         key={item.title + '_' + idx}
                         className='text-sm text-left'
                     >
-                        <div className='flex flex-row gap-2 justify-start items-end py-2'>
+                        <div className='flex flex-row gap-2 justify-start items-center py-2'>
                             <Heading type='subheader'>{item.title}</Heading>
                             {item.value && `: ${item.value}`}
                         </div>

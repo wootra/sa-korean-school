@@ -28,7 +28,7 @@ const Heading = ({ type, size, className, style, children }: Props) => {
                     'text-lg font-bold my-2 text-blue-900/70 text-left',
                 HeadingTag === 'h3' && 'text-base font-bold mb-3',
                 HeadingTag === 'h4' &&
-                    'text-base font-bold text-left text-neutral-500 leading-4',
+                    'text-base font-bold text-left text-neutral-500 leading-4 text-nowrap',
                 HeadingTag === 'h5' && 'text-lg font-bold',
                 HeadingTag === 'h6' && 'text-lg font-bold',
                 className

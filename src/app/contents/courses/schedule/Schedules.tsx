@@ -20,7 +20,7 @@ const Cell = async ({
         <div
             className={cn(
                 className,
-                'p-2 flex flex-row gap-2 md:items-center md:justify-center text-sm'
+                'p-2 flex flex-row gap-2 md:items-center md:justify-center text-xs'
             )}
             data-id={id}
         >

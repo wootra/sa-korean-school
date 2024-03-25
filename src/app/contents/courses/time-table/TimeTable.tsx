@@ -16,8 +16,8 @@ const Cell = async ({
     return (
         <div
             className={cn(
-                className,
-                'flex flex-col p-2 items-center justify-center'
+                'flex flex-col p-2 items-center justify-center text-xs',
+                className
             )}
             data-id={id}
         >
@@ -86,7 +86,10 @@ const TimeTable = async () => {
                                     key={'row-' + idx}
                                 >
                                     {row[1] && (
-                                        <Cell className='col-span-4' id='date'>
+                                        <Cell
+                                            className='col-span-4 break-words text-xs text-wrap break-all'
+                                            id='date'
+                                        >
                                             {row[1]}
                                         </Cell>
                                     )}

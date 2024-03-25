@@ -18,7 +18,7 @@ const Cell = async ({
         <div
             className={cn(
                 className,
-                'flex flex-col p-2 items-center justify-center'
+                'flex flex-col p-2 items-center justify-center text-xs'
             )}
             data-id={id}
         >

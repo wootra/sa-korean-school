@@ -12,7 +12,7 @@ import studyKorean from './images/study-korean-net-banner.jpg';
 
 export const Links = () => {
     return (
-        <FlexCol className='flex-1 text-xs min-w-[240px]'>
+        <FlexCol className='flex-1 text-xs min-w-[180px]'>
             <Heading type='footer'>Links</Heading>
             <FlexRow className='flex flex-row gap-2 flex-wrap'>
                 <LinkWithImg

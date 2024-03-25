@@ -15,7 +15,7 @@ export const Contacts = ({
     className?: string;
 }) => {
     return (
-        <FlexCol className={cn('text-xs min-w-[240px] items-start', className)}>
+        <FlexCol className={cn('text-xs min-w-[180px] items-start', className)}>
             {withHeading && <Heading type='footer'>Contacts</Heading>}
             <Link
                 href='https://maps.app.goo.gl/Bj2irST4oksAHmKw8'
