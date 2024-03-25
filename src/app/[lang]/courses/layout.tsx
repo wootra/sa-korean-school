@@ -2,11 +2,19 @@ import SubNav from '@/entities/SubNav';
 import React from 'react';
 import { COURSES_LIST } from './consts';
 import FullWidth from '@/layouts/FullWidth';
+import { convertNavList } from '@/lib/langs/convertNavList';
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+const layout = ({
+    children,
+    params: { lang },
+}: {
+    children: React.ReactNode;
+    params: { lang: string };
+}) => {
+    const convertedNavList = convertNavList(COURSES_LIST, lang);
     return (
         <FullWidth>
-            <SubNav navList={COURSES_LIST} />
+            <SubNav navList={convertedNavList} />
             <div className='w-full max-w-[800px] mx-auto my-4 px-4'>
                 {children}
             </div>

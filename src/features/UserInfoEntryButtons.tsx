@@ -3,10 +3,11 @@ import Link from 'next/link';
 
 import React, { useRef } from 'react';
 import notLoginImage from '@/assets/images/img_profile_24_outline.svg';
-export const LoginButton = () => {
+import { Languages } from '@/lib/langs/types';
+export const LoginButton = ({ lang }: { lang: Languages }) => {
     return (
         <Link
-            href={`/contents/profile`}
+            href={`/${lang}/profile`}
             className='p-0 h-6 w-auto relative'
             aria-label='login'
         >
@@ -26,11 +27,17 @@ export const LoginButton = () => {
         </Link>
     );
 };
-export const ProfileButton = ({ token }: { token: string }) => {
+export const ProfileButton = ({
+    lang,
+    token,
+}: {
+    lang: Languages;
+    token: string;
+}) => {
     const ref = useRef(Math.floor(Math.random() * 1000));
     return (
         <Link
-            href={`/contents/profile?token=${token}`}
+            href={`/${lang}/profile?token=${token}`}
             className='w-auto h-6 p-0 relative'
             aria-label='logout'
         >

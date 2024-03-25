@@ -6,6 +6,8 @@ import logo from '@/assets/images/logo.png';
 import HeaderLocator from './HeaderLocator';
 import { PropsWithChildren, RefObject } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { Languages } from '@/lib/langs/types';
+import LangChoiceButton from '@/features/LangChoiceButton';
 const MainNav = (
     props: PropsWithChildren<{ className?: string; href: string }>
 ) => {
@@ -24,9 +26,11 @@ const MainNav = (
 };
 const Header = ({
     fixed,
+    lang,
     refToObserve,
 }: {
     fixed?: boolean;
+    lang: Languages;
     refToObserve?: RefObject<HTMLElement>;
 }) => {
     return (
@@ -81,13 +85,14 @@ const Header = ({
                 <MainNav href='/entry' className='sm:hidden md:flex'>
                     Home
                 </MainNav>
-                <MainNav href='/contents/about'>About</MainNav>
-                <MainNav href='/contents/courses'>Courses</MainNav>
-                <MainNav href='/contents/events'>Events</MainNav>
-                <MainNav href='/contents/manual-payment'>Payment</MainNav>
-                <MainNav href='/contents/contacts'>Contacts</MainNav>
+                <MainNav href={`/${lang}/about`}>About</MainNav>
+                <MainNav href={`/${lang}/courses`}>Courses</MainNav>
+                <MainNav href={`/${lang}/events`}>Events</MainNav>
+                <MainNav href={`/${lang}/manual-payment`}>Payment</MainNav>
+                <MainNav href={`/${lang}/contacts`}>Contacts</MainNav>
             </nav>
             <div className='flex h-full flex-row min-w-8 items-center justify-end pr-2 sm:pr-0 sm:items-center sm:justify-center flex-1 sm:flex-none'>
+                <LangChoiceButton />
                 <UserInfoButton />
             </div>
         </HeaderLocator>

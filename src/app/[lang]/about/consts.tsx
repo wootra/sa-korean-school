@@ -6,12 +6,12 @@ export type AboutPage = (typeof ABOUT_PAGES)[number];
 export const ABOUT_LIST: SubNavInfo[] = [
     {
         title: '학교 소개',
-        href: '/contents/about',
+        href: '/[lang]/about',
         exact: true,
     },
     {
         title: '학교장/이사장 인사',
-        href: '/contents/about/greetings',
+        href: '/[lang]/about/greetings',
         notReady: true,
     },
 ] as const;

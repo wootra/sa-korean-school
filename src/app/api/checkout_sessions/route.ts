@@ -18,6 +18,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     // Create Checkout Sessions from body params.
     const query = req.nextUrl.searchParams;
     const className = query.get('class');
+    const lang = query.get('lang');
     const authInfo = await getAuthInfoFromRequest(req);
     const userInfo = await getUserInfo(authInfo);
     const stripeUserInfo = userInfo.email
@@ -28,7 +29,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     const price = classCodes[className as keyof typeof classCodes];
     if (!price) {
         redirect(
-            `${origin}/contents/payment/failed?error=NO_SUCH_PAYMENT_PLAN&class${className}`,
+            `${origin}/${lang}/payment/failed?error=NO_SUCH_PAYMENT_PLAN&class${className}`,
             RedirectType.replace
         );
     }
@@ -44,8 +45,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
         currency: 'usd',
         mode: 'payment',
         payment_method_types: ['card'],
-        success_url: `${origin}/contents/payment/success?class=${className}`,
-        cancel_url: `${origin}/contents/payment/canceled?class=${className}`,
+        success_url: `${origin}/${lang}/payment/success?class=${className}`,
+        cancel_url: `${origin}/${lang}/payment/canceled?class=${className}`,
     });
     if (session) {
         if (session.url) {
@@ -53,13 +54,13 @@ export async function POST(req: NextRequest, res: NextResponse) {
             redirect(session.url, RedirectType.replace);
         } else {
             redirect(
-                `${origin}/contents/payment/failed?error=NO_SUCH_CLASS&class=${className}`,
+                `${origin}/${lang}/payment/failed?error=NO_SUCH_CLASS&class=${className}`,
                 RedirectType.replace
             );
         }
     } else {
         redirect(
-            `${origin}/contents/payment/failed?error=NO_SESSION&class=${'className'}`,
+            `${origin}/${lang}/payment/failed?error=NO_SESSION&class=${'className'}`,
             RedirectType.replace
         );
     }

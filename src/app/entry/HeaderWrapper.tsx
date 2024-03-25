@@ -7,7 +7,7 @@ export default function HeraderWrapper() {
     const ref = useRef<HTMLElement>(null);
     return (
         <>
-            <Header fixed refToObserve={ref} />
+            <Header fixed refToObserve={ref} lang='en' />
 
             <main className='flex-1 w-full relative'>
                 <div

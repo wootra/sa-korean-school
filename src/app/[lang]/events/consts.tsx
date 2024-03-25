@@ -6,12 +6,12 @@ export type AboutPage = (typeof COURSES_PAGES)[number];
 export const EVENT_LIST: SubNavInfo[] = [
     {
         title: '행사 일정',
-        href: '/contents/events',
+        href: '/[lang]/events',
         exact: true,
     },
     {
         title: 'News',
-        href: '/contents/events/news',
+        href: '/[lang]/events/news',
         notReady: true,
     },
 ] as const;

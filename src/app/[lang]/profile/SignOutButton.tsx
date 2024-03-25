@@ -5,13 +5,15 @@ import { Button } from '@/components/ui/button';
 import { redirect } from 'next/navigation';
 
 import React, { useCallback } from 'react';
+import { useLang } from '@/lib/LangContext';
 
 export default function SignOutButton() {
     const { logout } = useAuth();
+    const { language } = useLang();
     const signOut = useCallback(() => {
         logout();
-        redirect('/contents/profile');
-    }, [logout]);
+        redirect(`/${language}/profile`);
+    }, [logout, language]);
     return (
         <Button
             className='w-full'
