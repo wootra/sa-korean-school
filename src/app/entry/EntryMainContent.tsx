@@ -6,7 +6,6 @@ import { Heading } from '@/entities';
 import { multiLineText, multiLineTextIntoBlocks } from '@/lib/jsxUtils';
 import ScrollingBar from './ScrollingBar';
 import { getEntryImages } from '@/lib/google-sheets/entryImages';
-import { Languages } from '@/lib/langs/types';
 import { ENTRY_TITLES } from './consts';
 import { Suspense } from 'react';
 import EntryTitleText from './EntryTitleText';

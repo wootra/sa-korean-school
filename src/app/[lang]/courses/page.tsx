@@ -1,9 +1,9 @@
-import CenterMain from '@/layouts/CenterMain';
 import React from 'react';
 import CourseIntro from './CourseIntro';
+import { Languages } from '@/lib/langs/types';
 
-const CoursesPage = () => {
-    return <CourseIntro />;
+const CoursesPage = ({ params: { lang } }: { params: { lang: Languages } }) => {
+    return <CourseIntro lang={lang} />;
 };
 
 export default CoursesPage;

@@ -1,11 +1,12 @@
 import CenterMain from '@/layouts/CenterMain';
 import React from 'react';
 import Events from './Events';
+import { Languages } from '@/lib/langs/types';
 
-const EventsPage = () => {
+const EventsPage = ({ params: { lang } }: { params: { lang: Languages } }) => {
     return (
         <CenterMain>
-            <Events />
+            <Events lang={lang} />
         </CenterMain>
     );
 };

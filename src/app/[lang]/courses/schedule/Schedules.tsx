@@ -1,9 +1,12 @@
 'use server';
 
 import { Heading } from '@/entities';
+import { getCourseSchedule } from '@/lib/google-sheets/courseSchedule';
 import { multiLineText } from '@/lib/jsxUtils';
+import { Languages } from '@/lib/langs/types';
 import { cn } from '@/lib/utils';
 import React, { ReactNode } from 'react';
+import { courseTitles } from '../consts';
 
 const Cell = async ({
     children,
@@ -32,26 +35,14 @@ const Cell = async ({
     );
 };
 
-const Schedules = async () => {
-    const spreadsheetId = process.env.COURSE_SCHEDULE_ID;
-    const fields = 'sheets.data.rowData.values.formattedValue';
-    const apiKey = process.env.GOOGLE_SHEET_API_KEY;
-    const bound = 'Sheet1!A2:F30';
-    const resp = await fetch(
-        `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?includeGridData=true&ranges=${bound}&fields=${fields}`,
-        {
-            method: 'GET',
-            headers: {
-                'X-goog-api-key': apiKey,
-                'Content-Type': 'application/json; charset=utf-8',
-            },
-        }
-    );
-    const data = await resp.json();
-    const rows = data.sheets[0].data[0].rowData ?? []; //[0].values ?? [];
+const Schedules = async ({ lang }: { lang: Languages }) => {
+    const allRows = await getCourseSchedule(lang);
+    const headerRow = allRows[0];
+    const rows = allRows.slice(1);
+    const heading = (courseTitles[lang] ?? courseTitles.en).schedule;
     return (
         <>
-            <Heading type='page'>학사 일정</Heading>
+            <Heading type='page'>{heading}</Heading>
             <ul className='mx-auto flex flex-col gap-[1px] bg-slate-300 border border-gray-400'>
                 <li
                     className={cn(
@@ -60,98 +51,60 @@ const Schedules = async () => {
                     )}
                 >
                     <Cell className='col-span-2' id='date'>
-                        Class Date
+                        {headerRow[1]}
                     </Cell>
                     <Cell className='col-span-3' id='event-activity'>
-                        Event & Activities
+                        {headerRow[2]}
                     </Cell>
                     <Cell className='col-span-4' id='culture-class'>
-                        Culture or History Class
+                        {headerRow[3]}
                     </Cell>
                     <Cell className='col-span-1' id='lunch'>
-                        Lunch
+                        {headerRow[4]}
                     </Cell>
                     <Cell className='col-span-2' id='pta'>
-                        PTA
+                        {headerRow[5]}
                     </Cell>
                 </li>
-                {rows.map(
-                    (
-                        rowData: { values: { formattedValue?: string }[] },
-                        idx: number
-                    ) => {
-                        const row = rowData.values;
-                        return (
-                            <li
-                                className={cn(
-                                    'flex flex-col justify-start items-start gap-0 md:grid grid-cols-12 hover:bg-green-100 transition-colors',
-                                    !row[0].formattedValue
-                                        ? 'bg-slate-300'
-                                        : 'bg-white'
-                                )}
-                                key={'row-' + idx}
+                {rows.map((cols, idx: number) => {
+                    return (
+                        <li
+                            className={cn(
+                                'flex flex-col justify-start items-start gap-0 md:grid grid-cols-12 hover:bg-green-100 transition-colors',
+                                !cols[0] ? 'bg-slate-300' : 'bg-white'
+                            )}
+                            key={'row-' + idx}
+                        >
+                            <Cell className='col-span-2' id='date' title='Date'>
+                                {multiLineText(cols[1])}
+                            </Cell>
+                            <Cell
+                                className='col-span-3'
+                                id='event-activity'
+                                title='Event & Activities'
                             >
-                                {row[1] && (
-                                    <Cell
-                                        className='col-span-2'
-                                        id='date'
-                                        title='Date'
-                                    >
-                                        {multiLineText(row[1].formattedValue)}
-                                    </Cell>
-                                )}
-                                {row[2] && (
-                                    <Cell
-                                        className='col-span-3'
-                                        id='event-activity'
-                                        title='Event & Activities'
-                                    >
-                                        {multiLineText(
-                                            row[2].formattedValue,
-                                            true
-                                        )}
-                                    </Cell>
-                                )}
-                                {row[3] && (
-                                    <Cell
-                                        className='col-span-4'
-                                        id='culture-class'
-                                        title='Culture or History Class'
-                                    >
-                                        {multiLineText(
-                                            row[3].formattedValue,
-                                            true
-                                        )}
-                                    </Cell>
-                                )}
-                                {row[4] && (
-                                    <Cell
-                                        className='col-span-1'
-                                        id='lunch'
-                                        title='Lunch'
-                                    >
-                                        {multiLineText(
-                                            row[4].formattedValue,
-                                            true
-                                        )}
-                                    </Cell>
-                                )}
-                                {row[5] && (
-                                    <Cell
-                                        className='col-span-2'
-                                        id='pta'
-                                        title='PTA'
-                                    >
-                                        {multiLineText(
-                                            row[5].formattedValue,
-                                            true
-                                        )}
-                                    </Cell>
-                                )}
-                            </li>
-                        );
-                    }
-                )}
+                                {multiLineText(cols[2], true)}
+                            </Cell>
+                            <Cell
+                                className='col-span-4'
+                                id='culture-class'
+                                title='Culture or History Class'
+                            >
+                                {multiLineText(cols[3], true)}
+                            </Cell>
+                            <Cell
+                                className='col-span-1'
+                                id='lunch'
+                                title='Lunch'
+                            >
+                                {multiLineText(cols[4], true)}
+                            </Cell>
+                            <Cell className='col-span-2' id='pta' title='PTA'>
+                                {multiLineText(cols[5], true)}
+                            </Cell>
+                        </li>
+                    );
+                })}
             </ul>
         </>
     );
