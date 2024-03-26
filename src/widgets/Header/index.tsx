@@ -8,6 +8,8 @@ import { PropsWithChildren, RefObject } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Languages } from '@/lib/langs/types';
 import LangChoiceButton from '@/features/LangChoiceButton';
+import { NAVS } from './consts';
+import { multiLineTextIntoBlocks } from '@/lib/jsxUtils';
 const MainNav = (
     props: PropsWithChildren<{ className?: string; href: string }>
 ) => {
@@ -33,6 +35,7 @@ const Header = ({
     lang: Languages;
     refToObserve?: RefObject<HTMLElement>;
 }) => {
+    const navs = NAVS[lang] ?? NAVS.en;
     return (
         <HeaderLocator fixed={fixed} refToObserve={refToObserve}>
             <Link
@@ -54,8 +57,7 @@ const Header = ({
                     className='flex flex-col'
                     style={{ fontSize: 'clamp(0.2rem, 3vw, 1.2rem)' }}
                 >
-                    <span className='text-nowrap'>San Antonio</span>
-                    <span className='text-nowrap'> Korean School</span>
+                    {multiLineTextIntoBlocks(navs.logo, 'text-nowrap')}
                 </span>
             </Link>
             <label
@@ -74,8 +76,7 @@ const Header = ({
                     width='40'
                 />
                 <span className='flex flex-col font-bold'>
-                    <span className='text-nowrap'>San Antonio</span>
-                    <span className='text-nowrap'> Korean School</span>
+                    {multiLineTextIntoBlocks(navs.logo, 'text-nowrap')}
                 </span>
                 <div className='group-has-[input:checked]:block hidden absolute w-[100vw] h-[100vh] bg-white/70 left-0 top-0 -z-10'></div>
             </label>
@@ -87,15 +88,17 @@ const Header = ({
 
             <nav className='hidden sm:flex p-4 sm:p-0 sm:justify-end group-has-[input:checked]:flex flex-1 items-start sm:items-center justify-start gap-2 sm:gap-4 flex-col sm:flex-row absolute left-0 top-[100%] bg-gray-100 border-r-[1px] border-b-[1px] border-gray-200 sm:border-none shadow-lg sm:bg-transparent sm:static sm:shadow-none'>
                 <MainNav href='/entry' className='sm:hidden md:flex'>
-                    Home
+                    {navs.home}
                 </MainNav>
-                <MainNav href={`/${lang}/about`}>About</MainNav>
-                <MainNav href={`/${lang}/courses`}>Courses</MainNav>
-                <MainNav href={`/${lang}/events`}>Events</MainNav>
-                <MainNav href={`/${lang}/manual-payment`}>Payment</MainNav>
-                <MainNav href={`/${lang}/contacts`}>Contacts</MainNav>
+                <MainNav href={`/${lang}/about`}>{navs.about}</MainNav>
+                <MainNav href={`/${lang}/courses`}>{navs.courses}</MainNav>
+                <MainNav href={`/${lang}/events`}>{navs.events}</MainNav>
+                <MainNav href={`/${lang}/manual-payment`}>
+                    {navs.payment}
+                </MainNav>
+                <MainNav href={`/${lang}/contacts`}>{navs.contacts}</MainNav>
             </nav>
-            <div className='flex h-full min-w-fit flex-row basis-9 items-center justify-end p-0 flex-1 sm:flex-0 sm:flex-none'>
+            <div className='flex gap-2 h-full min-w-fit flex-row basis-9 items-center justify-end p-0 flex-1 sm:flex-0 sm:flex-none'>
                 <LangChoiceButton />
                 <UserInfoButton />
             </div>

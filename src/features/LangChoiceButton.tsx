@@ -32,14 +32,14 @@ const LangChoiceButton = () => {
         <Link
             href={newPathname}
             onClick={onClick}
-            className='w-auto h-6 p-0 relative'
+            className='h-auto w-6 p-0 relative'
             aria-label='logout'
         >
             <Image
                 src={lang === 'kr' ? krFlag : enFlag}
                 alt='profiletwentyfo'
-                width='16'
-                height='16'
+                width='24'
+                height='24'
                 className='rounded-full'
             />
             <div className='absolute w-full h-[10px] flex justify-center items-center left-0 top-[100%] z-50'>

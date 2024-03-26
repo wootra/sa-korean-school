@@ -30,7 +30,7 @@ const Footer = () => {
                         </p>
                     </div>
                 </div>
-                <Contacts />
+                <Contacts title='Contacts' />
                 <Links />
             </div>
             <div className='flex justify-center items-center text-xs mt-2 bg-lime-400 w-full min-h-8 gap-x-2 gap-y-0 flex-wrap'>

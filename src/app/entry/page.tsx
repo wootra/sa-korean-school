@@ -1,7 +1,7 @@
 import EntryMainContent from './EntryMainContent';
 import HeraderWrapper from '@/app/entry/HeaderWrapper';
 
-export default function Home() {
+export default async function Home() {
     return (
         <>
             <HeraderWrapper />

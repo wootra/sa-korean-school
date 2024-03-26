@@ -8,14 +8,14 @@ export const LoginButton = ({ lang }: { lang: Languages }) => {
     return (
         <Link
             href={`/${lang}/profile`}
-            className='p-0 h-6 w-auto relative'
+            className='p-0 w-6 h-auto relative'
             aria-label='login'
         >
             <Image
                 src={notLoginImage}
                 alt='facebook login'
-                width='20'
-                height='20'
+                width='24'
+                height='24'
                 className='bg-white rounded-full'
             />
 

@@ -3,6 +3,7 @@ import React from 'react';
 import { ABOUT_LIST } from './consts';
 import FullWidth from '@/layouts/FullWidth';
 import { convertNavList } from '@/lib/langs/convertNavList';
+import { Languages } from '@/lib/langs/types';
 
 const layout = ({
     children,
@@ -11,7 +12,8 @@ const layout = ({
     children: React.ReactNode;
     params: { lang: string };
 }) => {
-    const convertedNavList = convertNavList(ABOUT_LIST, lang);
+    const list = ABOUT_LIST[lang as Languages] ?? ABOUT_LIST.en;
+    const convertedNavList = convertNavList(list, lang);
     return (
         <FullWidth>
             <SubNav navList={convertedNavList} />

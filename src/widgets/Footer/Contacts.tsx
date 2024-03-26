@@ -9,14 +9,16 @@ import { cn } from '@/lib/utils';
 
 export const Contacts = ({
     withHeading = true,
+    title,
     className,
 }: {
     withHeading?: boolean;
+    title: string;
     className?: string;
 }) => {
     return (
         <FlexCol className={cn('text-xs min-w-[180px] items-start', className)}>
-            {withHeading && <Heading type='footer'>Contacts</Heading>}
+            {withHeading && <Heading type='footer'>{title}</Heading>}
             <Link
                 href='https://maps.app.goo.gl/Bj2irST4oksAHmKw8'
                 className='underline text-blue-600 text-left'

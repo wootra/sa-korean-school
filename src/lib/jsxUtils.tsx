@@ -8,3 +8,15 @@ export const multiLineText = (
         </span>
     ));
 };
+
+export const multiLineTextIntoBlocks = (
+    txt: string | undefined,
+    className: string = '',
+    Tag: 'span' | 'p' = 'span'
+) => {
+    return (txt ?? '').split('\n').map(line => (
+        <Tag key={line} className={className}>
+            {line}
+        </Tag>
+    ));
+};
