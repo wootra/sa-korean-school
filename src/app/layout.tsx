@@ -5,9 +5,13 @@ import '@/css/index.css';
 import '@/css/font.css';
 import { AuthProvider } from '@/lib/SessionContext';
 import { Suspense } from 'react';
+import { Metadata } from 'next';
 
 const inter = Inter({ subsets: ['latin'] });
-
+export const metadata: Metadata = {
+    title: 'San Antonio Korean School Homepage',
+    description: 'San Antonio Korean School Official Homepage',
+};
 export default function RootLayout({
     children,
 }: Readonly<{
