@@ -1,6 +1,7 @@
 'use server';
 
 import { Languages } from '../langs/types';
+import { GOOGLE_REVALIDATE_ID } from './consts';
 
 export const getCourseTimeTable = async (lang: Languages) => {
     const spreadsheetId = process.env.COURSE_TIMETABLE_ID;
@@ -9,6 +10,9 @@ export const getCourseTimeTable = async (lang: Languages) => {
     const resp = await fetch(
         `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${bound}?majorDimension=ROWS`,
         {
+            next: {
+                tags: [GOOGLE_REVALIDATE_ID],
+            },
             method: 'GET',
             headers: {
                 'X-goog-api-key': apiKey,

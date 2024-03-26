@@ -1,6 +1,7 @@
 'use server';
 
 import { convertImageUrlFromGoogleDrive } from '../routes/convertUrlFromGoogleDrive';
+import { GOOGLE_REVALIDATE_ID } from './consts';
 
 export const getEntryImages = async () => {
     const spreadsheetId = process.env.HERO_PICTURES_ID;
@@ -9,6 +10,9 @@ export const getEntryImages = async () => {
     const resp = await fetch(
         `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${bound}?majorDimension=ROWS`,
         {
+            next: {
+                tags: [GOOGLE_REVALIDATE_ID],
+            },
             method: 'GET',
             headers: {
                 'X-goog-api-key': apiKey,
