@@ -1,7 +1,7 @@
 'use server';
 
 import { Languages } from '../langs/types';
-import { GOOGLE_REVALIDATE_ID } from './consts';
+import { GOOGLE_REVALIDATE_ID, REVALIDATE_DURATION_IN_SECONDS } from './consts';
 
 export const getCourseIntro = async (lang: Languages) => {
     const spreadsheetId = process.env.COURSE_INTRO_ID;
@@ -12,6 +12,7 @@ export const getCourseIntro = async (lang: Languages) => {
         {
             next: {
                 tags: [GOOGLE_REVALIDATE_ID],
+                revalidate: REVALIDATE_DURATION_IN_SECONDS,
             },
             method: 'GET',
             headers: {
