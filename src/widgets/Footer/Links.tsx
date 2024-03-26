@@ -7,7 +7,7 @@ import Link from 'next/link';
 import mofat from './images/mofat-go-kr-banner.jpg';
 import _0404 from './images/0404-go-kr-banner.jpg';
 import okocc from './images/okocc-or-kr-banner.jpg';
-import koreanNet from './images/korean-net.jpg';
+import koreanNet from './images/korean-net.png';
 import studyKorean from './images/study-korean-net-banner.jpg';
 
 export const Links = () => {
