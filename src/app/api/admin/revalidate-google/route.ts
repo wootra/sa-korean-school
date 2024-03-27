@@ -1,10 +1,9 @@
 'use server';
 
-import { GOOGLE_REVALIDATE_ID } from '@/lib/google-sheets/consts';
-import { revalidateTag } from 'next/cache';
+import { revalidateGoogleSheets } from '@/lib/google-sheets/revalidate';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest, _res: NextResponse<{}>) {
-    revalidateTag(GOOGLE_REVALIDATE_ID);
+    revalidateGoogleSheets();
     return NextResponse.json({ message: 'ok' });
 }

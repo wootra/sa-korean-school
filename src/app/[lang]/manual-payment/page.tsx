@@ -1,10 +1,11 @@
 import React from 'react';
-import Payment from './Payment';
+import ManualPaymentInfo from './ManualPaymentInfo';
+import { Languages } from '@/lib/langs/types';
 
-const page = () => {
+const page = ({ params: { lang } }: { params: { lang: Languages } }) => {
     return (
         <div>
-            <Payment />
+            <ManualPaymentInfo lang={lang} />
         </div>
     );
 };
