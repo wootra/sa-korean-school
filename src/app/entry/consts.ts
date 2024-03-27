@@ -16,3 +16,9 @@ export const ENTRY_TITLES: Record<Languages, Record<EntryTitles, string>> = {
     },
     en: enTitles,
 };
+
+export const ScrollProps = Object.freeze({
+    pictureWidth: 265,
+    pictureHeight: 161,
+    secPerPic: 5,
+});

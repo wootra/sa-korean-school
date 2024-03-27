@@ -71,14 +71,16 @@ const config = {
                 },
                 'scroll-x': {
                     from: { left: '0' },
-                    to: { left: 'calc(var(--itemWidth) * (-5))' },
+                    to: {
+                        left: 'calc(var(--itemWidth) * (-1) * var(--itemCount))',
+                    },
                 },
             },
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
                 'scroll-x':
-                    'scroll-x var(--animationDuration,10s) linear infinite',
+                    'scroll-x calc(var(--animationDuration,10s)/2) linear infinite',
             },
         },
     },
