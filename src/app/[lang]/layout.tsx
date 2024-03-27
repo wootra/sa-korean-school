@@ -5,6 +5,7 @@ import { Languages } from '@/lib/langs/types';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { getEntryImages } from '@/lib/google-sheets/entryImages';
 import { defaultMetaData } from '../defaultMetaData';
+import { SessionProvider } from 'next-auth/react';
 
 type Props = {
     params: { lang: string };

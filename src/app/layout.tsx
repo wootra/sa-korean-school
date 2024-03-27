@@ -6,6 +6,7 @@ import '@/css/font.css';
 import { AuthProvider } from '@/lib/SessionContext';
 import { Suspense } from 'react';
 import { Metadata } from 'next';
+import { SessionProvider } from 'next-auth/react';
 
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
@@ -31,11 +32,13 @@ export default function RootLayout({
             </head> */}
             <body className={inter.className}>
                 <div id='fb-root'></div>
-                <AuthProvider>
-                    <Suspense fallback={<div>loading...</div>}>
-                        {children}
-                    </Suspense>
-                </AuthProvider>
+                <SessionProvider>
+                    <AuthProvider>
+                        <Suspense fallback={<div>loading...</div>}>
+                            {children}
+                        </Suspense>
+                    </AuthProvider>
+                </SessionProvider>
                 <Script
                     async
                     defer

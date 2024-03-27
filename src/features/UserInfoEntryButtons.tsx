@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { signOut } from 'next-auth/react';
 import React, { useRef } from 'react';
 import notLoginImage from '@/assets/images/img_profile_24_outline.svg';
 import { Languages } from '@/lib/langs/types';
@@ -27,17 +27,17 @@ export const LoginButton = ({ lang }: { lang: Languages }) => {
         </Link>
     );
 };
-export const ProfileButton = ({
-    lang,
-    token,
-}: {
-    lang: Languages;
-    token: string;
-}) => {
+export const ProfileButton = ({ lang }: { lang: Languages }) => {
     const ref = useRef(Math.floor(Math.random() * 1000));
+    const onClick = () => {
+        signOut({
+            callbackUrl: '/entry',
+        });
+    };
     return (
         <Link
-            href={`/${lang}/profile?token=${token}`}
+            onClick={onClick}
+            href={`/${lang}/profile`}
             className='w-auto h-6 p-0 relative'
             aria-label='logout'
         >

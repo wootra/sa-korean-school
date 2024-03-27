@@ -15,6 +15,8 @@ namespace NodeJS {
         HERO_PICTURES_ID: string;
         PAYHMENT_INFO_ID: string;
         GOOGLE_SHEET_API_KEY: string;
+        GOOGLE_APP_ID: string;
+        GOOGLE_APP_SECRET: string;
     }
 }
 

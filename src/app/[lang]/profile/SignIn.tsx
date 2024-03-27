@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import FlexCol from '@/layouts/FlexCol';
 import Image from 'next/image';
 import logo from '@/assets/images/logo.png';
+import GoogleSignIn from './GoogleSignIn';
 
 export default function SignIn() {
     return (
@@ -45,6 +46,8 @@ export default function SignIn() {
                         center
                         className='text-gray-500 dark:text-gray-400'
                     >
+                        <GoogleSignIn />
+                        <p className='w-full h-[1px] bg-slate-400 my-2'></p>
                         <p className='w-full text-center'>
                             {`Don't have an account?`}
                         </p>
