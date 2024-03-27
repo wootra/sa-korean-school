@@ -16,7 +16,7 @@ const layout = ({
     const convertedNavList = convertNavList(COURSES_LIST, lang);
     return (
         <FullWidth>
-            <SubNav navList={convertedNavList} courseTitle={courseTitle}/>
+            <SubNav navList={convertedNavList} titles={courseTitle} />
             <div className='w-full max-w-[800px] mx-auto my-4 px-4'>
                 {children}
             </div>

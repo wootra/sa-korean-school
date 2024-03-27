@@ -1,8 +1,6 @@
 import { SubNavInfo } from '@/entities/SubNav';
 import { Languages } from '@/lib/langs/types';
 
-export const COURSES_PAGES = ['introduction', 'schedule'] as const;
-export type AboutPage = (typeof COURSES_PAGES)[number];
 const enCourseTitles = Object.freeze({
     introduction: 'Introduction',
     schedule: 'Schedule',
