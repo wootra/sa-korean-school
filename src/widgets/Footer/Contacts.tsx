@@ -33,6 +33,7 @@ export const Contacts = ({
             <Link
                 href='mailto: sa.koreanschool@gmail.com'
                 className='underline text-blue-600 text-left'
+                aria-label='send an email to administrator'
             >
                 <FlexRow className='gap-2'>
                     <MdOutlineMailOutline className='w-4 h-4' />
@@ -43,6 +44,7 @@ export const Contacts = ({
             <Link
                 href='https://www.facebook.com/SanAntonioKoreanSchool/'
                 className='underline text-blue-600 text-left'
+                aria-label='open San Antonio korean school facebook page'
             >
                 <FlexRow className='gap-2 break-all'>
                     <FacebookIcon className='w-4 h-4' />

@@ -5,16 +5,16 @@ import Link from 'next/link';
 import { Languages } from '@/lib/langs/types';
 import { useLang } from '@/lib/LangContext';
 
-export const PrivacyPolicyLink = ({ lang }: { lang?: Languages }) => {
+export const TermsOfServiceLink = ({ lang }: { lang?: Languages }) => {
     const { language } = useLang();
     return (
         <Link
-            href={`/${lang ?? language}/about/policy`}
+            href={`/${lang ?? language}/about/terms`}
             className='underline text-blue-600 text-xs'
-            aria-label='move to privacy policy page'
+            aria-label='move to terms of service page'
         >
-            {language === 'en' ? 'Privacy Policy' : '개인정보취급정책'}
+            {language === 'en' ? 'Terms of Service' : '서비스 이용정책'}
         </Link>
     );
 };
-export default PrivacyPolicyLink;
+export default TermsOfServiceLink;

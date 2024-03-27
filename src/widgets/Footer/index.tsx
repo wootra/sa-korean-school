@@ -5,6 +5,7 @@ import Contacts from './Contacts';
 import { Links } from './Links';
 import { Languages } from '@/lib/langs/types';
 import PrivacyPolicyLink from './PrivacyPolicyLink';
+import TermsOfServiceLink from './TermsOfServiceLink';
 const Footer = ({ lang }: { lang?: Languages }) => {
     return (
         <footer className='flex flex-col w-full min-h-32 bg-lime-100/50 border-t-8 gap-2 border-lime-600 mt-8 justify-start  dark:bg-gray-800'>
@@ -43,7 +44,10 @@ const Footer = ({ lang }: { lang?: Languages }) => {
                     </span>{' '}
                     All Rights Reserved.
                 </div>
-                <PrivacyPolicyLink lang={lang} />
+                <div className='flex flex-row flex-wrap gap-4'>
+                    <PrivacyPolicyLink lang={lang} />
+                    <TermsOfServiceLink lang={lang} />
+                </div>
             </div>
         </footer>
     );

@@ -20,7 +20,10 @@ export const ABOUT_LIST: Record<Languages, SubNavInfo[]> = {
         {
             title: '개인정보취급',
             href: '/[lang]/about/policy',
-            notReady: true,
+        },
+        {
+            title: '서비스 이용정책',
+            href: '/[lang]/about/terms',
         },
     ],
     en: [
@@ -37,7 +40,10 @@ export const ABOUT_LIST: Record<Languages, SubNavInfo[]> = {
         {
             title: 'Privacy Policy',
             href: '/[lang]/about/policy',
-            notReady: true,
+        },
+        {
+            title: 'Terms of Service',
+            href: '/[lang]/about/terms',
         },
     ],
 };

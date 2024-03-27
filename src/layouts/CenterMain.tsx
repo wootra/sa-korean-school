@@ -8,7 +8,7 @@ const CenterMain = ({
     return (
         <div
             className={cn(
-                'grid min-h-[600px] w-full text-center text-sm relative place-items-center items-start',
+                'grid min-h-[calc(100vh-200px)] w-full text-center text-sm relative place-items-center items-start',
                 className
             )}
         >
