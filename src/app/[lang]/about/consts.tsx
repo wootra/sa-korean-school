@@ -17,6 +17,11 @@ export const ABOUT_LIST: Record<Languages, SubNavInfo[]> = {
             href: '/[lang]/about/greetings',
             notReady: true,
         },
+        {
+            title: '개인정보취급',
+            href: '/[lang]/about/policy',
+            notReady: true,
+        },
     ],
     en: [
         {
@@ -27,6 +32,11 @@ export const ABOUT_LIST: Record<Languages, SubNavInfo[]> = {
         {
             title: 'Greetings',
             href: '/[lang]/about/greetings',
+            notReady: true,
+        },
+        {
+            title: 'Privacy Policy',
+            href: '/[lang]/about/policy',
             notReady: true,
         },
     ],

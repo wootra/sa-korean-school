@@ -13,8 +13,10 @@ export default function RootLayout({
 }>) {
     return (
         <div className='group/entry flex flex-col w-min-h-screen bg-gray-100 items-start relative'>
-            <LangProvider language={undefined}>{children}</LangProvider>
-            <Footer />
+            <LangProvider language={undefined}>
+                {children}
+                <Footer lang={undefined} />
+            </LangProvider>
         </div>
     );
 }

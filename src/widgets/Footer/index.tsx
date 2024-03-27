@@ -3,7 +3,9 @@ import React from 'react';
 import logo from '@/assets/images/logo.png';
 import Contacts from './Contacts';
 import { Links } from './Links';
-const Footer = () => {
+import { Languages } from '@/lib/langs/types';
+import PrivacyPolicyLink from './PrivacyPolicyLink';
+const Footer = ({ lang }: { lang?: Languages }) => {
     return (
         <footer className='flex flex-col w-full min-h-32 bg-lime-100/50 border-t-8 gap-2 border-lime-600 mt-8 justify-start  dark:bg-gray-800'>
             <div className='flex flex-row flex-wrap items-start justify-start gap-4 h-full px-4 py-4'>
@@ -33,10 +35,15 @@ const Footer = () => {
                 <Contacts title='Contacts' />
                 <Links />
             </div>
-            <div className='flex justify-center items-center text-xs mt-2 bg-lime-400 w-full min-h-8 gap-x-2 gap-y-0 flex-wrap'>
-                Copyright{' '}
-                <span className='font-bold'>ⓒ San Antonio Korean School</span>{' '}
-                All Rights Reserved.
+            <div className='flex flex-col justify-center items-center bg-lime-400  mt-2 min-h-8 py-1'>
+                <div className='flex justify-center items-center text-xs w-full gap-x-2 gap-y-0 flex-wrap'>
+                    Copyright{' '}
+                    <span className='font-bold'>
+                        ⓒ San Antonio Korean School
+                    </span>{' '}
+                    All Rights Reserved.
+                </div>
+                <PrivacyPolicyLink lang={lang} />
             </div>
         </footer>
     );

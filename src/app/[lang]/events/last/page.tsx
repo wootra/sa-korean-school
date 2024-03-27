@@ -3,8 +3,8 @@ import UnderConstruction from '@/features/UnderConstruction';
 
 // export const dynamic = 'force-dynamic';
 
-const NewsPage = () => {
+const LastInfoPage = () => {
     return <UnderConstruction />;
 };
 
-export default NewsPage;
+export default LastInfoPage;

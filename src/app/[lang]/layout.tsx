@@ -39,7 +39,7 @@ export default function RootLayout({
     children,
 }: Readonly<{
     params: {
-        lang: string;
+        lang: Languages;
     };
     children: React.ReactNode;
 }>) {
@@ -51,7 +51,7 @@ export default function RootLayout({
             <div className='flex flex-col w-full min-h-screen bg-gray-100 items-start relative'>
                 <Header lang={langCode} />
                 <main className='flex-1 w-full'>{children}</main>
-                <Footer />
+                <Footer lang={lang} />
             </div>
         </LangProvider>
     );
