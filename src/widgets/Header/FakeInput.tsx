@@ -6,7 +6,10 @@ import { usePathname } from 'next/navigation';
 const FakeInput = ({ id }: { id: string }) => {
     const path = usePathname();
     useEffect(() => {
-        (document.getElementById(id) as HTMLInputElement)?.click();
+        const element = document.getElementById(id) as HTMLInputElement;
+        if (element && element.checked) {
+            element?.click();
+        }
     }, [path, id]);
     return <input type='checkbox' id={id} className='opacity-0 min-w-0 w-0' />;
 };
