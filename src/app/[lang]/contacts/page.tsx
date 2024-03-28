@@ -5,6 +5,7 @@ import React from 'react';
 import Enterance from './Enterance';
 import { TITLES } from './consts';
 import { Languages } from '@/lib/langs/types';
+import BackHeader from '@/entities/BackHeader';
 type Props = {
     params: {
         lang: Languages;
@@ -25,6 +26,7 @@ const ContactsPage = ({ params: { lang } }: Props) => {
                 />
                 <Enterance title={titles.enterance} />
             </div>
+            <BackHeader>CONTACTS</BackHeader>
         </CenterMain>
     );
 };

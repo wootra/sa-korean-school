@@ -4,6 +4,7 @@ import { EVENT_LIST, eventTitles } from './consts';
 import FullWidth from '@/layouts/FullWidth';
 import { convertNavList } from '@/lib/langs/convertNavList';
 import { Languages } from '@/lib/langs/types';
+import BackHeader from '@/entities/BackHeader';
 
 const layout = ({
     children,
@@ -20,6 +21,7 @@ const layout = ({
             <div className='w-full max-w-[800px] mx-auto my-4 px-4'>
                 {children}
             </div>
+            <BackHeader>EVENTS</BackHeader>
         </FullWidth>
     );
 };

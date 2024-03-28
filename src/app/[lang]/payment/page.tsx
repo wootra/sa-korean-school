@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/accordion';
 import TopMain from '@/layouts/TopMain';
 import AccordionManager from './AccordionManager';
+import BackHeader from '@/entities/BackHeader';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -20,6 +21,7 @@ const stripePromise = loadStripe(
 export default function PaymentPage() {
     return (
         <TopMain>
+            <BackHeader>Payment</BackHeader>
             <AccordionManager />
             <Accordion type='single' collapsible className='w-full'>
                 <AccordionItem

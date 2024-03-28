@@ -8,7 +8,7 @@ import PrivacyPolicyLink from './PrivacyPolicyLink';
 import TermsOfServiceLink from './TermsOfServiceLink';
 const Footer = ({ lang }: { lang?: Languages }) => {
     return (
-        <footer className='flex flex-col w-full min-h-32 bg-lime-100/50 border-t-8 gap-2 border-lime-600 mt-8 justify-start  dark:bg-gray-800'>
+        <footer className='flex flex-col w-full min-h-32 bg-slate-100/50 border-t-8 gap-2 border-slate-600 mt-8 justify-start  dark:bg-gray-800'>
             <div className='flex flex-row flex-wrap items-start justify-start gap-4 h-full px-4 py-4'>
                 <div className='flex flex-row flex-wrap items-start justify-center gap-2 h-full'>
                     <Image
@@ -36,7 +36,7 @@ const Footer = ({ lang }: { lang?: Languages }) => {
                 <Contacts title='Contacts' />
                 <Links />
             </div>
-            <div className='flex flex-col justify-center items-center bg-lime-400  mt-2 min-h-8 py-1'>
+            <div className='flex flex-col justify-center items-center bg-slate-400  mt-2 min-h-8 py-1'>
                 <div className='flex justify-center items-center text-xs w-full gap-x-2 gap-y-0 flex-wrap'>
                     Copyright{' '}
                     <span className='font-bold'>

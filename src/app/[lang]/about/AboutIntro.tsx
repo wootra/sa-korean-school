@@ -3,6 +3,7 @@ import { multiLineText } from '@/lib/jsxUtils';
 import React from 'react';
 import { docs, introductions } from './consts';
 import { Languages } from '@/lib/langs/types';
+import InfoSection from './InfoSection';
 
 const AboutIntro = ({ lang }: { lang: Languages }) => {
     const doc = docs[lang] ?? docs.en;
@@ -10,12 +11,8 @@ const AboutIntro = ({ lang }: { lang: Languages }) => {
     return (
         <div className='flex flex-col max-w-[640px] w-full mx-auto gap-4 px-4'>
             <Heading type='page'>{intro.heading}</Heading>
-            <section className='text-sm p-4 bg-slate-200 rounded-md shadow-sm flex flex-col'>
-                {multiLineText(intro.description, false)}
-            </section>
-            <section className='text-sm p-4 bg-orange-100 rounded-md shadow-sm'>
-                {intro.info}
-            </section>
+            <InfoSection>{multiLineText(intro.description, false)}</InfoSection>
+            <InfoSection type={2}>{intro.info}</InfoSection>
             {doc.map((item, idx) => {
                 return (
                     <section

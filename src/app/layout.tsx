@@ -20,16 +20,19 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            {/* <head>
+            <head>
                 <style>
                     {`
-                        :root {
+                        html *,body * {
                             box-sizing: border-box;
+                        }
+                        body {
+                            overflow-x: hidden;
                         }
                         
                     `}
                 </style>
-            </head> */}
+            </head>
             <body className={inter.className}>
                 <div id='fb-root'></div>
                 <SessionProvider>

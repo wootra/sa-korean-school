@@ -13,7 +13,7 @@ const TopMain = ({
     return (
         <div
             className={cn(
-                'flex flex-col w-full  items-start justify-start text-center text-sm',
+                'flex flex-col w-full  items-start justify-start text-center text-sm relative',
                 className,
                 limitedSize && 'max-w-[800px] lg:max-w-[1024px] mx-auto'
             )}

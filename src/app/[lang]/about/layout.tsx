@@ -4,6 +4,7 @@ import { ABOUT_LIST } from './consts';
 import FullWidth from '@/layouts/FullWidth';
 import { convertNavList } from '@/lib/langs/convertNavList';
 import { Languages } from '@/lib/langs/types';
+import BackHeader from '@/entities/BackHeader';
 
 const layout = ({
     children,
@@ -18,6 +19,7 @@ const layout = ({
         <FullWidth>
             <SubNav navList={convertedNavList} />
             {children}
+            <BackHeader>ABOUT US</BackHeader>
         </FullWidth>
     );
 };
