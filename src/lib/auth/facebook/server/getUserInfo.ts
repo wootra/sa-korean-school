@@ -2,7 +2,7 @@
 
 import { NextRequest } from 'next/server';
 import { AuthInfo, FacebookUser, ServerUser } from './types';
-import { AuthProviders } from '../types';
+import { AuthProviders } from '../../types';
 
 const getUserInfoForFacebook = async (
     token?: string | null

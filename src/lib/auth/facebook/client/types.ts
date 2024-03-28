@@ -1,4 +1,4 @@
-import { AuthProviders } from '../types';
+import { AuthProviders } from '../../types';
 
 export type User = {
     name?: string;

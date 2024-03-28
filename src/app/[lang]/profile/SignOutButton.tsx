@@ -1,25 +1,28 @@
 'use client';
 
-import { useAuth } from '@/lib/SessionContext';
 import { Button } from '@/components/ui/button';
 import { redirect } from 'next/navigation';
 
 import React, { useCallback } from 'react';
 import { useLang } from '@/lib/LangContext';
+import { useSession, signOut } from 'next-auth/react';
 
 export default function SignOutButton() {
-    const { logout } = useAuth();
+    const { data } = useSession();
+    const { user } = data ?? {};
     const { language } = useLang();
-    const signOut = useCallback(() => {
-        logout();
+    const signOutCb = useCallback(() => {
+        if (user) {
+            signOut();
+        }
         redirect(`/${language}/profile`);
-    }, [logout, language]);
+    }, [language, user]);
     return (
         <Button
             className='w-full'
             type='button'
             variant={'destructive'}
-            onClick={signOut}
+            onClick={signOutCb}
         >
             Sign Out
         </Button>

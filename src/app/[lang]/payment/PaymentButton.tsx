@@ -8,7 +8,6 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
-import TokenInput from './TokenInput';
 import { paymentInfo } from './constants';
 import { PaymentOptions } from '@/config/registration';
 type Props = {
@@ -22,7 +21,6 @@ const PaymentButton = ({ payId, children }: PropsWithChildren<Props>) => {
             method='POST'
             className='w-full h-full'
         >
-            <TokenInput />
             <Card className='w-full flex flex-col h-full'>
                 <CardHeader>
                     <CardTitle>{children}</CardTitle>

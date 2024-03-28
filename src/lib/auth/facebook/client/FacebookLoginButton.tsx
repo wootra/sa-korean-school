@@ -1,6 +1,6 @@
 'use client';
 
-import { useAuth } from '@/lib/SessionContext';
+import { useAuth } from './SessionContext';
 import Image from 'next/image';
 import Link from 'next/link';
 

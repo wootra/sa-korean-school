@@ -3,7 +3,8 @@
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import SignOutButton from './SignOutButton';
-import { User } from '@/lib/auth/client/types';
+import { User } from 'next-auth';
+// import { User } from '@/lib/auth/facebook/client/types';
 
 export default function Profile({ user }: { user: User }) {
     return (
@@ -18,7 +19,7 @@ export default function Profile({ user }: { user: User }) {
                         <Input
                             id='email'
                             placeholder='m@example.com'
-                            value={user.email}
+                            value={user.email ?? ''}
                             disabled
                             required
                             type='email'

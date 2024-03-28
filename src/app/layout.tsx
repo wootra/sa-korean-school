@@ -3,7 +3,6 @@ import Script from 'next/script';
 import '@/css/globals.css';
 import '@/css/index.css';
 import '@/css/font.css';
-import { AuthProvider } from '@/lib/SessionContext';
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { SessionProvider } from 'next-auth/react';
@@ -36,11 +35,11 @@ export default function RootLayout({
             <body className={inter.className}>
                 <div id='fb-root'></div>
                 <SessionProvider>
-                    <AuthProvider>
-                        <Suspense fallback={<div>loading...</div>}>
-                            {children}
-                        </Suspense>
-                    </AuthProvider>
+                    {/* <AuthProvider> */}
+                    <Suspense fallback={<div>loading...</div>}>
+                        {children}
+                    </Suspense>
+                    {/* </AuthProvider> */}
                 </SessionProvider>
                 <Script
                     async

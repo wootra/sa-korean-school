@@ -7,14 +7,14 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import { User } from '@/lib/auth/client/types';
+import { User } from '@/lib/auth/facebook/client/types';
 import {
     logoutFacebook,
     initFacebook,
     loginFacebook,
     checkFacebookLoginStatus,
     initUserInfo,
-} from '@/lib/auth/client';
+} from '@/lib/auth/facebook/client';
 
 const AuthContext = React.createContext<{
     user: User;

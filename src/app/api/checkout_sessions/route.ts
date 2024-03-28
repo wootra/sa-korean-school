@@ -1,9 +1,9 @@
 import { PAYMENTS } from '@/config/registration';
 import stripe from '@/config/stripe';
-import {
-    getAuthInfoFromRequest,
-    getUserInfo,
-} from '@/lib/auth/server/getUserInfo';
+// import {
+//     getAuthInfoFromRequest,
+//     getUserInfo,
+// } from '@/lib/auth/facebook/server/getUserInfo';
 import { RedirectType, redirect } from 'next/navigation';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -19,13 +19,9 @@ export async function POST(req: NextRequest, res: NextResponse) {
     const query = req.nextUrl.searchParams;
     const className = query.get('class');
     const lang = query.get('lang');
-    const authInfo = await getAuthInfoFromRequest(req);
-    const userInfo = await getUserInfo(authInfo);
-    const stripeUserInfo = userInfo.email
-        ? {
-              customer_email: userInfo.email,
-          }
-        : {};
+    // const authInfo = await getAuthInfoFromRequest(req);
+    // const userInfo = await getUserInfo(authInfo);
+    const stripeUserInfo = {};
     const price = classCodes[className as keyof typeof classCodes];
     if (!price) {
         redirect(
