@@ -24,12 +24,13 @@ export const {
                         account: any;
                         profile: { email_verified: boolean; email: string };
                     }) {
+                        console.log('--signIn', account, profile);
                         if (account.provider === 'google') {
                             return (
                                 profile.email_verified &&
                                 (profile.email.startsWith('sa.') ||
                                     profile.email.startsWith('ks.')) &&
-                                profile.email.endsWith('@google.com')
+                                profile.email.endsWith('@gmail.com')
                             );
                         }
                     },

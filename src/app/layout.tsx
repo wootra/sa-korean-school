@@ -41,13 +41,13 @@ export default function RootLayout({
                     </Suspense>
                     {/* </AuthProvider> */}
                 </SessionProvider>
-                <Script
+                {/* <Script
                     async
                     defer
                     crossOrigin='anonymous'
                     src='https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v19.0&appId=420879180505137'
                     nonce='VbxLOlga'
-                />
+                /> */}
             </body>
         </html>
     );
