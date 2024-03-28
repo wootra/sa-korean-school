@@ -14,6 +14,25 @@ export const {
                     prompt: 'consent',
                     access_type: 'offline',
                     response_type: 'code',
+                    // scope: 'openid email profile',
+                },
+                callbacks: {
+                    async signIn({
+                        account,
+                        profile,
+                    }: {
+                        account: any;
+                        profile: { email_verified: boolean; email: string };
+                    }) {
+                        if (account.provider === 'google') {
+                            return (
+                                profile.email_verified &&
+                                (profile.email.startsWith('sa.') ||
+                                    profile.email.startsWith('ks.')) &&
+                                profile.email.endsWith('@google.com')
+                            );
+                        }
+                    },
                 },
             },
         }),
