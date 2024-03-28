@@ -13,12 +13,12 @@ export const ABOUT_LIST: Record<Languages, SubNavInfo[]> = {
             exact: true,
         },
         {
-            title: '학교장/이사장 인사',
+            title: '인사말',
             href: '/[lang]/about/greetings',
             notReady: true,
         },
         {
-            title: '개인정보취급',
+            title: '개인 정보 취급',
             href: '/[lang]/about/policy',
         },
         {

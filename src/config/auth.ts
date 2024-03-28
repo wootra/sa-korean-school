@@ -5,5 +5,15 @@ export const {
     handlers: { GET, POST },
     auth,
 } = NextAuth({
-    providers: [Google],
+    providers: [
+        Google({
+            authorization: {
+                params: {
+                    prompt: 'consent',
+                    access_type: 'offline',
+                    response_type: 'code',
+                },
+            },
+        }),
+    ],
 });

@@ -37,7 +37,7 @@ const HeaderImage = ({ lang }: { lang: Languages }) => {
             >
                 <Image
                     alt='San Antonio Korean School logo'
-                    className='rounded-full'
+                    className='rounded-full animate-size-pulse group-has-[input:checked]:animate-none'
                     height='40'
                     src={logo}
                     style={{

@@ -7,6 +7,7 @@ import { Languages } from '@/lib/langs/types';
 import LangChoiceButton from '@/features/LangChoiceButton';
 import { NAVS } from './consts';
 import HeaderImage from './HeaderImage';
+import FakeInput from './FakeInput';
 const MainNav = (
     props: PropsWithChildren<{ className?: string; href: string }>
 ) => {
@@ -36,14 +37,8 @@ const Header = ({
     return (
         <HeaderLocator fixed={fixed} refToObserve={refToObserve}>
             <HeaderImage lang={lang} />
-
-            <input
-                type='checkbox'
-                id='menu-toggle'
-                className='opacity-0 min-w-0 w-0'
-            />
-
-            <nav className='hidden sm:flex p-4 sm:p-0 sm:justify-end group-has-[input:checked]:flex flex-1 items-start sm:items-center justify-start gap-2 sm:gap-4 flex-col sm:flex-row absolute left-0 top-[100%] bg-gray-100 border-r-[1px] border-b-[1px] border-gray-200 sm:border-none shadow-lg sm:bg-transparent sm:static sm:shadow-none'>
+            <FakeInput id='menu-toggle' />
+            <nav className='-left-full sm:flex p-4 sm:p-0 sm:justify-end group-has-[input:checked]:flex flex-1 items-start sm:items-center justify-start gap-2 sm:gap-4 flex-col sm:flex-row absolute group-has-[input:checked]:left-0 top-[100%] bg-gray-100 border-r-[1px] border-b-[1px] border-gray-200 sm:border-none shadow-lg sm:bg-transparent sm:static sm:shadow-none transition-all sm:transition-none min-w-[80%] sm:min-w-0'>
                 <MainNav href='/entry' className='sm:hidden md:flex'>
                     {navs.home}
                 </MainNav>
