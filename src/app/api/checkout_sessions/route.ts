@@ -4,7 +4,7 @@ import stripe from '@/config/stripe';
 //     getAuthInfoFromRequest,
 //     getUserInfo,
 // } from '@/lib/auth/facebook/server/getUserInfo';
-import { RedirectType, redirect } from 'next/navigation';
+// import { RedirectType, redirect } from 'next/navigation';
 import { NextRequest, NextResponse } from 'next/server';
 
 const classCodes = Object.freeze({
@@ -26,10 +26,14 @@ export async function POST(req: NextRequest, res: NextResponse) {
         console.error(
             '=== class code for ' + className + ' does not exist in classCodes'
         );
-        redirect(
-            `${origin}/${lang}/payment/failed?error=NO_SUCH_PAYMENT_PLAN&class=${className}`,
-            RedirectType.replace
-        );
+        return NextResponse.json({
+            url: `${origin}/${lang}/payment/failed?error=NO_SUCH_PAYMENT_PLAN&class=${className}`,
+            type: 'error',
+        });
+        // redirect(
+        //     `${origin}/${lang}/payment/failed?error=NO_SUCH_PAYMENT_PLAN&class=${className}`,
+        //     RedirectType.replace
+        // );
     }
     try {
         const session = await stripe.checkout.sessions.create({
@@ -62,18 +66,28 @@ export async function POST(req: NextRequest, res: NextResponse) {
             console.log('success');
             return NextResponse.json(session);
         } else {
-            redirect(
-                `${origin}/${lang}/payment/failed?error=NO_SESSION&class=${className}`,
-                RedirectType.replace
-            );
+            return NextResponse.json({
+                url: `/${lang}/payment/failed?error=NO_SESSION&class=${className}`,
+                type: 'error',
+            });
+            // redirect(
+            //     `${origin}/${lang}/payment/failed?error=NO_SESSION&class=${className}`,
+            //     RedirectType.replace
+            // );
         }
     } catch (error) {
         console.error('error on payment', error);
-        redirect(
-            `${origin}/${lang}/payment/failed?error=UNKNOWN_ERROR&class=${className}&reason=${
+        return NextResponse.json({
+            url: `/${lang}/payment/failed?error=UNKNOWN_ERROR&class=${className}&reason=${
                 typeof error === 'string' ? error : (error as Error).message
             }`,
-            RedirectType.replace
-        );
+            type: 'error',
+        });
+        // redirect(
+        //     `${origin}/${lang}/payment/failed?error=UNKNOWN_ERROR&class=${className}&reason=${
+        //         typeof error === 'string' ? error : (error as Error).message
+        //     }`,
+        //     RedirectType.replace
+        // );
     }
 }
