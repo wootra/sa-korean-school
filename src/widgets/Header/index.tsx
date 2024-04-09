@@ -45,7 +45,7 @@ const Header = ({
                 <MainNav href={`/${lang}/about`}>{navs.about}</MainNav>
                 <MainNav href={`/${lang}/courses`}>{navs.courses}</MainNav>
                 <MainNav href={`/${lang}/events`}>{navs.events}</MainNav>
-                <MainNav href={`/${lang}/manual-payment`}>
+                <MainNav href={`/${lang}/payment/manual-payment`}>
                     {navs.payment}
                 </MainNav>
                 <MainNav href={`/${lang}/contacts`}>{navs.contacts}</MainNav>

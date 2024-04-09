@@ -31,6 +31,7 @@ const PaymentSuccess = () => {
                 <CardContent>
                     <p>Your payment is failed for this reason:</p>
                     <p>{PAYMENT_ERRORS[error] ?? 'Unknown'}</p>
+                    {error === 'UNKNOWN_ERROR' && <p>{param.get('reason')}</p>}
                 </CardContent>
                 <CardFooter className='flex justify-center items-center'>
                     <Link

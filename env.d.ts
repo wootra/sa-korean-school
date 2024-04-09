@@ -6,8 +6,7 @@ namespace NodeJS {
         STRIPE_SECRET_KEY: string;
         VERCEL_URL: string;
         NEXTAUTH_URL: string;
-        PREREGISTER_CLASS_PRICE: string;
-        NOREGISTER_CLASS_PRICE: string;
+        CLASS_PRICE_DEPOSIT: string;
         COURSE_INTRO_ID: string;
         COURSE_SCHEDULE_ID: string;
         COURSE_TIMETABLE_ID: string;

@@ -11,17 +11,20 @@ import {
 } from '@/components/ui/accordion';
 import TopMain from '@/layouts/TopMain';
 import AccordionManager from './AccordionManager';
-import BackHeader from '@/entities/BackHeader';
+import { Languages } from '@/lib/langs/types';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ''
 );
-export default function PaymentPage() {
+export default function PaymentPage({
+    params: { lang },
+}: {
+    params: { lang: Languages };
+}) {
     return (
         <TopMain>
-            <BackHeader>Payment</BackHeader>
             <AccordionManager />
             <Accordion type='single' collapsible className='w-full'>
                 <AccordionItem
@@ -33,23 +36,14 @@ export default function PaymentPage() {
                     </AccordionTrigger>
                     <AccordionContent className='bg-blue-100'>
                         <ResponsiveGridMain>
-                            <PaymentButton payId={PAYMENTS.PREREG}>
-                                Korean Language Culture
+                            <PaymentButton payId={PAYMENTS.DEPOSIT} lang={lang}>
+                                2024 Autom Semester Deposit
                                 <br />
-                                (pre registered)
-                            </PaymentButton>
-                            <PaymentButton payId={PAYMENTS.NOREG}>
-                                Korean Language Culture
-                                <br />
-                                (first register)
-                            </PaymentButton>
-                            <PaymentButton payId={PAYMENTS.NOREG}>
-                                After School Activity
                             </PaymentButton>
                         </ResponsiveGridMain>
                     </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value='donation-group' id='donation-group'>
+                {/* <AccordionItem value='donation-group' id='donation-group'>
                     <AccordionTrigger className='px-4 border-r border-l border-gray-200'>
                         Donation
                     </AccordionTrigger>
@@ -66,7 +60,7 @@ export default function PaymentPage() {
                             </PaymentButton>
                         </ResponsiveGridMain>
                     </AccordionContent>
-                </AccordionItem>
+                </AccordionItem> */}
             </Accordion>
         </TopMain>
     );
