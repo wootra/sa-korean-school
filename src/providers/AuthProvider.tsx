@@ -15,13 +15,13 @@ const AuthProvider = ({
 			{/* <AuthProvider> */}
 			<Suspense fallback={<div>loading...</div>}>{children}</Suspense>
 			{/* </AuthProvider> */}
-			<Script
+			{/* <Script
 				async
 				defer
 				crossOrigin='anonymous'
 				src='https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v19.0&appId=420879180505137'
 				nonce='VbxLOlga'
-			/>
+			/> */}
 		</SessionProvider>
 	);
 };

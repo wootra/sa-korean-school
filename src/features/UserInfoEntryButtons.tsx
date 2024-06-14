@@ -5,10 +5,11 @@ import React from 'react';
 import notLoginImage from '@/assets/images/img_profile_24_outline.svg';
 import { Languages } from '@/lib/langs/types';
 import { User } from 'next-auth';
+import { RedirectType, redirect } from 'next/navigation';
 export const LoginButton = ({ lang }: { lang: Languages }) => {
 	return (
 		<Link
-			href={`/${lang}/profile`}
+			href={`/${lang}/sign-in`}
 			className='p-0 w-6 h-auto relative'
 			aria-label='login'
 		>
@@ -43,9 +44,7 @@ export const ProfileButton = ({ lang }: { lang: Languages }) => {
 	}
 
 	const onClick = () => {
-		signOut({
-			callbackUrl: '/entry',
-		});
+		redirect(`/${lang}/profile'`, RedirectType.push);
 	};
 	return (
 		<Link

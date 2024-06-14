@@ -1,22 +1,18 @@
-'use client';
-
 import React from 'react';
-import SignIn from './SignIn';
 import Profile from './Profile';
-import { useSession } from 'next-auth/react';
+import { auth } from '@/config/auth';
+import { RedirectType, redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 
-const ProfilePage = () => {
-	const sessionInfo = useSession();
-	if (sessionInfo.status !== 'authenticated') {
-		return <SignIn />;
+const ProfilePage = async ({ params }: { params: { lang: string } }) => {
+	const session = await auth();
+
+	if (!session) {
+		revalidatePath(`/${params.lang}/profile`);
+		redirect(`/${params.lang}/sign-in`, RedirectType.replace);
 	}
-	const session = sessionInfo.data;
 	const { user, expires } = session;
-	console.log('expires at :', expires);
-	if (!user?.email) {
-		return <SignIn />;
-	}
-	return user ? <Profile session={session} /> : <SignIn />;
+	return <Profile session={session} />;
 };
 
 export default ProfilePage;
