@@ -1,27 +1,26 @@
 import { Inter } from 'next/font/google';
-import Script from 'next/script';
+
 import '@/css/globals.css';
 import '@/css/index.css';
 import '@/css/font.css';
-import { Suspense } from 'react';
 import { Metadata } from 'next';
-import { SessionProvider } from 'next-auth/react';
+import AuthProvider from '@/providers/AuthProvider';
+import { PropsWithChildren } from 'react';
+import { auth } from '@/config/auth';
 
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
-    title: 'San Antonio Korean School Homepage',
-    description: 'San Antonio Korean School Official Homepage',
+	title: 'San Antonio Korean School Homepage',
+	description: 'San Antonio Korean School Official Homepage',
 };
-export default function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
-    return (
-        <html lang='en'>
-            <head>
-                <style>
-                    {`
+export default async function RootLayout({ children }: PropsWithChildren) {
+	const session = await auth();
+	console.log('session:', session);
+	return (
+		<html lang='en'>
+			<head>
+				<style>
+					{`
                         html *,body * {
                             box-sizing: border-box;
                         }
@@ -30,25 +29,12 @@ export default function RootLayout({
                         }
                         
                     `}
-                </style>
-            </head>
-            <body className={inter.className}>
-                <div id='fb-root'></div>
-                <SessionProvider>
-                    {/* <AuthProvider> */}
-                    <Suspense fallback={<div>loading...</div>}>
-                        {children}
-                    </Suspense>
-                    {/* </AuthProvider> */}
-                </SessionProvider>
-                {/* <Script
-                    async
-                    defer
-                    crossOrigin='anonymous'
-                    src='https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v19.0&appId=420879180505137'
-                    nonce='VbxLOlga'
-                /> */}
-            </body>
-        </html>
-    );
+				</style>
+			</head>
+			<body className={inter.className}>
+				<div id='fb-root'></div>
+				<AuthProvider session={session}>{children}</AuthProvider>
+			</body>
+		</html>
+	);
 }
