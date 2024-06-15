@@ -48,7 +48,7 @@ export default function RootLayout({
 				<div className='flex flex-col w-full min-h-screen bg-gray-100 items-start relative'>
 					<Header lang={langCode} />
 					<main className='flex-1 w-full h-full flex flex-row justify-center items-center'>
-						<div className='flex flex-col justify-center items-center'>
+						<div className='w-full flex justify-center items-center'>
 							{children}
 						</div>
 					</main>
