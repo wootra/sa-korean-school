@@ -4,34 +4,23 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import SignOutButton from './SignOutButton';
 import { Session } from 'next-auth';
-// import { User } from '@/lib/auth/facebook/client/types';
+import Link from 'next/link';
+import Image from 'next/image';
+import CommonContainer from '../CommonContainer';
 
-export default function Profile({ session }: { session: Session }) {
+export default function Profile({
+	session,
+	lang,
+}: {
+	session: Session;
+	lang: string;
+}) {
 	return (
-		<div className='w-full py-12'>
-			<div className='container space-y-12'>
-				<div className='space-y-2 text-center'>
-					<h1 className='text-4xl font-bold'>User Profile</h1>
-				</div>
-				<div className='mx-auto max-w-[400px] space-y-4'>
-					<div className='space-y-2'>
-						<Label htmlFor='email'>Email</Label>
-						<Input
-							id='email'
-							placeholder='m@example.com'
-							value={session.user?.email ?? ''}
-							disabled
-							required
-							type='email'
-						/>
-					</div>
-					<div className='space-y-2'>
-						<Label htmlFor='student_name'>{`Student's name`}</Label>
-						<Input id='student_name' required type='text' />
-					</div>
-					<SignOutButton />
-				</div>
+		<CommonContainer title='My Profile'>
+			<div className='text-xl font-bold text-gray-900'>
+				{session.user?.name}
 			</div>
-		</div>
+			<p className='text-gray-500'>{session.user?.email}</p>
+		</CommonContainer>
 	);
 }

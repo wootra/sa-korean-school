@@ -11,8 +11,8 @@ const ProfilePage = async ({ params }: { params: { lang: string } }) => {
 		revalidatePath(`/${params.lang}/profile`);
 		redirect(`/${params.lang}/sign-in`, RedirectType.replace);
 	}
-	const { user, expires } = session;
-	return <Profile session={session} />;
+	const { lang } = params;
+	return <Profile session={session} lang={lang} />;
 };
 
 export default ProfilePage;

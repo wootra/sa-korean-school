@@ -17,9 +17,6 @@ function ManageAllowedEmails({
 
 	return (
 		<div className='bg-white p-8 rounded shadow-md w-full max-w-md'>
-			<h1 className='text-2xl font-bold mb-4 text-center'>
-				Manage Allowed Emails
-			</h1>
 			<AddUserForm users={users} setUsers={setUsers} />
 			<AddedUsers users={users} setUsers={setUsers} />
 		</div>
