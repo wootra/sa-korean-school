@@ -1,6 +1,6 @@
 import Header from '@/widgets/Header';
 import Footer from '@/widgets/Footer';
-import { LangProvider } from '@/lib/LangContext';
+import { LangProvider, ClientProvider } from '@/providers';
 import { Languages } from '@/lib/langs/types';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { getEntryImages } from '@/lib/google-sheets/entryImages';
@@ -15,13 +15,8 @@ export async function generateMetadata(
 	{ params }: Props,
 	parent: ResolvingMetadata
 ): Promise<Metadata> {
-	// read route params
 	const lang = params.lang as Languages;
 
-	// fetch data
-	// const product = await fetch(`https://.../${id}`).then((res) => res.json())
-
-	// optionally access and extend (rather than replace) parent metadata
 	const previousImages = (await parent).openGraph?.images || [];
 	const imageGroups = await getEntryImages();
 	const heroImage = imageGroups['main-hero']?.[0]?.url ?? '';
@@ -49,11 +44,13 @@ export default function RootLayout({
 		: 'en';
 	return (
 		<LangProvider language={langCode}>
-			<div className='flex flex-col w-full min-h-screen bg-gray-100 items-start relative'>
-				<Header lang={langCode} />
-				<main className='flex-1 w-full'>{children}</main>
-				<Footer lang={lang} />
-			</div>
+			<ClientProvider>
+				<div className='flex flex-col w-full min-h-screen bg-gray-100 items-start relative'>
+					<Header lang={langCode} />
+					<main className='flex-1 w-full'>{children}</main>
+					<Footer lang={lang} />
+				</div>
+			</ClientProvider>
 		</LangProvider>
 	);
 }

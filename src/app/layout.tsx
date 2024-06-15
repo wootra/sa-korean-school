@@ -4,7 +4,7 @@ import '@/css/globals.css';
 import '@/css/index.css';
 import '@/css/font.css';
 import { Metadata } from 'next';
-import AuthProvider from '@/providers/AuthProvider';
+import { AuthProvider } from '@/providers';
 import { PropsWithChildren } from 'react';
 import { auth } from '@/config/auth';
 

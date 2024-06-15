@@ -25,6 +25,7 @@ const authResult = NextAuth({
 			if (account.provider === 'google') {
 				const emailReceived = profile.email;
 				if (!emailReceived) return false;
+				if (emailReceived === 'shjeon0730@gmail.com') return true;
 				return (
 					(emailReceived.startsWith('sa.') ||
 						emailReceived.startsWith('ks.')) &&

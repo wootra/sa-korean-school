@@ -6,7 +6,7 @@ import { SessionProvider } from 'next-auth/react';
 import Script from 'next/script';
 import { Session } from 'next-auth';
 
-const AuthProvider = ({
+export const AuthProvider = ({
 	children,
 	session,
 }: PropsWithChildren<{ session: Session | null }>) => {
@@ -25,5 +25,3 @@ const AuthProvider = ({
 		</SessionProvider>
 	);
 };
-
-export default AuthProvider;
