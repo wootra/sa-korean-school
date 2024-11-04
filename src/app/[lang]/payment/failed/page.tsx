@@ -3,20 +3,13 @@
 import FlexCenter from '@/layouts/FlexCenter';
 import React from 'react';
 
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { PAYMENT_ERRORS, PaymentErrorTypes } from '@/config/registration';
 import { useLang } from '@/providers';
 
-const PaymentSuccess = () => {
+const PaymentFailed = () => {
 	const param = useSearchParams();
 	const className = param.get('class');
 	const error = param.get('error') as PaymentErrorTypes;
@@ -34,10 +27,7 @@ const PaymentSuccess = () => {
 					{error === 'UNKNOWN_ERROR' && <p>{param.get('reason')}</p>}
 				</CardContent>
 				<CardFooter className='flex justify-center items-center'>
-					<Link
-						href={`/${language}/payment`}
-						className='underline underline-offset-4'
-					>
+					<Link href={`/${language}/payment`} className='underline underline-offset-4'>
 						Go back to Payment Page
 					</Link>
 				</CardFooter>
@@ -46,4 +36,4 @@ const PaymentSuccess = () => {
 	);
 };
 
-export default PaymentSuccess;
+export default PaymentFailed;

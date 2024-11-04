@@ -65,6 +65,9 @@ importers:
       next-auth:
         specifier: 5.0.0-beta.16
         version: 5.0.0-beta.16(next@14.2.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0)
+      peekaboo-store:
+        specifier: ^1.3.0
+        version: 1.3.0(react@18.2.0)
       pg:
         specifier: ^8.12.0
         version: 8.12.0
@@ -2516,6 +2519,11 @@ packages:
 
   pathval@1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
+
+  peekaboo-store@1.3.0:
+    resolution: {integrity: sha512-ripFMHLJDbE9E38Z46piHjYr5x8riDm6g0DlAj16rwMrR4IhA+B4piC+1jM/vfA09TTyp+mPzlqVOi+MMkOWsg==}
+    peerDependencies:
+      react: ^18.2.0
 
   pg-cloudflare@1.1.1:
     resolution: {integrity: sha512-xWPagP/4B6BgFO+EKz3JONXv3YDgvkbVrGw2mTo3D6tVDQRh1e7cqVGvyR3BE+eQgAvx1XhW/iEASj4/jCWl3Q==}
@@ -5696,6 +5704,10 @@ snapshots:
   pathe@1.1.2: {}
 
   pathval@1.1.1: {}
+
+  peekaboo-store@1.3.0(react@18.2.0):
+    dependencies:
+      react: 18.2.0
 
   pg-cloudflare@1.1.1:
     optional: true
