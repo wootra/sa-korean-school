@@ -10,7 +10,7 @@ const BannerExpand = ({ image, onClose }: { image: { desc: string; url: string }
 	return (
 		<label className='flex items-center justify-center p-2 pointer-events-none w-full'>
 			<input type='checkbox' className='hidden w-0 h-0 overflow-hidden' checked={checked} onChange={onChecked} />
-			<div className='relative w-fit flex justify-center transition-all'>
+			<div className='relative w-full flex justify-center transition-all'>
 				<Image
 					src={image.url}
 					alt={image.desc}
