@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-
+import { IoMdClose } from 'react-icons/io';
 import { CSSProperties, useState } from 'react';
 import { ScrollProps } from './consts';
 import BannerExpand from './BannerExpand';
@@ -13,8 +13,8 @@ const ScrollingBar = ({ scrollImages }: { scrollImages: ImgInfo[] }) => {
 	return (
 		<div style={{ position: 'relative' }}>
 			<div className='flex flex-col w-full h-[300px] overflow-x-clip py-4 relative'>
-				<div className='absolute left-0 inset-y-0 w-8 bg-gradient-to-r from-white to-transparent z-10'></div>
-				<div className='absolute right-0 inset-y-0 w-8 bg-gradient-to-l from-white to-transparent z-10'></div>
+				<div className='absolute left-0 inset-y-0 w-8 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none'></div>
+				<div className='absolute right-0 inset-y-0 w-8 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none'></div>
 				<div className='h-full w-full relative' aria-label='scrolling images'>
 					<div
 						className='flex flex-row flex-nowrap animate-scroll-x absolute inset-y-0'
@@ -62,7 +62,12 @@ const ScrollingBar = ({ scrollImages }: { scrollImages: ImgInfo[] }) => {
 							setSelected(null);
 						}}
 					/>
-					<BannerExpand image={selected} />
+					<BannerExpand
+						image={selected}
+						onClose={() => {
+							setSelected(null);
+						}}
+					/>
 				</div>
 			)}
 		</div>

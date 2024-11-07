@@ -26,39 +26,32 @@ export const aboutContents = {
 			},
 			purpose: {
 				title: '교육목적',
-				children: [
-					{
-						title: '한국어 교육',
-						value: '연령, 단계, 주제 · 상황별로 적절한 의사소통 능력 배양을 위한 언어의 4가지 기능 (말하기/듣기/읽기/쓰기)을 배양한다.',
-					},
-					{
-						title: '다문화적 민족 교육',
-						value: '다양한 문화 및 역사에 대한 직 · 간접 체험과 이해를 통한 다문화적 정체성을 배양한다.',
-					},
-					{
-						title: '세계시민교육',
-						value: '너와 나 함께하는 우리 공동체 의식을 통한 세계시민을 육성한다.',
-					},
-				],
+				orders: ['koreanEducation', 'multiculturalEducation', 'globalCitizenEducation'] as const,
+				koreanEducation: {
+					title: '한국어 교육',
+					value: '연령, 단계, 주제 · 상황별로 적절한 의사소통 능력 배양을 위한 언어의 4가지 기능 (말하기/듣기/읽기/쓰기)을 배양한다.',
+				},
+				multiculturalEducation: {
+					title: '다문화적 민족 교육',
+					value: '다양한 문화 및 역사에 대한 직 · 간접 체험과 이해를 통한 다문화적 정체성을 배양한다.',
+				},
+				globalCitizenEducation: {
+					title: '세계시민교육',
+					value: '너와 나 함께하는 우리 공동체 의식을 통한 세계시민을 육성한다.',
+				},
 			},
 			subjects: {
 				title: '모집대상',
 				value: '만 3세 ~ 성인',
-				children: [
-					{
-						value: '만 3세 등록 예정자는 반드시Potty Trained 되어야 한다.',
-					},
-				],
+				orders: ['pottyTrained'] as const,
+				pottyTrained: {
+					value: '만 3세 등록 예정자는 반드시Potty Trained 되어야 한다.',
+				},
 			},
 			schedule: {
 				title: '수업 일정',
 				value: '매 학기는 보통 15~16주를 기본으로 한다.',
 				desc: '단, 학교 사정으로 인하여 학사 일정이 바뀔 수 도 있다.',
-				children: [
-					{ title: '가을학기(1학기)', value: '9월 ~ 12월' },
-					{ title: '봄학기(2학기)', value: '1월 ~ 5월' },
-					{ title: '여름학기', value: '6월달(2주), 8월달(3주)' },
-				],
 			},
 		},
 	},
