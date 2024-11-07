@@ -1,6 +1,6 @@
 export const krContent = {
 	navs: {
-		logo: '산안토니오\n한국학교',
+		logo: '샌안토니오\n한국학교',
 		home: '홈',
 		about: '소개',
 		courses: '교육과정',
