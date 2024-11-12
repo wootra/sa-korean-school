@@ -8,6 +8,6 @@ export const config = {
 export default auth(req => {
 	const reqUrl = new URL(req.url);
 	if (!req.auth && reqUrl.pathname.includes('profile')) {
-		return NextResponse.redirect(new URL('/entry', req.url));
+		return NextResponse.redirect(new URL('/en/entry', req.url));
 	}
 });
