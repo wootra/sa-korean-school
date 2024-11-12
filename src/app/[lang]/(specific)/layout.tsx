@@ -4,10 +4,7 @@ import { LangProvider, ClientProvider } from '@/providers';
 import { Languages } from '@/lib/langs/types';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { getEntryImages } from '@/lib/google-sheets/entryImages';
-import { defaultMetaData } from '../defaultMetaData';
-import { enContent } from '@/providers/temp/enContent';
-import { krContent } from '@/providers/temp/krContent';
-// import { SessionProvider } from 'next-auth/react';
+import { defaultMetaData } from '@/app/defaultMetaData';
 
 type Props = {
 	params: { lang: string };
@@ -29,7 +26,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
 	};
 }
 
-export default function RootLayout({
+export default async function LanguageLayout({
 	params: { lang },
 	children,
 }: Readonly<{
@@ -39,7 +36,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	const langCode = (['en', 'kr'] as Languages[]).includes(lang as Languages) ? (lang as Languages) : 'en';
-	const initData = langCode === 'en' ? enContent : krContent;
+	const res = await fetch(`${process.env.VERCEL_URL}/api/content/${langCode}`, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	});
+	const initData = (await res.json()) as Record<string, any>;
+	// updatePeekaboo(contentStore, initData as Partial<PeekabooObjSourceData<typeof contentStore>>);
 	return (
 		<LangProvider language={langCode} initContent={initData}>
 			<ClientProvider>

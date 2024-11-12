@@ -7,34 +7,30 @@ import { usePathname } from 'next/navigation';
 import krFlag from './images/kr.svg';
 import enFlag from './images/en.svg';
 import React from 'react';
+import { Languages } from '@/lib/langs/types';
 
 const LangChoiceButton = () => {
 	const { language, setLanguage } = useLang();
 	// const { lang } = useParams() as { lang: string };
 	const pathname = usePathname();
 	// const router = useRouter();
-	const onClick = () => {
-		if (pathname.includes(`/${language}/`)) {
-			// router.replace(newPathname);
-		} else {
-			setLanguage(lang => (lang === 'en' ? 'kr' : 'en'));
-			// const currLang = sessionStorage.getItem('language');
-			// sessionStorage.setItem('language', currLang === 'en' ? 'kr' : 'en');
-			// router.replace(`${pathname}?lang=${currLang}`);
-		}
+	const onClick = async () => {
+		// if (pathname.includes(`/${language}/`)) {
+		// 	console.log('path is not mathcing', pathname, 'does not have', language);
+		// 	// router.replace(newPathname);
+		// } else {
+		console.log('lang clicked!');
+		await setLanguage(lang => (lang === 'en' ? 'kr' : 'en'));
+
+		// const currLang = sessionStorage.getItem('language');
+		// sessionStorage.setItem('language', currLang === 'en' ? 'kr' : 'en');
+		// router.replace(`${pathname}?lang=${currLang}`);
+		// }
 	};
-	const newPathname = pathname.replace(
-		`/${language}/`,
-		language === 'en' ? '/kr/' : '/en/'
-	);
+	const newPathname = pathname.replace(`/${language}/`, language === 'en' ? '/kr/' : '/en/');
 	const lang = language ?? 'en';
 	return (
-		<Link
-			href={newPathname}
-			onClick={onClick}
-			className='h-auto w-6 p-0 relative'
-			aria-label='logout'
-		>
+		<Link href={newPathname} onClick={onClick} className='h-auto w-6 p-0 relative' aria-label='logout'>
 			<Image
 				src={lang === 'kr' ? krFlag : enFlag}
 				alt='profiletwentyfo'

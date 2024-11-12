@@ -1,8 +1,5 @@
 'use server';
 
-import Image from 'next/image';
-
-import { ScrollProps } from './consts';
 import BannerExpand from './BannerExpand';
 
 const Banners = async ({ bannerImages }: { bannerImages: { desc: string; url: string }[] }) => {

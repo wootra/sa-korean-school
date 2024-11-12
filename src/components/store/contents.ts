@@ -17,6 +17,7 @@ const baseContent = {
 				contacts: '연락처',
 				enterance: '학교 입구',
 			},
+			backDrop: 'CONTENT',
 		},
 	},
 	courses: coursesContent,
@@ -27,4 +28,7 @@ const baseContent = {
 	entry: entryContent,
 };
 
-export const contentStore = createPeekaboo(baseContent);
+export const contentStore = createPeekaboo(baseContent, {
+	staticId: 'korean-school',
+	eventOptimizeInMs: 100,
+});
