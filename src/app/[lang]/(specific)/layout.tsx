@@ -39,18 +39,18 @@ export default async function LanguageLayout({
 	children: React.ReactNode;
 }>) {
 	const langCode = (['en', 'kr'] as Languages[]).includes(lang as Languages) ? (lang as Languages) : 'en';
-	const res = await fetch(`/api/content/${langCode}`, {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-	});
-	const initData = (await res.json()) as Record<string, any>;
-	// below is updating serverside.
-	updatePeekaboo(contentStore, initData as Partial<PeekabooObjSourceData<typeof contentStore>>);
+	// const res = await fetch(`/api/content/${langCode}`, {
+	// 	method: 'GET',
+	// 	headers: {
+	// 		'Content-Type': 'application/json',
+	// 	},
+	// });
+	// const initData = (await res.json()) as Record<string, any>;
+	// // below is updating serverside.
+	// updatePeekaboo(contentStore, initData as Partial<PeekabooObjSourceData<typeof contentStore>>);
 
 	return (
-		<LangProvider language={langCode} initContent={initData}>
+		<LangProvider language={langCode} initContent={undefined}>
 			<ClientProvider>
 				<div className='flex flex-col w-full min-h-screen bg-gray-100 items-start relative'>
 					<Header lang={langCode} />
