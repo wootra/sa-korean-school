@@ -23,6 +23,10 @@ export const aboutContents = {
 		},
 	},
 	introduction: {
+		heading: 'heading',
+		description: `description`,
+		info: `info`,
+
 		orders: ['name', 'target', 'purpose', 'subjects', 'schedule'] as const,
 		name: {
 			title: '학교명',

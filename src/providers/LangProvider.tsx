@@ -34,7 +34,6 @@ export const LangProvider = ({
 	const setLanguage = useCallback(
 		async (fn: (lang: Languages) => Languages) => {
 			const langCode = fn(lang);
-			console.log('changing langCode: ', langCode);
 
 			const res = await fetch(`/api/content/${langCode}`, {
 				method: 'GET',
@@ -43,7 +42,6 @@ export const LangProvider = ({
 				},
 			});
 			const initData = (await res.json()) as Record<string, any>;
-			console.log('changing content: ', initData);
 			updatePeekaboo(contentStore, initData as Partial<PeekabooObjSourceData<typeof contentStore>>);
 			setLang(fn);
 		},
@@ -51,9 +49,10 @@ export const LangProvider = ({
 	);
 	useEffect(() => {
 		sessionStorage.setItem('language', lang);
+		setLanguage(() => lang);
 		// const newContent = lang === 'en' ? enContent : krContent; // temporary content. should be changed to react query
 		// updatePeekaboo(contentStore, newContent as Partial<PeekabooObjSourceData<typeof contentStore>>);
-	}, [lang]);
+	}, [lang, setLanguage]);
 	useEffect(() => {
 		if (initContent) {
 			try {

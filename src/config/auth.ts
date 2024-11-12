@@ -22,7 +22,6 @@ const authResult = NextAuth({
 		signIn: async params => {
 			const { user, account, profile, email } = params;
 
-			console.log('--signIn', account, profile);
 			if (!account || !profile) return false;
 			if (account.provider === 'google') {
 				const emailReceived = profile.email;

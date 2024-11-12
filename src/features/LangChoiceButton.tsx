@@ -11,21 +11,11 @@ import { Languages } from '@/lib/langs/types';
 
 const LangChoiceButton = () => {
 	const { language, setLanguage } = useLang();
-	// const { lang } = useParams() as { lang: string };
 	const pathname = usePathname();
-	// const router = useRouter();
 	const onClick = async () => {
-		// if (pathname.includes(`/${language}/`)) {
-		// 	console.log('path is not mathcing', pathname, 'does not have', language);
-		// 	// router.replace(newPathname);
-		// } else {
-		console.log('lang clicked!');
+		
 		await setLanguage(lang => (lang === 'en' ? 'kr' : 'en'));
 
-		// const currLang = sessionStorage.getItem('language');
-		// sessionStorage.setItem('language', currLang === 'en' ? 'kr' : 'en');
-		// router.replace(`${pathname}?lang=${currLang}`);
-		// }
 	};
 	const newPathname = pathname.replace(`/${language}/`, language === 'en' ? '/kr/' : '/en/');
 	const lang = language ?? 'en';

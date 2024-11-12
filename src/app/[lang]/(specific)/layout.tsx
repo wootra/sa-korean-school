@@ -5,6 +5,9 @@ import { Languages } from '@/lib/langs/types';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { getEntryImages } from '@/lib/google-sheets/entryImages';
 import { defaultMetaData } from '@/app/defaultMetaData';
+import { updatePeekaboo } from 'peekaboo-store/utils/update';
+import { contentStore } from '@/components/store/contents';
+import { PeekabooObjSourceData } from 'peekaboo-store';
 
 type Props = {
 	params: { lang: string };
@@ -43,7 +46,9 @@ export default async function LanguageLayout({
 		},
 	});
 	const initData = (await res.json()) as Record<string, any>;
-	// updatePeekaboo(contentStore, initData as Partial<PeekabooObjSourceData<typeof contentStore>>);
+	// below is updating serverside.
+	updatePeekaboo(contentStore, initData as Partial<PeekabooObjSourceData<typeof contentStore>>);
+
 	return (
 		<LangProvider language={langCode} initContent={initData}>
 			<ClientProvider>
