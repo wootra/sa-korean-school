@@ -8,11 +8,11 @@ import { usePeekaboo } from 'peekaboo-store/react';
 
 const AboutSubNav = ({ lang }: { lang: string }) => {
 	const about = usePeekaboo(contentStore.data.about._boo);
-	const order = about.list.order;
+	const order = about.list.orders;
 
-	const listsSrc = about.list;
+	const listsSrc = about.list.content;
 
-	const list = order.map(listId => listsSrc[listId as keyof Omit<typeof listsSrc, 'order'>]);
+	const list = order.map(listId => listsSrc[listId]);
 	const convertedNavList = convertNavList(list, lang) as SubNavInfo[];
 	return <SubNav navList={convertedNavList} />;
 };

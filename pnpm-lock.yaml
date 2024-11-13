@@ -66,8 +66,8 @@ importers:
         specifier: '4'
         version: 4.24.10(next@14.2.4(react-dom@18.2.0(react@18.3.1))(react@18.3.1))(react-dom@18.2.0(react@18.3.1))(react@18.3.1)
       peekaboo-store:
-        specifier: ^1.7.1
-        version: 1.7.1(react@18.3.1)(zod@3.23.8)
+        specifier: ^1.7.3
+        version: 1.7.3(react@18.3.1)(zod@3.23.8)
       pg:
         specifier: ^8.12.0
         version: 8.12.0
@@ -2597,8 +2597,8 @@ packages:
   pathval@1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
 
-  peekaboo-store@1.7.1:
-    resolution: {integrity: sha512-P8wfO/7fMIRk39Cc/mRGPqB0bFHburo0DgBKE6ggo2fD8zIpWp4kjU6IBc/wVTFoe+p/BJUR8vl2VwXHfneeGw==}
+  peekaboo-store@1.7.3:
+    resolution: {integrity: sha512-e/5391qEh9lUJtQMOWHgUjTsuxmlRwIMrqWoS7RlIQf8r5rw/D9wfc+BWt9MRt/ZjkPi0c0JtMrCzraaq0UzMQ==}
     peerDependencies:
       react: ^18.2.0
       zod: ^3
@@ -5971,7 +5971,7 @@ snapshots:
 
   pathval@1.1.1: {}
 
-  peekaboo-store@1.7.1(react@18.3.1)(zod@3.23.8):
+  peekaboo-store@1.7.3(react@18.3.1)(zod@3.23.8):
     dependencies:
       react: 18.3.1
       zod: 3.23.8
