@@ -1,8 +1,7 @@
 import { getAllowedUsers } from '@/app/actions';
-import NextAuth from 'next-auth';
+import NextAuth, { getServerSession } from 'next-auth';
 import Google, { GoogleProfile } from 'next-auth/providers/google';
-
-const authResult = NextAuth({
+const authOptions = {
 	secret: process.env.NEXTAUTH_SECRET,
 	providers: [
 		Google<GoogleProfile>({
@@ -19,7 +18,7 @@ const authResult = NextAuth({
 		}),
 	],
 	callbacks: {
-		signIn: async params => {
+		signIn: async (params: any) => {
 			const { user, account, profile, email } = params;
 
 			if (!account || !profile) return false;
@@ -43,14 +42,8 @@ const authResult = NextAuth({
 			// }
 		},
 	},
-});
+};
 
-// console.log(authResult);
-const {
-	handlers: { GET, POST },
-	auth,
-	signIn,
-	signOut,
-} = authResult;
+const getSession = () => getServerSession(authOptions);
 
-export { auth, signIn, signOut, GET, POST };
+export { authOptions, getSession };

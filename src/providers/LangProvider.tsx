@@ -53,7 +53,7 @@ export const LangProvider = ({
 		// const newContent = lang === 'en' ? enContent : krContent; // temporary content. should be changed to react query
 		// updatePeekaboo(contentStore, newContent as Partial<PeekabooObjSourceData<typeof contentStore>>);
 	}, [lang, setLanguage]);
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if (initContent) {
 			try {
 				updatePeekaboo(contentStore, initContent as Partial<PeekabooObjSourceData<typeof contentStore>>);
