@@ -4,7 +4,6 @@ import { Languages } from '@/lib/langs/types';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { getEntryImages } from '@/lib/google-sheets/entryImages';
 import { defaultMetaData } from '@/app/defaultMetaData';
-import { stripUrl } from '@/lib/utils';
 import { ContentLoader } from '@/providers/ContentLoader';
 import { LangProvider } from '@/providers';
 
@@ -43,7 +42,7 @@ export default async function LanguageLayout({
 		let res: Response | null = null;
 		// console.warn('urlToApproach', process.env.VERCEL_URL);
 		// const urlToApproach = stripUrl(process.env.VERCEL_URL);
-		res = await fetch(`/api/content/${langCode}`, {
+		res = await fetch(`${process.env.API_BASE_URL ?? ''}/api/content/${langCode}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',

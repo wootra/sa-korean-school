@@ -5,6 +5,7 @@ namespace NodeJS {
 		FACEBOOK_APP_SECRET: string;
 		STRIPE_SECRET_KEY: string;
 		VERCEL_URL: string;
+		API_BASE_URL: string;
 		NEXTAUTH_URL: string;
 		CLASS_PRICE_DEPOSIT: string;
 		COURSE_INTRO_ID: string;
@@ -29,9 +30,6 @@ namespace NodeJS {
 
 declare global {
 	interface FB {
-		login: (
-			callback: (response: FBLoginResponse) => void,
-			options: { scope?: string }
-		) => void;
+		login: (callback: (response: FBLoginResponse) => void, options: { scope?: string }) => void;
 	}
 }
