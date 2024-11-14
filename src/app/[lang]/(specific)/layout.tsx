@@ -37,9 +37,10 @@ export default async function LanguageLayout({
 	};
 	children: React.ReactNode;
 }>) {
-
 	const langCode = (['en', 'kr'] as Languages[]).includes(lang as Languages) ? (lang as Languages) : 'en';
-	const res = await fetch(`${stripUrl(process.env.VERCEL_URL)}/api/content/${langCode}`, {
+	const urlToApproach = stripUrl(process.env.VERCEL_URL);
+	console.log('urlToApproach', urlToApproach);
+	const res = await fetch(`${urlToApproach}/api/content/${langCode}`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
@@ -50,9 +51,9 @@ export default async function LanguageLayout({
 		<div className='flex flex-col w-full min-h-screen bg-gray-100 items-start relative'>
 			<ContentLoader initContent={initData} />
 			<LangProvider language={langCode}>
-			<Header lang={lang} />
-			<main className='flex-1 w-full'>{children}</main>
-			<Footer lang={lang} />
+				<Header lang={lang} />
+				<main className='flex-1 w-full'>{children}</main>
+				<Footer lang={lang} />
 			</LangProvider>
 		</div>
 	);
