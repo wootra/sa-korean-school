@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google';
+// import { Inter } from 'next/font/google';
 
 import '@/css/globals.css';
 import '@/css/index.css';
@@ -9,7 +9,7 @@ import { PropsWithChildren } from 'react';
 import { getSession } from '@/config/auth';
 import { Languages } from '@/lib/langs/types';
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
 	title: 'San Antonio Korean School Homepage',
 	description: 'San Antonio Korean School Official Homepage',
@@ -39,13 +39,11 @@ export default async function RootLayout({
                     `}
 				</style>
 			</head>
-			<body className={inter.className}>
+			<body>
 				<div id='fb-root'></div>
-				
+
 				<AuthProvider session={session}>
-					
-						<ClientProvider>{children}</ClientProvider>
-					
+					<ClientProvider>{children}</ClientProvider>
 				</AuthProvider>
 			</body>
 		</html>

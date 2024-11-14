@@ -38,10 +38,10 @@ export default async function LanguageLayout({
 	children: React.ReactNode;
 }>) {
 	const langCode = (['en', 'kr'] as Languages[]).includes(lang as Languages) ? (lang as Languages) : 'en';
-	const urlToApproach = stripUrl(process.env.VERCEL_URL);
-	console.warn('urlToApproach', urlToApproach);
 	let res: Response | null = null;
 	try {
+		const urlToApproach = stripUrl(process.env.VERCEL_URL);
+		console.warn('urlToApproach', urlToApproach);
 		res = await fetch(`${urlToApproach}/api/content/${langCode}`, {
 			method: 'GET',
 			headers: {
