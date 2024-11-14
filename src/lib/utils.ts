@@ -14,6 +14,6 @@ export function stripUrl(url?: string) {
 		return `${protocol}://${baseUrl}`;
 	} else {
 		const baseUrl = url.split('/')[0];
-		return `http://${baseUrl}`;
+		return `https://${baseUrl}`;
 	}
 }
