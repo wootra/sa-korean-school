@@ -39,14 +39,20 @@ export default async function LanguageLayout({
 }>) {
 	const langCode = (['en', 'kr'] as Languages[]).includes(lang as Languages) ? (lang as Languages) : 'en';
 	const urlToApproach = stripUrl(process.env.VERCEL_URL);
-	console.log('urlToApproach', urlToApproach);
-	const res = await fetch(`${urlToApproach}/api/content/${langCode}`, {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-	});
-	const initData = (await res.json()) as Record<string, any>;
+	console.warn('urlToApproach', urlToApproach);
+	let res: Response | null = null;
+	try {
+		res = await fetch(`${urlToApproach}/api/content/${langCode}`, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
+	} catch (e) {
+		console.error('error', e);
+		res = null;
+	}
+	const initData = res ? ((await res.json()) as Record<string, any>) : {};
 	return (
 		<div className='flex flex-col w-full min-h-screen bg-gray-100 items-start relative'>
 			<ContentLoader initContent={initData} />
