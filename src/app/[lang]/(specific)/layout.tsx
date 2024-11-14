@@ -4,6 +4,9 @@ import { Languages } from '@/lib/langs/types';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { getEntryImages } from '@/lib/google-sheets/entryImages';
 import { defaultMetaData } from '@/app/defaultMetaData';
+import { stripUrl } from '@/lib/utils';
+import { ContentLoader } from '@/providers/ContentLoader';
+import { LangProvider } from '@/providers';
 
 type Props = {
 	params: { lang: string };
@@ -34,11 +37,23 @@ export default async function LanguageLayout({
 	};
 	children: React.ReactNode;
 }>) {
+
+	const langCode = (['en', 'kr'] as Languages[]).includes(lang as Languages) ? (lang as Languages) : 'en';
+	const res = await fetch(`${stripUrl(process.env.VERCEL_URL)}/api/content/${langCode}`, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	});
+	const initData = (await res.json()) as Record<string, any>;
 	return (
 		<div className='flex flex-col w-full min-h-screen bg-gray-100 items-start relative'>
+			<ContentLoader initContent={initData} />
+			<LangProvider language={langCode}>
 			<Header lang={lang} />
 			<main className='flex-1 w-full'>{children}</main>
 			<Footer lang={lang} />
+			</LangProvider>
 		</div>
 	);
 }

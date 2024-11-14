@@ -1,6 +1,6 @@
 'use client';
 
-import React, { PropsWithChildren, useCallback, useEffect, useLayoutEffect, useState } from 'react';
+import React, { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 import { Languages } from '@/lib/langs/types';
 import { updatePeekaboo } from 'peekaboo-store/utils/update';
 import { contentStore } from '@/components/store/contents';
@@ -24,11 +24,7 @@ const getLanguage = (language: Languages | undefined): Languages => {
 	return 'en';
 };
 
-export const LangProvider = ({
-	language,
-	children,
-	initContent,
-}: PropsWithChildren<{ language: Languages | undefined; initContent?: object }>) => {
+export const LangProvider = ({ language, children }: PropsWithChildren<{ language: Languages | undefined }>) => {
 	const [lang, setLang] = useState(getLanguage(language));
 
 	const setLanguage = useCallback(
@@ -50,19 +46,8 @@ export const LangProvider = ({
 	useEffect(() => {
 		sessionStorage.setItem('language', lang);
 		setLanguage(() => lang);
-		// const newContent = lang === 'en' ? enContent : krContent; // temporary content. should be changed to react query
-		// updatePeekaboo(contentStore, newContent as Partial<PeekabooObjSourceData<typeof contentStore>>);
 	}, [lang, setLanguage]);
-	useLayoutEffect(() => {
-		if (initContent) {
-			try {
-				updatePeekaboo(contentStore, initContent as Partial<PeekabooObjSourceData<typeof contentStore>>);
-			} catch (e) {
-				console.log(e);
-				console.error('initContent must be an object', initContent);
-			}
-		}
-	}, [initContent]);
+
 	return <LangContext.Provider value={{ language: lang, setLanguage }}>{children}</LangContext.Provider>;
 };
 
