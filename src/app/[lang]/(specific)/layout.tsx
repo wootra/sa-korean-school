@@ -40,8 +40,8 @@ export default async function LanguageLayout({
 	const langCode = (['en', 'kr'] as Languages[]).includes(lang as Languages) ? (lang as Languages) : 'en';
 	let res: Response | null = null;
 	try {
+		console.warn('urlToApproach', process.env.VERCEL_URL);
 		const urlToApproach = stripUrl(process.env.VERCEL_URL);
-		console.warn('urlToApproach', urlToApproach);
 		res = await fetch(`${urlToApproach}/api/content/${langCode}`, {
 			method: 'GET',
 			headers: {
