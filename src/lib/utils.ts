@@ -7,8 +7,13 @@ export function cn(...inputs: ClassValue[]) {
 
 export function stripUrl(url?: string) {
 	if (!url) return '';
-	const protocol = url.split('://')[0];
-	const onlyUrl = url.split('://')[1];
-	const baseUrl = onlyUrl.split('/')[0];
-	return `${protocol}://${baseUrl}`;
+	if (url.includes('://')) {
+		const protocol = url.split('://')[0];
+		const onlyUrl = url.split('://')[1];
+		const baseUrl = onlyUrl.split('/')[0];
+		return `${protocol}://${baseUrl}`;
+	} else {
+		const baseUrl = url.split('/')[0];
+		return `http://${baseUrl}`;
+	}
 }
