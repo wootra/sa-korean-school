@@ -38,21 +38,25 @@ export default async function LanguageLayout({
 	children: React.ReactNode;
 }>) {
 	const langCode = (['en', 'kr'] as Languages[]).includes(lang as Languages) ? (lang as Languages) : 'en';
-	let res: Response | null = null;
+	let initData = {};
 	try {
-		console.warn('urlToApproach', process.env.VERCEL_URL);
-		const urlToApproach = stripUrl(process.env.VERCEL_URL);
-		res = await fetch(`${urlToApproach}/api/content/${langCode}`, {
+		let res: Response | null = null;
+		// console.warn('urlToApproach', process.env.VERCEL_URL);
+		// const urlToApproach = stripUrl(process.env.VERCEL_URL);
+		res = await fetch(`/api/content/${langCode}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 		});
+		try {
+			initData = res ? ((await res.json()) as Record<string, any>) : {};
+		} catch (e) {
+			console.error('error while parsing response json', e);
+		}
 	} catch (e) {
-		console.error('error', e);
-		res = null;
+		console.error('error while loading content', e);
 	}
-	const initData = res ? ((await res.json()) as Record<string, any>) : {};
 	return (
 		<div className='flex flex-col w-full min-h-screen bg-gray-100 items-start relative'>
 			<ContentLoader initContent={initData} />
